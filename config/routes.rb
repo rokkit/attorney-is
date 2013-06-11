@@ -12,7 +12,7 @@ AttorneyIs::Application.routes.draw do
 
 
     root :to => 'pages#index'
-    namespace :res do
+    scope :res do
      resources :users
    end
   

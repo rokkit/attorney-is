@@ -1,4 +1,6 @@
-class Res::UsersController < ApplicationController
+# encoding: UTF-8
+
+class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index

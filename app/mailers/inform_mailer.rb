@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class InformMailer < ActionMailer::Base
   default from: "indmaksim@gmail.com"
 

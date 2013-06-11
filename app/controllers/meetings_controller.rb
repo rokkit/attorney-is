@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class MeetingsController < ApplicationController
   # GET /meetings
   # GET /meetings.json

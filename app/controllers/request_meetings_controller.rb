@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class RequestMeetingsController < ApplicationController
   # GET /request_meetings
   # GET /request_meetings.json

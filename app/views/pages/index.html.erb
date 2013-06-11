@@ -1,5 +1,5 @@
 <h1>Главная</h1>
-<%= link_to "Адвокаты", res_users_path %>
+<%= link_to "Адвокаты", users_path %>
 <%= link_to "Совещания", meetings_path %>
 <% if can? :manage, :all %>
     <%= link_to "Заявки на совещания", request_meetings_path %>
