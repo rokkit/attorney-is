@@ -1,4 +1,15 @@
 AttorneyIs::Application.routes.draw do
+  resources :meetings
+
+
+    root :to => 'pages#index'
+  resources :users
+  
+  devise_for :users
+
+
+  
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
