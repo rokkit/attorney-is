@@ -14,7 +14,7 @@
         <% if @meetings_by_date[date.to_date] %>
               <ul>
                 <% @meetings_by_date[date].each do |meeting| %>
-                  <li><%= link_to meeting.title, meeting, class: ('avaible' if meeting.user.nil? )%></li>
+                  <li><%= link_to meeting.title, meeting, class: (meeting.user.nil? ? "avaible" : "not_avaible" )%></li>
                 <% end %>
               </ul>
             <% end %>

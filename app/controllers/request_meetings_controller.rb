@@ -89,7 +89,7 @@ class RequestMeetingsController < ApplicationController
         format.json { render json: @request_meeting, status: :created, location: @request_meeting }
     end
   end
-  def approve
+  def cancel
     @request_meeting = RequestMeeting.find(params[:id])
     @request_meeting.cancel!
     respond_to do |format|

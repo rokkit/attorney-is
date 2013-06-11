@@ -11,8 +11,8 @@ class Ability
       end
       
       can :request, Meeting do |meeting|
-        
-        meeting.user.nil? && RequestMeeting.where(user: user, meeting: meeting).nil?
+        rw = RequestMeeting.where(user_id: user, meeting: meeting)
+        meeting.user.nil? && !!rw.nil?
       end
       
       can :manage, RequestMeeting do |reqm|
