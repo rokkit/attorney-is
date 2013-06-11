@@ -1,6 +1,7 @@
 AttorneyIs::Application.routes.draw do
   resources :request_meetings do
     post 'approve' => 'request_meetings#approve', on: :member
+    post 'cancel' => 'request_meetings#cancel', on: :member
   end
 
 

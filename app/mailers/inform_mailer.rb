@@ -28,9 +28,8 @@ class InformMailer < ActionMailer::Base
   #
   #   en.inform_mailer.cancel_request.subject
   #
-  def cancel_request
-    @greeting = "Hi"
-
-    mail to: "to@example.org"
+  def cancel_request request_meeting
+    @request_meeting = request_meeting
+    mail to: @request_meeting.user.email
   end
 end

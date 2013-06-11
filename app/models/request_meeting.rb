@@ -12,8 +12,16 @@ class RequestMeeting < ActiveRecord::Base
   
   def approve!
     self.status = 2
+    meeting = Meeting.find(self.meeting)
+    meeting.user = self.user
+    meeting.save!
     save!
     InformMailer.approve_request(self).deliver
+  end
+  
+  def cancel!
+    InformMailer.cancel_request(self).deliver
+    destroy!
   end
   
   def send_inform

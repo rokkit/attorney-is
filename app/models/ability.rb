@@ -11,11 +11,16 @@ class Ability
       end
       
       can :request, Meeting do |meeting|
-        meeting.user.nil?
+        
+        meeting.user.nil? && RequestMeeting.where(user: user, meeting: meeting).nil?
       end
       
       can :manage, RequestMeeting do |reqm|
         reqm.user == user && reqm.status == 1 #изменять можно, пока заявка не подтверждена
+      end
+      
+      can :add_request, Date do |date|
+        
       end
     #
     # The first argument to `can` is the action you are giving the user 

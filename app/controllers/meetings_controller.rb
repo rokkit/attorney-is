@@ -25,7 +25,7 @@ class MeetingsController < ApplicationController
   # GET /meetings/new
   # GET /meetings/new.json
   def new
-    @meeting = Meeting.new
+    @meeting = Meeting.new params[:meeting]
 
     respond_to do |format|
       format.html # new.html.erb
