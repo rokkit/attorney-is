@@ -1,5 +1,7 @@
 AttorneyIs::Application.routes.draw do
-  resources :request_meetings
+  resources :request_meetings do
+    post 'approve' => 'request_meetings#approve', on: :member
+  end
 
 
     devise_for :users

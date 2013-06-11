@@ -13,6 +13,10 @@ class Ability
       can :request, Meeting do |meeting|
         meeting.user.nil?
       end
+      
+      can :manage, RequestMeeting do |reqm|
+        reqm.user == user && reqm.status == 1 #изменять можно, пока заявка не подтверждена
+      end
     #
     # The first argument to `can` is the action you are giving the user 
     # permission to do.

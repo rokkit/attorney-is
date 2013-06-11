@@ -80,4 +80,13 @@ class RequestMeetingsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def approve
+    @request_meeting = RequestMeeting.find(params[:id])
+    @request_meeting.approve!
+    respond_to do |format|
+        format.html { redirect_to @request_meeting, notice: 'Заявка успешно подтверждена' }
+        format.json { render json: @request_meeting, status: :created, location: @request_meeting }
+    end
+  end
 end
