@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Адвокат:</b>
+  <%= @request_meeting.user %>
+</p>
+
+<p>
+  <b>Совещание:</b>
+  <%= @request_meeting.meeting %>
+</p>
+
+<p>
+  <b>Статус:</b>
+  <%= @request_meeting.status %>
+</p>
+
+
+<%= link_to 'Edit', edit_request_meeting_path(@request_meeting) %> |
+<%= link_to 'Back', request_meetings_path %>

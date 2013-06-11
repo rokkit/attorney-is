@@ -1,0 +1,27 @@
+<h1>Listing request_meetings</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Meeting</th>
+    <th>Status</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @request_meetings.each do |request_meeting| %>
+  <tr>
+    <td><%= request_meeting.user %></td>
+    <td><%= request_meeting.meeting %></td>
+    <td><%= request_meeting.status %></td>
+    <td><%= link_to 'Show', request_meeting %></td>
+    <td><%= link_to 'Edit', edit_request_meeting_path(request_meeting) %></td>
+    <td><%= link_to 'Destroy', request_meeting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Request meeting', new_request_meeting_path %>

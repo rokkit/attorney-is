@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class Res::UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130611103405) do
+ActiveRecord::Schema.define(:version => 20130611112819) do
 
   create_table "meetings", :force => true do |t|
     t.string   "title"
@@ -22,6 +22,28 @@ ActiveRecord::Schema.define(:version => 20130611103405) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.time     "will_be_at"
+  end
+
+  create_table "request_meetings", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "meeting_id"
+    t.integer  "status"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "request_meetings", ["meeting_id"], :name => "index_request_meetings_on_meeting_id"
+  add_index "request_meetings", ["user_id"], :name => "index_request_meetings_on_user_id"
+
+  create_table "roles", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "roles_users", :id => false, :force => true do |t|
+    t.integer "role_id"
+    t.integer "user_id"
   end
 
   create_table "users", :force => true do |t|

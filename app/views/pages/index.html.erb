@@ -1,3 +1,4 @@
 <h1>Главная</h1>
-<%= link_to "Адвокаты", users_path %>
+<%= link_to "Адвокаты", res_users_path %>
 <%= link_to "Совещания", meetings_path %>
+<%= link_to "Выход", destroy_user_session_path, method: :delete if user_signed_in? %>

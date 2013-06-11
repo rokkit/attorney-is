@@ -81,4 +81,11 @@ class MeetingsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def request_for_meeting
+    p = Hash.new
+    p[:request_meeting] = Hash.new
+    p[:request_meeting][:meeting_id] = params[:id]
+    redirect_to new_request_meeting_path p
+  end
 end

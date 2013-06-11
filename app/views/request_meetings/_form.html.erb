@@ -1,0 +1,22 @@
+<%= form_for(@request_meeting) do |f| %>
+  <% if @request_meeting.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@request_meeting.errors.count, "error") %> prohibited this request_meeting from being saved:</h2>
+
+      <ul>
+      <% @request_meeting.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :meeting %><br />
+    <%=  @request_meeting.meeting %>
+    <%= f.hidden_field :meeting_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

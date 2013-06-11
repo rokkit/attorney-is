@@ -17,6 +17,15 @@ class User < ActiveRecord::Base
   validates :email, :fio, :register_number, :phone, :presence => true
   
   has_many :meetings
+  has_and_belongs_to_many :roles
+  
+  def admin?
+    self.admin
+  end
+  
+  def to_s
+    fio
+  end
   # before_validation :set_password, on: :create
   # 
   # private 

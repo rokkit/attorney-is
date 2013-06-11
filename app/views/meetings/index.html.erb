@@ -11,11 +11,12 @@
         <% if @meetings_by_date[date.to_date] %>
               <ul>
                 <% @meetings_by_date[date].each do |meeting| %>
-                <li>ok</li>
-                  <li><%= link_to meeting.title, meeting %></li>
+                  <li><%= link_to meeting.title, meeting, class: ('approved' unless meeting.user.nil? )%></li>
                 <% end %>
               </ul>
             <% end %>
     <% end %>
 </div>
+<% if can? :manage, :all %>
 <%= link_to "Добавить совещание", new_meeting_path %>
+<% end %>

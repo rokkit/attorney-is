@@ -1,11 +1,19 @@
 AttorneyIs::Application.routes.draw do
-  resources :meetings
+  resources :request_meetings
+
+
+    devise_for :users
+    resources :meetings do
+      post 'request_for' => 'meetings#request_for_meeting', on: :member
+    end
 
 
     root :to => 'pages#index'
-  resources :users
+    namespace :res do
+     resources :users
+   end
   
-  devise_for :users
+
 
 
   
