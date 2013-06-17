@@ -12,11 +12,11 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br />
+    <%= f.label :title, "Тема" %><br />
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :content %><br />
+    <%= f.label :content, "Дополнительная информация" %><br />
     <%= f.text_area :content %>
   </div>
   <div class="field">
@@ -26,10 +26,6 @@
   <div class="field">
     <%= f.label :will_be_at, "Время" %><br />
     <%= f.text_field :will_be_at %>
-  </div>
-  <div class="field">
-    <%= f.label :status %><br />
-    <%= f.number_field :status %>
   </div>
   <div class="actions">
     <%= f.submit %>

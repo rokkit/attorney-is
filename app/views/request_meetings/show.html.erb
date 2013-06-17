@@ -7,14 +7,12 @@
 
 <p>
   <b>Совещание:</b>
-  <%= @request_meeting.meeting %>
+  <%= link_to @request_meeting.meeting, @request_meeting.meeting %>
 </p>
 
 <p>
   <b>Статус:</b>
-  <%= @request_meeting.status %>
+  <%= status @request_meeting.status %>
 </p>
 
-
-<%= link_to 'Edit', edit_request_meeting_path(@request_meeting) %> |
 <%= link_to 'Back', request_meetings_path %>

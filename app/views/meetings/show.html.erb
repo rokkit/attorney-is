@@ -1,32 +1,27 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Title:</b>
+  <b>Тема:</b>
   <%= @meeting.title %>
 </p>
 
 <p>
-  <b>Content:</b>
+  <b>Дополнительная информация:</b>
   <%= @meeting.content %>
 </p>
 
 <p>
-  <b>Will be on:</b>
+  <b>Дата:</b>
   <%= @meeting.will_be_on %>
 </p>
 
 <p>
-  <b>User:</b>
+  <b>Назначенный адвокат:</b>
   <%= @meeting.user %>
 </p>
 
-<p>
-  <b>Status:</b>
-  <%= @meeting.status %>
-</p>
-
 <% if can? :manage, :all %>
-<%= link_to 'Edit', edit_meeting_path(@meeting) %> |
+<%= link_to 'Изменить', edit_meeting_path(@meeting) %> |
 <% end %>
 <% if can? :request, @meeting %>
     <%= link_to 'Подать заявку', request_for_meeting_path, method: :post %>

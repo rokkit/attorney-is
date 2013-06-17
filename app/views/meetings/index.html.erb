@@ -1,9 +1,9 @@
-<h1>Совещания</h1>
+<h1>Заседания</h1>
 <div id="meetings">
     
     <h2 id="month">
       <%= link_to "<", date: @date.prev_month %>
-      <%= @date.strftime("%B %Y") %>
+      <%= Russian::strftime @date,"%d %B %Y" %>
       <%= link_to ">", date: @date.next_month %>
     </h2>
     <%= calendar @date do |date| %>
@@ -21,5 +21,5 @@
     <% end %>
 </div>
 <% if can? :manage, :all %>
-<%= link_to "Добавить совещание", new_meeting_path %>
+<%= link_to "Добавить заседание", new_meeting_path %>
 <% end %>
