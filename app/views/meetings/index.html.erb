@@ -9,15 +9,19 @@
     <%= calendar @date do |date| %>
         <%= date.day %>
         <% if can? :manage, :all %>
-            <%= link_to "+", new_meeting_path(meeting: { will_be_on: date }) %>
+            <%= link_to "Добавить", new_meeting_path(meeting: { will_be_on: date }) if @meetings_by_date.count.nil? %>
         <% end %>
+        
         <% if @meetings_by_date[date.to_date] %>
               <ul>
                 <% @meetings_by_date[date].each do |meeting| %>
-                  <li><%= link_to meeting.title, meeting, class: (meeting.user.nil? ? "avaible" : "not_avaible" )%></li>
+                  <li><%= link_to "Заседание", meeting, class: (meeting.user.nil? ? "avaible" : "not_avaible" )%></li>
+                  <% if meeting.user  %>
+                      <li><%= meeting.user if can? :manage, :all %></li>
+                  <% end %>
                 <% end %>
               </ul>
-            <% end %>
+        <% end %>
     <% end %>
 </div>
 <% if can? :manage, :all %>
