@@ -7,9 +7,31 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-<%= yield %>
+	<div id="page">
+		<header>
+			<nav id="main-nav">
+				<ul>
+					<li><%= link_to "Адвокаты", users_path %></li>
+					<li><%= link_to "Совещания", meetings_path %></li>
+						<% if can? :manage, :all %>
+						    <li><%= link_to "Заявки на совещания", request_meetings_path %></li>
+						<% end %>
+					<li><%= link_to "Выход", destroy_user_session_path, method: :delete if user_signed_in? %></li>
+				</ul>
+			</nav>
+		</header>
 
+		<section id="content">
+		    <p class="notice"><%= notice %></p>
+		    <p class="alert"><%= alert %></p>
+			<%= yield %>
+		</section>
+
+		<footer>
+			<div class="copyright">
+				&copy; <%= Time.now.strftime("%Y") %>
+			</div>
+		</footer>
+	</div>
 </body>
 </html>

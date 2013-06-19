@@ -1,0 +1,125 @@
+// background-image: image-url("rails.png");
+
+@import "../scss/mixins";
+@import "../scss/variables";
+
+//====== FONTS / ICONS
+//=== Fonts
+@import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic|PT+Sans+Narrow:400,700&subset=latin,cyrillic);
+$pt-sans-narrow: 'PT Sans Narrow';
+$pt-sans: 'PT Sans';
+
+//=== Icons
+@import url(http://weloveiconfonts.com/api/?family=entypo);
+
+/* entypo */
+[class*="entypo-"]:before {
+  font-family: 'entypo', sans-serif;
+  margin-right: 5px;
+}
+
+//====== MAIN STYLES
+body {
+	background-image: image-url("white_wall_hash.png");
+	margin: 0;
+	font: 13px / 1.5em $pt-sans, "Helvetica Neue", helvetica, Arial, sans-serif;
+	letter-spacing: 0.03em;
+	color: $grey;
+}
+
+a {
+	&, &:link, &:visited {
+		color: $blue;
+	}
+	&:hover, &:active {
+		color: lighten($blue, 20%);
+	}
+}
+
+p {
+	margin: 0 0 1em 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.3em;
+}
+
+h1 {
+  font-size: 2.2em;
+  font-weight: 300;
+  padding: 0 0 0.5em;
+  margin: 0;
+  color: $blue;
+}
+
+h2 {
+  font-size: 1.8em;
+  font-weight: 300;
+  margin-bottom: 0.75em;
+}
+
+h3 {
+  font-size: 1.4em;
+  margin-bottom: 1em;
+}
+
+h4 {
+  font-size: 1.2em;
+  margin-bottom: 0.8em;
+}
+
+h5 {
+  font-size: 1.1em;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+h6 {
+  font-size: 1em;
+  font-weight: bold;
+}
+
+//====== HEADER
+header {
+	overflow: hidden;
+	padding: 10px 0;
+	border-bottom: 1px solid $blue;
+}
+
+//=== Main Nav
+#main-nav {
+	ul {
+		@include horizontal-nav();
+		li {
+			a {
+				padding: 0 .5em;
+			}
+		}
+	}
+}
+
+//====== CONTENT
+#content {
+	padding: 20px;
+}
+
+//=== Misc
+.btn {
+	@include sassy-button();
+	&:link, &:visited, &:active {
+		color: #fff;
+	}
+}
+
+//====== FOOTER
+footer {
+	padding: 1em 0;
+	font-size: .9em;
+	border-top: 1px solid $blue;
+	.copyright {
+		text-align: right;
+	}
+}
+
+
+

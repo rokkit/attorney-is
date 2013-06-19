@@ -1,0 +1,7 @@
+// Main layout
+@import "../scss/variables";
+
+#page {
+	@include container;
+	min-width: 60em;
+}

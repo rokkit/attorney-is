@@ -1,0 +1,47 @@
+// ---------------------------------------------------------------------------
+// Imports
+
+@import "susy";
+@import "sassy-buttons";
+
+// Add Compass' IE and vendor prefix support variables.
+@import "compass/support";
+
+// Better than Drupal's clearfix.
+@import "compass/utilities/general/clearfix";
+
+// See http://compass-style.org/help/tutorials/spriting/
+@import "compass/utilities/sprites";
+
+// Use one CSS3 mixin instead of multiple vendor prefixes.
+@import "compass/css3";
+
+// Helps set up a vertical rhythm.
+@import "compass/typography/vertical_rhythm";
+
+// ---------------------------------------------------------------------------
+// Basic Grid
+
+$total-columns  : 12;
+$column-width   : 5em;
+$gutter-width   : 1em;
+$grid-padding   : $gutter-width;
+$container-style: fluid;
+@include border-box-sizing();
+
+// colours
+$blue: #2c4ca2;
+$grey: #333333;
+
+// sassy buttons
+$sb-base-color:      $blue;      // Base color of your button
+$sb-second-color:    darken($blue, 5%);        // Optional second color of button gradient
+$sb-border-radius:   3px;         // Button border radius
+$sb-border-width:    1px;          // Button border width
+$sb-padding:         0.2em .8em;  // Button padding
+$sb-font-size:       12px;         // Button font-size
+$sb-line-height:     1.2em;        // Button line-height
+$sb-text-color:      white;        // Button text color
+$sb-text-style:      "inset";      // Button text shadow style
+$sb-gradient-style:  "matte";      // Button gradient style
+$sb-auto-states:     true;         // Automatically create pseudo styles 

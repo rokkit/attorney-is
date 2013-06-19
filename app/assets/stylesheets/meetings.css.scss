@@ -1,56 +1,72 @@
-// Place all the styles related to the meetings controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-#meetings .calendar {
-  border-collapse: collapse;
-  width: 100%;
+// Meetings styles
+//=== CALENDAR
 
-  td, th {
-    font-family: "Lucida Grande", arial, helvetica, sans-serif;
-    font-size: 10px;
-    padding: 6px;
-    border: 1px solid #999;
+
+#meetings {
+  margin-bottom: 1em;
+
+  .calendar {
+    border-collapse: collapse;
+    width: 100%;
+
+    td, th {
+      padding: 6px;
+      border: 1px solid #999;
+    }
+
+    th {
+      background: #DDD;
+      color: #666;
+      text-align: center;
+      width: 14.2857142857143%;
+    }
+
+    td {
+      background: #FFF;
+      color: #777;
+      height: 80px;
+      vertical-align: top;
+      font-size: 16px;
+    }
+
+    .notmonth, .notmonth a { color: #CCC; }
+    .today { background-color: #D7F2FF; }
   }
-
-  th {
-    background: #DDD;
-    color: #666;
+  #month {
+    margin: 0;
+    padding-bottom: 10px;
     text-align: center;
-    width: 14.2857142857143%;
+    font-size: 22px;
+    a {
+      text-decoration: none;
+      padding: 0 10px;
+      color: #999;
+    }
   }
 
-  td {
-    background: #FFF;
-    color: #777;
-    height: 80px;
-    vertical-align: top;
-    font-size: 16px;
-  }
-
-  .notmonth, .notmonth a { color: #CCC; }
-  .today { background-color: #D7F2FF; }
-}
-
-#meetings #month {
-  margin: 0;
-  padding-bottom: 10px;
-  text-align: center;
-  font-size: 22px;
-  a {
-    text-decoration: none;
-    padding: 0 10px;
-    color: #999;
-  }
-}
-
-#meetings ul {
-  font-size: 11px;
-  padding-left: 20px;
-}
-
-.avaible {
-    background-color: yellow;
-}
-.not_avaible {
-    background-color: red;
+	.add-meeting {
+		text-decoration: none;
+		float: right;
+	}
+	dl {
+		font-size: .8em;
+		// padding-left: 20px;
+		dt {
+			padding: 3px 0;
+			a {
+				display: block;
+				&.avaible {
+				    background-color: yellow;
+				    color: #000;
+				}
+				&.not_avaible {
+				    background-color: red;
+				    color: #FFF;
+				}
+			}
+		}
+		dd {
+		margin-left: 0px;
+		}
+	}
 }

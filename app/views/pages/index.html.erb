@@ -1,7 +1,1 @@
 <h1>Главная</h1>
-<%= link_to "Адвокаты", users_path %>
-<%= link_to "Совещания", meetings_path %>
-<% if can? :manage, :all %>
-    <%= link_to "Заявки на совещания", request_meetings_path %>
-<% end %>
-<%= link_to "Выход", destroy_user_session_path, method: :delete if user_signed_in? %>
