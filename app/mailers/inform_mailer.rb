@@ -34,4 +34,10 @@ class InformMailer < ActionMailer::Base
     @request_meeting = request_meeting
     mail to: @request_meeting.user.email
   end
+  
+  def inform request_meeting, message
+    @request_meeting = request_meeting
+    @message = message
+    mail to: @request_meeting.user.email
+  end
 end

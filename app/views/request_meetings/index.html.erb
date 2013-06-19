@@ -1,10 +1,10 @@
-<h1>Listing request_meetings</h1>
+<h1>Заявка на заседания</h1>
 
 <table>
   <tr>
-    <th>User</th>
-    <th>Meeting</th>
-    <th>Status</th>
+    <th>Адвокат</th>
+    <th>Заседание</th>
+    <th>Статус</th>
     <th></th>
     <th></th>
     <th></th>
@@ -14,18 +14,13 @@
   <tr>
     <td><%= request_meeting.user %></td>
     <td><%= request_meeting.meeting %></td>
-    <td><%= request_meeting.status %></td>
-    <td><%= link_to 'Show', request_meeting %></td>
+    <td><%= status request_meeting.status %></td>
+    <td><%= link_to 'Подробнее', request_meeting %></td>
     <% if can? :manage, :all %>
         <td><%= link_to 'Подтвердить', approve_request_meeting_path(request_meeting), method: :post %></td>
         <td><%= link_to 'Отменить', cancel_request_meeting_path(request_meeting), method: :post %></td>
-        <td><%= link_to 'Edit', edit_request_meeting_path(request_meeting) %></td>
-        <td><%= link_to 'Destroy', request_meeting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Исправить', edit_request_meeting_path(request_meeting) %></td>
     <% end %>
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New Request meeting', new_request_meeting_path %>

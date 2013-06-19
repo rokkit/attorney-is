@@ -9,7 +9,7 @@
     <%= calendar @date do |date| %>
         <%= date.day %>
         <% if can? :manage, :all %>
-            <%= link_to "Добавить", new_meeting_path(meeting: { will_be_on: date }) if @meetings_by_date.count.nil? %>
+            <%= link_to "Добавить", new_meeting_path(meeting: { will_be_on: date })%>
         <% end %>
         
         <% if @meetings_by_date[date.to_date] %>
