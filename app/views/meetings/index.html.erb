@@ -7,9 +7,9 @@
       <%= link_to ">", date: @date.next_month %>
     </h2>
     <%= calendar @date do |date| %>
-        <%= date.day %>
+        <span class="day"><%= date.day %></span>
         <% if can? :manage, :all %>
-            <%= link_to "Добавить", new_meeting_path(meeting: { will_be_on: date }), class: "add-meeting entypo-plus" %>
+            <%= link_to "Добавить", new_meeting_path(meeting: { will_be_on: date }), class: "add-meeting entypo-plus-circled" %>
         <% end %>
         
         <% if @meetings_by_date[date.to_date] %>
@@ -25,5 +25,5 @@
     <% end %>
 </div>
 <% if can? :manage, :all %>
-<%= link_to "Добавить заседание", new_meeting_path, class: "btn" %>
+<%= link_to "Добавить заседание на любую дату", new_meeting_path, class: "add-meeting-any-date entypo-plus-circled" %>
 <% end %>
