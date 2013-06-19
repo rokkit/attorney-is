@@ -22,6 +22,7 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
   gem 'jquery-ui-rails'
+  gem 'jquery-modal-rails'
 end
 
 gem 'jquery-rails'
@@ -31,6 +32,13 @@ gem 'devise_invitable'
 gem 'cancan'
 gem 'russian'
 gem 'twilio-ruby'
+
+# Visual stuff
+gem 'compass', '>= 0.12.2'
+gem 'compass-rails', '>= 1.0.3'
+gem "susy"
+gem "sassy-buttons"
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
