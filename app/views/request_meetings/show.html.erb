@@ -1,18 +1,20 @@
-<p id="notice"><%= notice %></p>
+<div id="show-request-meetings">
 
-<p>
-  <b>Адвокат:</b>
-  <%= @request_meeting.user %>
-</p>
+	<div class="lawyer">
+	  <h4>Адвокат:</h4>
+	  <p><%= @request_meeting.user %></p>
+	</div>
 
-<p>
-  <b>Совещание:</b>
-  <%= link_to @request_meeting.meeting, @request_meeting.meeting %>
-</p>
+	<div class="meeting">
+	  <h4>Совещание:</h4>
+	  <p><%= link_to @request_meeting.meeting, @request_meeting.meeting %></p>
+	</div>
 
-<p>
-  <b>Статус:</b>
-  <%= status @request_meeting.status %>
-</p>
+	<div class="status">
+	  <h4>Статус:</h4>
+	  <p><%= status @request_meeting.status %></p>
+	</div>
 
-<%= link_to 'Back', request_meetings_path %>
+</div>
+
+<%= link_to 'Back', request_meetings_path, class: "btn back entypo-left-open-big" %>

@@ -1,27 +1,26 @@
-<p>
-  <b>Тема:</b>
-  <%= @meeting.title %>
-</p>
+<div id="show-meeting">
+	<div class="info">
+	  <h4>Дополнительная информация:</h4>
+	  <p><%= @meeting.content %></p>
+	</div>
 
-<p>
-  <b>Дополнительная информация:</b>
-  <%= @meeting.content %>
-</p>
+	<div class="date">
+	  <h4>Дата:</h4>
+	  <p><%= @meeting.will_be_on %></p>
+	</div>
 
-<p>
-  <b>Дата:</b>
-  <%= @meeting.will_be_on %>
-</p>
+	<div class="lawyer">
+	  <h4>Назначенный адвокат:</h4>
+	  <p><%= @meeting.user %></p>
+	</div>
 
-<p>
-  <b>Назначенный адвокат:</b>
-  <%= @meeting.user %>
-</p>
-
-<% if can? :manage, :all %>
-<%= link_to 'Изменить', edit_meeting_path(@meeting) %> |
-<% end %>
-<% if can? :request, @meeting %>
-    <%= link_to 'Подать заявку', request_for_meeting_path, method: :post %>
-<% end %>
-<%= link_to 'Back', meetings_path %>
+	<div class="actions">
+		<% if can? :manage, :all %>
+			<%= link_to 'Изменить', edit_meeting_path(@meeting), class: "edit entypo-pencil" %>
+		<% end %>
+		<% if can? :request, @meeting %>
+		    | <%= link_to 'Подать заявку', request_for_meeting_path, method: :post, class: "make-request entypo-user-add" %>
+		<% end %>
+	</div>
+	<%= link_to 'Назад', meetings_path, class: "btn back entypo-left-open-big" %>
+</div>

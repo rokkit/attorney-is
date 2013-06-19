@@ -111,6 +111,24 @@ header {
 	}
 }
 
+.actions {
+	a {
+		text-decoration: none;
+	}
+	.edit {
+		color: #ffcc66;
+	}
+	.cancel {
+		color: darken(#FF0000, 5%);
+	}
+	.read-more {
+		color: #000;
+	}
+	.approve, .make-request {
+		color: darken(#33CC00, 5%);
+	}
+}
+
 //====== FOOTER
 footer {
 	padding: 1em 0;

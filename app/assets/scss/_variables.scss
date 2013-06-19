@@ -34,8 +34,8 @@ $blue: #2c4ca2;
 $grey: #333333;
 
 // sassy buttons
-$sb-base-color:      $blue;      // Base color of your button
-$sb-second-color:    darken($blue, 5%);        // Optional second color of button gradient
+$sb-base-color:      lighten($blue, 30%);      // Base color of your button
+$sb-second-color:    lighten($blue, 20%);        // Optional second color of button gradient
 $sb-border-radius:   3px;         // Button border radius
 $sb-border-width:    1px;          // Button border width
 $sb-padding:         0.2em .8em;  // Button padding

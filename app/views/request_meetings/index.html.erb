@@ -1,26 +1,29 @@
 <h1>Заявка на заседания</h1>
 
-<table>
-  <tr>
-    <th>Адвокат</th>
-    <th>Заседание</th>
-    <th>Статус</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
+<table id="show-meeting-requests">
+  <thead>
+    <tr>
+      <th>Адвокат</th>
+      <th>Заседание</th>
+      <th>Статус</th>
+      <th></th>
+    </tr>
+  </thead>
 <% @request_meetings.each do |request_meeting| %>
-  <tr>
-    <td><%= request_meeting.user %></td>
-    <td><%= request_meeting.meeting %></td>
-    <td><%= status request_meeting.status %></td>
-    <td><%= link_to 'Подробнее', request_meeting %></td>
-    <% if can? :manage, :all %>
-        <td><%= link_to 'Подтвердить', approve_request_meeting_path(request_meeting), method: :post %></td>
-        <td><%= link_to 'Отменить', cancel_request_meeting_path(request_meeting), method: :post %></td>
-        <td><%= link_to 'Исправить', edit_request_meeting_path(request_meeting) %></td>
-    <% end %>
-  </tr>
+  <tbody>
+    <tr>
+      <td><%= request_meeting.user %></td>
+      <td><%= request_meeting.meeting %></td>
+      <td><%= status request_meeting.status %></td>
+      <td class="actions">
+        <%= link_to 'Подробнее', request_meeting, class: "read-more entypo-doc-text" %>
+      <% if can? :manage, :all %>
+        | <%= link_to 'Подтвердить', approve_request_meeting_path(request_meeting), method: :post, class: "approve entypo-check" %>
+        | <%= link_to 'Отменить', cancel_request_meeting_path(request_meeting), method: :post, class: "cancel entypo-cancel-circled" %>
+        | <%= link_to 'Исправить', edit_request_meeting_path(request_meeting), class: "edit entypo-pencil" %>
+      <% end %>
+      </td>
+    </tr>
+  </tbody>
 <% end %>
 </table>
