@@ -121,6 +121,18 @@ header {
 		color: $approve;
 	}
 }
+.status {
+	text-align: center;
+	.approved {
+		color: $approve;
+	}
+	.declined {
+		color: $cancel;
+	}
+	.waiting {
+		color: $edit;
+	}
+}
 
 .btn {
 	@include sassy-button();

@@ -11,7 +11,7 @@ header, footer {
 }
 
 #content {
-	@include span-columns(9,12);
+	@include span-columns(12,12);
 }
 
 #sidebar-right {

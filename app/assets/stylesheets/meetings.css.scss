@@ -1,5 +1,8 @@
 // Meetings styles
 
+@import "../scss/mixins";
+@import "../scss/variables";
+
 //=== CALENDAR
 #meetings {
   margin-bottom: 1em;
@@ -59,23 +62,39 @@
     margin-top: 2em;
 		// padding-left: 20px;
 		dt {
-			padding: 3px 0;
 			a {
+        clear: both;
 				display: block;
+        padding: 0 3px;
+        @include border-radius(3px);
 				&.avaible {
-				    background-color: yellow;
+				    background-color: $edit;
 				    color: #000;
 				}
 				&.not_avaible {
-				    background-color: red;
+				    background-color: $cancel;
 				    color: #FFF;
 				}
 			}
+      &:hover {
+        + dd {
+          height: 40px;
+        }
+      }
 		}
 		dd {
-		margin-left: 0px;
+  		margin-left: 0px;
+      overflow: hidden;
+      height: 0px;
+      @include transition-property(height);
+      @include transition-duration(400ms);
+      @include transition-timing-function(ease-out);
 		}
 	}
+}
+
+.add-meeting-any-date {
+  text-decoration: none;
 }
 
 //=== SHOW MEETING
