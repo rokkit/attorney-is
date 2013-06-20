@@ -13,10 +13,7 @@
     <td><%= link_to user.fio, user %></td>
     <td><%= user.register_number %></td>
     <td><%= user.phone %></td>
-    <td class="actions"><%= link_to 'Редактировать', edit_user_path(user), class: "edit entypo-pencil" %>
-      | <%= link_to 'Удалить', user_path(user), method: :delete, data: { confirm: 'Are you sure?' }, class: "cancel entypo-cancel-circled" %></td>
   </tr>
 <% end %>
 </table>
-
 <%= link_to 'Добавить пользователя', new_user_path, class: "btn approve entypo-user-add" %>

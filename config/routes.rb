@@ -11,7 +11,7 @@ AttorneyIs::Application.routes.draw do
     end
 
 
-    root :to => 'pages#index'
+    root :to => 'meetings#index'
     scope :res do
      resources :users
    end

@@ -1,5 +1,7 @@
 # encoding: UTF-8
 class MeetingsController < ApplicationController
+  load_and_authorize_resource
+  before_filter :authenticate_user!
   # GET /meetings
   # GET /meetings.json
   def index
