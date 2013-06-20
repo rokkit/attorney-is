@@ -1,0 +1,29 @@
+<h2><%= t "devise.invitations.new.header" %></h2>
+
+
+<%= form_for @user, :url => invitation_path(@user) do |f| %>
+<%= devise_error_messages! %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> ошибок не позволило создать пользователя:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= f.label :fio, "Ф.И.О" %>
+  <%= f.text_field :fio %>
+  <%= f.label :phone, "Телефон" %>
+  <%= f.telephone_field :phone %>
+  <%= f.label :register_number, "Номер реестра" %>
+  <%= f.telephone_field :register_number %>
+  <%= f.label :email, "Почта" %>
+  <%= f.email_field :email %>
+  
+  <div class="actions">
+    <%= f.submit "Создать адвоката" %>
+  </div>
+<% end %>

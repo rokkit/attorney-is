@@ -1,0 +1,17 @@
+en:
+  devise:
+    invitations:
+      send_instructions: 'Оповещение отправлено %{email}.'
+      invitation_token_invalid: 'The invitation token provided is not valid!'
+      updated: 'Вас пароль успешно установлен'
+      no_invitations_remaining: "No invitations remaining"
+      invitation_removed: 'Your invitation was removed.'
+      new:
+        header: "Добавить адвоката"
+        submit_button: "Send an invitation"
+      edit:
+        header: "Установить пароль"
+        submit_button: "СОхранить"
+    mailer:
+      invitation_instructions:
+        subject: 'Календарь Заседаний Суда'

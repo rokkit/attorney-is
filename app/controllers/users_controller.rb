@@ -48,7 +48,7 @@ class UsersController < ApplicationController
     # @user = User.new(params[:user])
     @user = User.invite!(params[:user])
     respond_to do |format|
-      if @user.new_record?
+      if @user.valid?
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render json: @user, status: :created, location: @user }
       else
