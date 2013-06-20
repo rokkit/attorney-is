@@ -154,5 +154,33 @@ footer {
 	}
 }
 
+//====== MISC
+/* Console, style from slate theme. */
+p.messages {
+  padding: 9px;
+  margin: 1em 0;
+  color: #003366;
+  background: #bbddff;
+  border: 1px solid #aaccee;
+}
+
+p.warning {
+  color: #884400;
+  background: #ffee66;
+  border-color: #eedd55;
+}
+
+p.error {
+  color: white;
+  background: #ee6633;
+  border-color: #dd5522;
+}
+
+p.status {
+  color: #336600;
+  background: #ccff88;
+  border-color: #bbee77;
+}
+
 
 

@@ -22,8 +22,13 @@
 		</header>
 
 		<section id="content">
-		    <p class="notice"><%= notice %></p>
-		    <p class="alert"><%= alert %></p>
+			<% unless notice.nil? %>
+	          <p class="messages status"><%= notice %></p>
+	        <% end %>
+	        <% unless alert.nil? %>
+	          <p class="messages error"><%= alert %></p>
+	        <% end %>
+
 			<%= yield %>
 		</section>
 
