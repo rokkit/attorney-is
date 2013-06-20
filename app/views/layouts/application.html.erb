@@ -16,7 +16,13 @@
 					<% if can? :manage, :all %>
 					    <li><%= link_to "Заявки на заседания", request_meetings_path %></li>
 					<% end %>
-					<li><%= link_to "Выход", destroy_user_session_path, method: :delete if user_signed_in? %></li>
+					<li>
+					<% if user_signed_in? %>
+						<%= link_to "Выход", destroy_user_session_path, method: :delete %>
+					<% else %>
+						<%= link_to "Войти", new_user_session_path %>
+					<% end %>
+					</li>
 				</ul>
 			</nav>
 		</header>
