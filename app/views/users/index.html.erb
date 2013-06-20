@@ -9,7 +9,7 @@
   </tr>
 
 <% @users.each do |user| %>
-  <tr>
+  <tr class="<%= cycle("odd", "even") %>">
     <td><%= link_to user.fio, user %></td>
     <td><%= user.register_number %></td>
     <td><%= user.phone %></td>

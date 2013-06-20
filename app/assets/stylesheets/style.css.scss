@@ -139,8 +139,22 @@ header {
 }
 
 table {
+	border-spacing:0;
+	border-collapse:collapse;
+	margin-bottom: 1em;
+	tr {
+		&.odd {
+			background-color: #ffffff;
+		}
+		&.even {
+			background-color: #f4f4f4;
+		}
+	}
 	th, td {
 		padding: 5px;
+	}
+	td {
+		border: 1px solid #ccc;
 	}
 }
 

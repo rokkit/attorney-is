@@ -2,11 +2,11 @@
 module RequestMeetingsHelper
   def status status
     if status == 1
-      "Ожидание подтверждения"
+      '<span class="waiting">Ожидание подтверждения</span>'
     elsif status == 2
-      "Подтверждён"
+      '<span class="approved">Подтверждён</span>'
     elsif status == 3
-      "Отказано"
+      '<span class="declined">Отказано</span>'
     end
   end
 end

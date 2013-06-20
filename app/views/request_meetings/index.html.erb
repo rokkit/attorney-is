@@ -6,12 +6,14 @@
       <th>Адвокат</th>
       <th>Заседание</th>
       <th>Статус</th>
+      <% if can? :manage, :all %>
       <th></th>
+      <% end %>
     </tr>
   </thead>
 <% @request_meetings.each do |request_meeting| %>
   <tbody>
-    <tr>
+    <tr class="<%= cycle("odd", "even") %>">
       <td><%= request_meeting.user %></td>
       <td><%= request_meeting.meeting %></td>
       <td><%= status request_meeting.status %></td>
