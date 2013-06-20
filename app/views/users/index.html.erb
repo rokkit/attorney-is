@@ -1,11 +1,10 @@
-<h1>Listing users</h1>
+<h1>Адвокаты</h1>
 
-<table>
+<table id="user-list">
   <tr>
-      <th>ФИО</th>
-      <th>№ Реестра</th>
-    <th></th>
-    <th></th>
+    <th>ФИО</th>
+    <th>№ Реестра</th>
+    <th>№ Телефона</th>
     <th></th>
   </tr>
 
@@ -13,12 +12,11 @@
   <tr>
     <td><%= link_to user.fio, user %></td>
     <td><%= user.register_number %></td>
-    <td><%= link_to 'Edit', edit_user_path(user) %></td>
-    <td><%= link_to 'Destroy', user_path(user), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= user.phone %></td>
+    <td class="actions"><%= link_to 'Редактировать', edit_user_path(user), class: "edit entypo-pencil" %>
+      | <%= link_to 'Удалить', user_path(user), method: :delete, data: { confirm: 'Are you sure?' }, class: "cancel entypo-cancel-circled" %></td>
   </tr>
 <% end %>
 </table>
 
-<br />
-
-<%= link_to 'New User', new_user_path %>
+<%= link_to 'Добавить пользователя', new_user_path, class: "btn approve entypo-user-add" %>

@@ -1,7 +1,7 @@
 <%= form_for(@request_meeting) do |f| %>
   <% if @request_meeting.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@request_meeting.errors.count, "error") %> prohibited this request_meeting from being saved:</h2>
+      <h2><%= pluralize(@request_meeting.errors.count, "error") %> ошибок не позволило создать заявку:</h2>
 
       <ul>
       <% @request_meeting.errors.full_messages.each do |msg| %>

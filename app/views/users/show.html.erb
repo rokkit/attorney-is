@@ -1,5 +1,4 @@
-<p id="notice"><%= notice %></p>
-
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', res_users_path %>
+<div class="actions">
+	<%= link_to 'Редактировать', edit_user_path(@user), class: "btn edit entypo-pencil" %> |
+	<%= link_to 'Назад', users_path, class: "btn back entypo-left-open-big" %>
+</div>

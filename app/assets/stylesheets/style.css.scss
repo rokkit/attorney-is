@@ -104,28 +104,43 @@ header {
 }
 
 //=== Misc
-.btn {
-	@include sassy-button();
-	&:link, &:visited, &:active {
-		color: #fff;
-	}
-}
-
 .actions {
 	a {
 		text-decoration: none;
 	}
 	.edit {
-		color: #ffcc66;
+		color: $edit;
 	}
 	.cancel {
-		color: darken(#FF0000, 5%);
+		color: $cancel;
 	}
 	.read-more {
 		color: #000;
 	}
 	.approve, .make-request {
-		color: darken(#33CC00, 5%);
+		color: $approve;
+	}
+}
+
+.btn {
+	@include sassy-button();
+	&:link, &:visited, &:active {
+		color: #fff;
+	}
+	&.edit {
+		@include sassy-button-gradient("matte", lighten($edit, 10%), $edit, #fff);
+	}
+	&.approve {
+		@include sassy-button-gradient("matte", lighten($approve, 10%), $approve, #fff);
+	}
+	&.cancel {
+		@include sassy-button-gradient("matte", lighten($cancel, 10%), $cancel, #fff);
+	}
+}
+
+table {
+	th, td {
+		padding: 5px;
 	}
 }
 

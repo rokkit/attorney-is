@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>AttorneyIs</title>
+  <title>Календарь Заседаний Суда</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -12,10 +12,10 @@
 			<nav id="main-nav">
 				<ul>
 					<li><%= link_to "Адвокаты", users_path %></li>
-					<li><%= link_to "Совещания", meetings_path %></li>
-						<% if can? :manage, :all %>
-						    <li><%= link_to "Заявки на совещания", request_meetings_path %></li>
-						<% end %>
+					<li><%= link_to "Заседания", meetings_path %></li>
+					<% if can? :manage, :all %>
+					    <li><%= link_to "Заявки на заседания", request_meetings_path %></li>
+					<% end %>
 					<li><%= link_to "Выход", destroy_user_session_path, method: :delete if user_signed_in? %></li>
 				</ul>
 			</nav>
