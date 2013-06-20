@@ -10,16 +10,16 @@
       </ul>
     </div>
   <% end %>
-  <%= f.label :fio %>
+  <%= f.label :fio, "Ф.И.О" %>
   <%= f.text_field :fio %>
-  <%= f.label :phone %>
+  <%= f.label :phone, "Телефон" %>
   <%= f.telephone_field :phone %>
-  <%= f.label :register_number %>
+  <%= f.label :register_number, "Номер реестра" %>
   <%= f.telephone_field :register_number %>
-  <%= f.label :email %>
+  <%= f.label :email, "Почта" %>
   <%= f.email_field :email %>
   
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit, "Добавить адвоката" %>
   </div>
 <% end %>
