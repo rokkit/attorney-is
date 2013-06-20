@@ -1,6 +1,7 @@
 # encoding: UTF-8
 class MeetingsController < ApplicationController
   load_and_authorize_resource
+  skip_authorize_resource :only => :request_for_meeting
   before_filter :authenticate_user!
   # GET /meetings
   # GET /meetings.json
