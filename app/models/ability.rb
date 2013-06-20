@@ -9,16 +9,22 @@ class Ability
       if user.admin?
         can :manage, :all
       else
-        can :read, :all
+        can :read, Meeting
+        can [:update, :delete], RequestMeeting do |meeting|
+          reqm.user == user && reqm.status == 1 #изменять можно, пока заявка не подтверждена
+        end
+        can :read, RequestMeeting do |meeting|
+          reqm.user == user
+        end
       end
       
       can :request, Meeting do |meeting|
         meeting.user.nil? && RequestMeeting.where(user_id: user, meeting_id: meeting).count == 0
       end
       
-      can :manage, RequestMeeting do |reqm|
-        reqm.user == user && reqm.status == 1 #изменять можно, пока заявка не подтверждена
-      end
+      # can :manage, RequestMeeting do |reqm|
+    #     reqm.user == user && reqm.status == 1 #изменять можно, пока заявка не подтверждена
+    #   end
       
       can :add_request, Date do |date|
         

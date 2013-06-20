@@ -11,7 +11,9 @@
 		<header>
 			<nav id="main-nav">
 				<ul>
-					<li><%= link_to "Адвокаты", users_path %></li>
+                    <% if can? :manage, :all %>
+					    <li><%= link_to "Адвокаты", users_path %></li>
+                    <% end %>
 					<li><%= link_to "Заседания", meetings_path %></li>
 					<% if can? :manage, :all %>
 					    <li><%= link_to "Заявки на заседания", request_meetings_path %></li>
