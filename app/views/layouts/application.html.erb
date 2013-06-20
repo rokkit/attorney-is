@@ -40,6 +40,10 @@
 			<%= yield %>
 		</section>
 
+		<aside id="sidebar-right" class="sidebar">
+			<% render 'layouts/sidebar' %>
+		</aside>
+
 		<footer>
 			<div class="copyright">
 				&copy; <%= Time.now.strftime("%Y") %>
