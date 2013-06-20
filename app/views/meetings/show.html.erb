@@ -1,5 +1,5 @@
 <div id="show-meeting">
-	<h3><%= @meeting.will_be_on.to_formatted_s(:long) %></h3>
+	<h3><%=  Russian::strftime @meeting.will_be_on, "%d %B %Y" %></h3>
 
 	<div class="info">
 	  <h4>Дополнительная информация:</h4>
