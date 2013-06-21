@@ -15,7 +15,7 @@
         <% if @meetings_by_date[date.to_date] %>
               <dl class="meeting-details">
                 <% @meetings_by_date[date].each do |meeting| %>
-                  <dt><%= link_to "Заседание" + meeting.will_be_at.strftime("%H:%M"), meeting, class: (meeting.user.nil? ? "avaible" : "not_avaible" )%></dt>
+                  <dt><%= link_to "Заседание #{meeting.will_be_at.try { |d| d.strftime('%H:%M')} }", meeting, class: (meeting.user.nil? ? "avaible" : "not_avaible" )%></dt>
                   <% if meeting.user  %>
                       <dd class="entypo-user"><%= meeting.user if can? :manage, :all %></dd>
                   <% end %>
