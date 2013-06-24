@@ -1,0 +1,21 @@
+<% if @meeting.errors.any? -%>
+  /*Hide the flash notice div*/
+  $("#flash_notice").hide(300);
+
+  /*Update the html of the div post_errors with the new one*/
+  $("#meeting_errors").html("<%= escape_javascript(error_messages_for(@meeting))%>");
+
+  /*Show the div post_errors*/
+  $("#meeting_errors").show(300);
+<% else -%>
+  /*Hide the div post_errors*/
+  $("#meeting_errors").hide(300);
+
+  /*Update the html of the div flash_notice with the new one*/
+  $("#flash_notice").html("<%= escape_javascript(flash[:notice])%>");
+  /*Show the flash_notice div*/
+  $("#flash_notice").show(300);
+  $("#modal-window").modal('hide');
+  $("#cell_<%= @meeting.will_be_on %> a").remove();
+  $("#cell_<%= @meeting.will_be_on %> .meeting-details").html('<dt><a href="/meetings/31" class="avaible" data-remote="true" data-target="#modal-window" data-toggle="modal">Заседание </a></dt>')
+<% end -%>

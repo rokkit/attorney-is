@@ -7,23 +7,34 @@
       <%= link_to ">", date: @date.next_month %>
     </h2>
     <%= calendar @date do |date| %>
+      <%= content_tag :span, id:"cell_#{date}" do%>
         <span class="day"><%= date.day %></span>
-        <% if can? :manage, :all %>
-            <%= link_to "Добавить", new_meeting_path(meeting: { will_be_on: date }), class: "add-meeting entypo-plus-circled" %>
+        <% if can? :manage, :all and @meetings_by_date[date.to_date] == nil %>
+            <%= link_to "Добавить", new_meeting_path(meeting: { will_be_on: date }), class: "add-meeting entypo-plus-circled",remote: true, data: {toggle: 'modal', target: '#modal-window'}  %>
         <% end %>
-        
+        <dl class="meeting-details">
         <% if @meetings_by_date[date.to_date] %>
-              <dl class="meeting-details">
+              
                 <% @meetings_by_date[date].each do |meeting| %>
-                  <dt><%= link_to "Заседание #{meeting.will_be_at.try { |d| d.strftime('%H:%M')} }", meeting, class: (meeting.user.nil? ? "avaible" : "not_avaible" )%></dt>
+                  <dt><%= link_to "Заседание #{meeting.will_be_at.try { |d| d.strftime('%H:%M')} }", meeting, class: (meeting.user.nil? ? "avaible" : "not_avaible" ) ,remote: true, data: {toggle: 'modal', target: '#modal-window'} %></dt>
                   <% if meeting.user  %>
                       <dd class="entypo-user"><%= meeting.user if can? :manage, :all %></dd>
                   <% end %>
                 <% end %>
-              </dl>
         <% end %>
+        </dl>
+      <% end %>
     <% end %>
 </div>
 <% if can? :manage, :all %>
-<%= link_to "Добавить заседание на любую дату", new_meeting_path, class: "add-meeting-any-date entypo-plus-circled" %>
+<%= link_to "Добавить заседание на любую дату", new_meeting_path,remote: true, class: "add-meeting-any-date entypo-plus-circled",data: {toggle: 'modal', target: '#modal-window'} %>
 <% end %>
+
+<div class="modal hide fade" id="modal-window">
+  <div class="modal-header">
+      <div id="flash_notice" style="display:none"></div>
+  </div>
+  <div class="modal-body center">
+    </div>
+  <div class="modal-footer">&nbsp;</div>
+</div>

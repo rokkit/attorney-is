@@ -4,3 +4,8 @@
 jQuery ->
   $('#meeting_will_be_on').datepicker
     dateFormat: 'yy-mm-dd'
+    
+$("#form").on "ajax:beforeSend", (evt, xhr, settings) ->  
+  # prevent double submit
+  $(":submit", this).click ->
+    false

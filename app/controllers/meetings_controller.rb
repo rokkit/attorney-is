@@ -23,6 +23,7 @@ class MeetingsController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @meeting }
+      format.js
     end
   end
 
@@ -34,6 +35,7 @@ class MeetingsController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @meeting }
+      format.js
     end
   end
 
@@ -49,11 +51,13 @@ class MeetingsController < ApplicationController
 
     respond_to do |format|
       if @meeting.save
-        format.html { redirect_to @meeting, notice: 'Meeting was successfully created.' }
+        format.html { redirect_to @meeting, notice: 'Заседание успено добавлено' }
         format.json { render json: @meeting, status: :created, location: @meeting }
+        format.js
       else
         format.html { render action: "new" }
         format.json { render json: @meeting.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
