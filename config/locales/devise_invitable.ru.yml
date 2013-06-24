@@ -12,6 +12,8 @@ en:
       edit:
         header: "Установить пароль"
         submit_button: "СОхранить"
+      user:
+          updated: 'Вас пароль успешно установлен'
     mailer:
       invitation_instructions:
         subject: 'Календарь Заседаний Суда'

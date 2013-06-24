@@ -12,11 +12,10 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :meeting %><br />
     <%=  @request_meeting.meeting %>
     <%= f.hidden_field :meeting_id %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Подать заявку" %>
   </div>
 <% end %>

@@ -1,5 +1,5 @@
-<p>Welcome <%= @email %>!</p>
+<p>Здравствуйте, <%= @resource.fio %>!</p>
 
-<p>You can confirm your account email through the link below:</p>
-
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token) %></p>
+<p>Адвокатская палата Санкт-Петерубрга уведомляет Вас о регистрации на календаре заседаний</p>
+<p>Перейдите по ссылке, для входа в систему</p>
+<p><%= link_to 'Вход в систему', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token) %></p>
