@@ -16,6 +16,9 @@ class Ability
         can :read, RequestMeeting do |meeting|
           reqm.user == user
         end
+        can [:show, :update], User do |u|
+          u == user
+        end
       end
       
       can :request, Meeting do |meeting|

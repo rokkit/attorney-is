@@ -1,4 +1,6 @@
 <div class="actions">
+  ФИО: <%= @user.fio %>
+  <%= link_to "Change your password", edit_user_registration_path %>
 	<%= link_to 'Редактировать', edit_user_path(@user), class: "btn edit entypo-pencil" %> |
 	<%= link_to 'Назад', users_path, class: "btn back entypo-left-open-big" %>
 </div>

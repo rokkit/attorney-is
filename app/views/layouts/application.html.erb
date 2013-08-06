@@ -11,6 +11,9 @@
 		<header>
 			<nav id="main-nav">
 				<ul>
+          <li>
+          <%= link_to "Профиль: #{current_user}", current_user %>
+          </li>
                     <% if can? :manage, :all %>
 					    <li><%= link_to "Адвокаты", users_path %></li>
                     <% end %>

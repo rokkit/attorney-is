@@ -14,6 +14,15 @@
 	  <h4>Статус:</h4>
 	  <p><%= status @request_meeting.status %></p>
 	</div>
+  <% if @request_meeting.status == 2 && @request_meeting.user == current_user %>
+    <div>
+      Для подтверждения заявки отправьте полученный на телефон код поддтверждения
+      <%= form_tag confirm_request_meeting_path(@request_meeting) do %>
+        <%= text_field_tag :confirm_token %>
+        <%= submit_tag "Подтвердить" %>
+      <% end %>
+    </div>
+  <% end %>
 
 </div>
 

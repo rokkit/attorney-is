@@ -12,12 +12,21 @@ class RequestMeeting < ActiveRecord::Base
   end
   
   def approve!
-    self.status = 2
-    meeting = Meeting.find(self.meeting)
-    meeting.user = self.user
-    meeting.save!
+    self.status = 2 #заявка подтвержена администратором и ожидается подтверждение по телефону
+    self.confirm_token = Devise.friendly_token.first(6)
     if save!
-      inform "подтверждена"
+      inform "#{self.confirm_token}"
+    end
+  end
+
+  def confirm! token
+    if self.confirm_token == token
+      
+      self.status = 3
+      meeting = Meeting.find(self.meeting)
+      meeting.user = self.user
+      meeting.save!
+      save!
     end
   end
   

@@ -1,4 +1,4 @@
-<%= form_for @user do |f| %>
+<%= form_for @user, html: {id: "invite"} do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> ошибок не позволило создать пользователя:</h2>
@@ -12,10 +12,12 @@
   <% end %>
   <%= f.label :fio, "Ф.И.О" %>
   <%= f.text_field :fio %>
-  <%= f.label :phone, "Телефон" %>
-  <%= f.telephone_field :phone %>
-  <%= f.label :register_number, "Номер реестра" %>
-  <%= f.telephone_field :register_number %>
+  <% if can? :manage, :all %>
+    <%= f.label :phone, "Телефон" %>
+    <%= f.telephone_field :phone %>
+    <%= f.label :register_number, "Номер реестра" %>
+    <%= f.telephone_field :register_number %>
+  <% end %>
   <%= f.label :email, "Почта" %>
   <%= f.email_field :email %>
   

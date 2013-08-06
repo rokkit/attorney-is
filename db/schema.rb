@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130611112819) do
+ActiveRecord::Schema.define(:version => 20130802083503) do
 
   create_table "meetings", :force => true do |t|
     t.string   "title"
@@ -28,8 +28,9 @@ ActiveRecord::Schema.define(:version => 20130611112819) do
     t.integer  "user_id"
     t.integer  "meeting_id"
     t.integer  "status"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.string   "confirm_token"
   end
 
   add_index "request_meetings", ["meeting_id"], :name => "index_request_meetings_on_meeting_id"

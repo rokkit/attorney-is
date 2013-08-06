@@ -49,7 +49,7 @@ class RequestMeetingsController < ApplicationController
     @request_meeting.user = current_user
     respond_to do |format|
       if @request_meeting.save
-        format.html { redirect_to @request_meeting, notice: 'Request meeting was successfully created.' }
+        format.html { redirect_to @request_meeting, notice: 'Заявка подана. Ожидается подтверждение администратором' }
         format.json { render json: @request_meeting, status: :created, location: @request_meeting }
       else
         format.html { render action: "new" }
@@ -89,6 +89,14 @@ class RequestMeetingsController < ApplicationController
   def approve
     @request_meeting = RequestMeeting.find(params[:id])
     @request_meeting.approve!
+    respond_to do |format|
+        format.html { redirect_to @request_meeting, notice: 'Заявка успешно подтверждена' }
+        format.json { render json: @request_meeting, status: :created, location: @request_meeting }
+    end
+  end
+  def confirm
+    @request_meeting = RequestMeeting.find(params[:id])
+    @request_meeting.confirm! params[:confirm_token]
     respond_to do |format|
         format.html { redirect_to @request_meeting, notice: 'Заявка успешно подтверждена' }
         format.json { render json: @request_meeting, status: :created, location: @request_meeting }

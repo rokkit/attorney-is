@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
-  devise :invitable, :database_authenticatable, #:registerable,
+  devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   :admin
   
   validates :email, :fio, :register_number, :phone, :presence => true
-  
+  before_validation :strip_whitespace 
   has_many :meetings
   has_and_belongs_to_many :roles
   
@@ -25,6 +25,10 @@ class User < ActiveRecord::Base
   
   def to_s
     fio
+  end
+
+  def strip_whitespace
+    self.fio = self.fio.strip
   end
   # before_validation :set_password, on: :create
   # 
