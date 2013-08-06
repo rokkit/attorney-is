@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
   validates :email, :fio, :register_number, :phone, :presence => true
   before_validation :strip_whitespace 
   has_many :meetings
+  has_many :request_meetings
   has_and_belongs_to_many :roles
   
   def admin?

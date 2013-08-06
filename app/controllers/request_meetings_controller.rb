@@ -7,7 +7,9 @@ class RequestMeetingsController < ApplicationController
   # GET /request_meetings
   # GET /request_meetings.json
   def index
-    @request_meetings = RequestMeeting.all
+
+    @request_meetings = RequestMeeting.all if current_user.admin?
+    @request_meetings = current_user.request_meetings unless current_user.admin?
 
     respond_to do |format|
       format.html # index.html.erb

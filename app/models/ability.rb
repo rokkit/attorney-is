@@ -10,7 +10,7 @@ class Ability
         can :manage, :all
       else
         can :read, Meeting
-        can [:update, :delete], RequestMeeting do |meeting|
+        can [:update,:index, :delete], RequestMeeting do |meeting|
           reqm.user == user && reqm.status == 1 #изменять можно, пока заявка не подтверждена
         end
         can :read, RequestMeeting do |meeting|
