@@ -107,6 +107,12 @@ header {
 					text-decoration: none;
 				}
 			}
+			&.active {
+				a {
+					background-color: $blue;
+					color: #fff;
+				}
+			}
 		}
 	}
 }
