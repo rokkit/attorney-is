@@ -11,6 +11,8 @@
  *= require_self
  *= require jquery.ui.datepicker
  *= require layout
+ *= require bootstrap_and_overrides
+ *= require bootstrap-modal
  *= require style
  *= require_tree .
  */
