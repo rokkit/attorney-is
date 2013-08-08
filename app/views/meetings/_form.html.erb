@@ -12,18 +12,22 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :content, "Дополнительная информация" %><br />
-    <%= f.text_area :content, size:'3x2' %>
+    <%= f.label :content, "Дополнительная информация" %>
+    <%= f.text_area :content, size:'3x2', class: "input-block-level" %>
   </div>
-  <div class="field">
-    <%= f.label :will_be_on, "Дата" %><br />
-    <%= f.text_field :will_be_on %>
+  
+  <div class="row">
+    <div class="span2">
+      <%= f.label :will_be_on, "Дата" %>
+      <%= f.text_field :will_be_on, class: "input-block-level" %>
+    </div>
+    <div class="span2">
+      <%= f.label :will_be_at, "Время" %>
+      <%= f.text_field :will_be_at, class: "input-block-level" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :will_be_at, "Время" %><br />
-    <%= f.text_field :will_be_at %>
-  </div>
+
   <div class="actions">
-    <%= f.submit "Добавить" %>
+    <%= f.submit "Добавить", class: "btn" %>
   </div>
 <% end %>

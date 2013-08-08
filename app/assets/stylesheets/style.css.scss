@@ -46,7 +46,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: 2.2em;
-  font-weight: 300;
+  font-weight: 700;
   padding: 0 0 0.5em;
   margin: 0;
   color: $blue;
@@ -54,8 +54,9 @@ h1 {
 
 h2 {
   font-size: 1.8em;
-  font-weight: 300;
+  font-weight: 700;
   margin-bottom: 0.75em;
+  color: $blue;
 }
 
 h3 {
@@ -211,5 +212,9 @@ p.status {
   border-color: #bbee77;
 }
 
-
+.modal-header {
+	.close {
+		margin-top: -24px;
+	}
+}
 
