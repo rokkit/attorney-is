@@ -13,9 +13,12 @@ $pt-sans: 'PT Sans';
 @import url(http://weloveiconfonts.com/api/?family=entypo);
 
 /* entypo */
-[class*="entypo-"]:before {
-  font-family: 'entypo', sans-serif;
-  margin-right: 5px;
+[class*="entypo-"] {
+	text-decoration: none;
+	:before {
+	  font-family: 'entypo', sans-serif;
+	  margin-right: 5px;
+	}
 }
 
 //====== MAIN STYLES
@@ -83,7 +86,7 @@ h6 {
 //====== HEADER
 header {
 	overflow: hidden;
-	padding: 10px 0;
+	padding: 0;
 	border-bottom: 1px solid $blue;
 }
 
@@ -92,8 +95,17 @@ header {
 	ul {
 		@include horizontal-nav();
 		li {
+			border-right: 1px solid lighten($grey, 50%);
+			&:last-child {
+				border-right: 0 none;
+			}
 			a {
-				padding: 0 .5em;
+				padding: .7em .5em;
+				&:hover {
+					color: $blue;
+					background-color: lighten($blue, 50%);
+					text-decoration: none;
+				}
 			}
 		}
 	}
@@ -185,32 +197,6 @@ footer {
 }
 
 //====== MISC
-/* Console, style from slate theme. */
-p.messages {
-  padding: 9px;
-  margin: 1em 0;
-  color: #003366;
-  background: #bbddff;
-  border: 1px solid #aaccee;
-}
-
-p.warning {
-  color: #884400;
-  background: #ffee66;
-  border-color: #eedd55;
-}
-
-p.error {
-  color: white;
-  background: #ee6633;
-  border-color: #dd5522;
-}
-
-p.status {
-  color: #336600;
-  background: #ccff88;
-  border-color: #bbee77;
-}
 
 .modal-header {
 	.close {
