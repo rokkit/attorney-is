@@ -7,13 +7,9 @@ module RequestMeetingsHelper
       end
     elsif status == 2
       content_tag :span, class: 'approved' do
-        "Подтверждена администратором. Ожидается подтверждение адвоката"
-      end
-    elsif status == 3
-      content_tag :span, class: 'approved' do
         "Подтверждена"
       end
-    elsif status == 4
+    elsif status == 3
       content_tag :span, class: 'declined' do
         "Отказано"
       end

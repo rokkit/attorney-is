@@ -12,28 +12,19 @@ class RequestMeeting < ActiveRecord::Base
   end
   
   def approve!
-    self.status = 2 #заявка подтвержена администратором и ожидается подтверждение по телефону
-    self.confirm_token = Devise.friendly_token.first(6)
+    self.status = 2 #заявка подтвержена администратором
     if save!
-      inform "#{self.confirm_token}"
+      inform "Вы включены в график дежурств на #{self.meeting.will_be_at}"
     end
   end
 
-  def confirm! token
-    if self.confirm_token == token
-      
-      self.status = 3
-      meeting = Meeting.find(self.meeting)
-      meeting.user = self.user
-      meeting.save!
-      save!
-    end
-  end
   
   def cancel!
     InformMailer.cancel_request(self).deliver
-    destroy!
-    inform "отклонена"
+    date = self.meeting.will_be_at
+    if destroy
+      inform "Ваша заявка на дежурство #{date} отклонена"
+    end
   end
   
   def send_inform
@@ -46,7 +37,7 @@ private
           client.account.sms.messages.create(
             from: APP['twilio']['from'],
             to: "+#{user.phone}",
-            body: "Ваша заявка на заседание #{meeting.will_be_on}  #{ meeting.will_be_at} #{message}"
+            body: message
           )
           InformMailer.inform(self, message).deliver 
   end

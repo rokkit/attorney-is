@@ -1,4 +1,10 @@
-<h1>Заседания</h1>
+<h1>
+  <% if current_user.admin? %>
+    Добавление дежурств
+  <% else %>
+    Запись на дежурства
+  <% end %>
+</h1>
 <div id="meetings">
     
     <h2 id="month">
@@ -9,14 +15,14 @@
     <%= calendar @date do |date| %>
       <%= content_tag :span, id:"cell_#{date}" do%>
         <span class="day"><%= date.day %></span>
-        <% if can? :manage, :all and @meetings_by_date[date.to_date] == nil %>
+        <% if can? :manage, :all and @meetings_by_date[date.to_date] == nil and date>=Date.today %>
             <%= link_to "Добавить", new_meeting_path(meeting: { will_be_on: date }), class: "add-meeting entypo-plus-circled",remote: true, data: {toggle: 'modal', target: '#modal-window'}  %>
         <% end %>
         <dl class="meeting-details">
         <% if @meetings_by_date[date.to_date] %>
               
                 <% @meetings_by_date[date].each do |meeting| %>
-                  <dt><%= link_to "Заседание #{meeting.will_be_at.try { |d| d.strftime('%H:%M')} }", meeting, class: (meeting.user.nil? ? "avaible" : "not_avaible" ) ,remote: true, data: {toggle: 'modal', target: '#modal-window'} %></dt>
+                  <dt><%= link_to "Дежурство #{meeting.will_be_at.try { |d| d.strftime('%H:%M')} }", meeting, class: (meeting.user.nil? ? "avaible" : "not_avaible" ) ,remote: true, data: {toggle: 'modal', target: '#modal-window'} %></dt>
                   <% if meeting.user  %>
                       <dd class="entypo-user"><%= meeting.user if can? :manage, :all %></dd>
                   <% end %>
@@ -27,7 +33,7 @@
     <% end %>
 </div>
 <% if can? :manage, :all %>
-<%= link_to "Добавить заседание на любую дату", new_meeting_path,remote: true, class: "add-meeting-any-date entypo-plus-circled",data: {toggle: 'modal', target: '#modal-window'} %>
+<%= link_to "Добавить дежурство на произвольную дату", new_meeting_path,remote: true, class: "add-meeting-any-date entypo-plus-circled",data: {toggle: 'modal', target: '#modal-window'} %>
 <% end %>
 
 <div class="modal hide fade" id="modal-window">

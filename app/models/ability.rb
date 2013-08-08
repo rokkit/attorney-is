@@ -22,7 +22,7 @@ class Ability
       end
       
       can :request, Meeting do |meeting|
-        meeting.user.nil? && RequestMeeting.where(user_id: user, meeting_id: meeting).count == 0
+        meeting.user.nil? && RequestMeeting.where(user_id: user, meeting_id: meeting).count == 0 && !user.admin?
       end
       
       # can :manage, RequestMeeting do |reqm|

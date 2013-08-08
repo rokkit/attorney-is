@@ -96,14 +96,14 @@ class RequestMeetingsController < ApplicationController
         format.json { render json: @request_meeting, status: :created, location: @request_meeting }
     end
   end
-  def confirm
-    @request_meeting = RequestMeeting.find(params[:id])
-    @request_meeting.confirm! params[:confirm_token]
-    respond_to do |format|
-        format.html { redirect_to @request_meeting, notice: 'Заявка успешно подтверждена' }
-        format.json { render json: @request_meeting, status: :created, location: @request_meeting }
-    end
-  end
+  #def confirm
+    #@request_meeting = RequestMeeting.find(params[:id])
+    #@request_meeting.confirm! params[:confirm_token]
+    #respond_to do |format|
+        #format.html { redirect_to @request_meeting, notice: 'Заявка успешно подтверждена' }
+        #format.json { render json: @request_meeting, status: :created, location: @request_meeting }
+    #end
+  #end
   def cancel
     @request_meeting = RequestMeeting.find(params[:id])
     @request_meeting.cancel!

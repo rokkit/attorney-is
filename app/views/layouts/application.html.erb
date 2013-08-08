@@ -14,12 +14,13 @@
           <li>
           <%= link_to "Профиль: #{current_user}", current_user %>
           </li>
-                    <% if can? :manage, :all %>
-					    <li><%= link_to "Адвокаты", users_path %></li>
-                    <% end %>
+        
 					<li><%= link_to "Заседания", meetings_path %></li>
 					    <li><%= link_to "Заявки на заседания", request_meetings_path %></li>
 					<li>
+            <% if can? :manage, :all %>
+					    <li><%= link_to "Адвокаты", users_path %></li>
+            <% end %>
 					<% if user_signed_in? %>
 						<%= link_to "Выход", destroy_user_session_path, method: :delete %>
 					<% else %>

@@ -8,12 +8,12 @@
 
 	<div class="lawyer">
 	  <h4>Назначенный адвокат:</h4>
-	  <p><%= @meeting.user %></p>
+	  <p><%= @meeting.user%></p>
 	</div>
 
 	<div class="actions">
-		<% if can? :request, @meeting %>
-		    <%= link_to 'Подать заявку', request_for_meeting_path, method: :post, class: "make-request entypo-user-add" %>
+		<% if can? :request, @meeting and !current_user.admin? %>
+		    <%= link_to 'Подать заявку', request_for_meeting_path, method: :post, class: "make-request entypo-user-add" unless current_user.admin? %>
 		<% end %>
 		<% if can? :manage, :all %>
 			| <%= link_to 'Изменить', edit_meeting_path(@meeting), class: "edit entypo-pencil" %>
