@@ -13,7 +13,7 @@
   <%= f.label :fio, "Ф.И.О" %>
   <%= f.text_field :fio %>
   <% if can? :manage, :all %>
-    <%= f.label :phone, "Телефон" %>
+    <%= f.label :phone, "Телефон (Формат: 79210000000)" %>
     <div class="input-prepend">
       <span class="add-on">+</span>
       <%= f.telephone_field :phone, class:"form-control" %>
