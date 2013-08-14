@@ -13,8 +13,8 @@ class Ability
         can [:update,:index, :delete], RequestMeeting do |meeting|
           reqm.user == user && reqm.status == 1 #изменять можно, пока заявка не подтверждена
         end
-        can :read, RequestMeeting do |meeting|
-          reqm.user == user
+        can :manage, RequestMeeting do |meeting|
+          meeting.user == user
         end
         can [:show, :update], User do |u|
           u == user

@@ -19,6 +19,9 @@
       <td class="status"><%= status request_meeting.status %></td>
       <td class="actions">
         <%= link_to 'Подробнее', request_meeting, class: "read-more entypo-doc-text" %>
+        <% if can? :manage, request_meeting %>
+          | <%= link_to 'Отменить', cancel_request_meeting_path(request_meeting), method: :post, class: "cancel entypo-cancel-circled" %>
+         <% end %>
       <% if can? :manage, :all and request_meeting.status != 2%>
         | <%= link_to 'Подтвердить', approve_request_meeting_path(request_meeting), method: :post, class: "approve entypo-check" %>
         | <%= link_to 'Отменить', cancel_request_meeting_path(request_meeting), method: :post, class: "cancel entypo-cancel-circled" %>
