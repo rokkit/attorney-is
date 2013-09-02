@@ -14,7 +14,7 @@ class Ability
           reqm.user == user && reqm.status == 1 #изменять можно, пока заявка не подтверждена
         end
         can :manage, RequestMeeting do |meeting|
-          meeting.user == user
+          meeting.user == user && meeting.status != 2
         end
         can [:show, :update], User do |u|
           u == user

@@ -6,7 +6,7 @@ AttorneyIs::Application.routes.draw do
   end
 
 
-    devise_for :users
+    devise_for :users, :controllers => {:sessions => "sessions"}
     resources :meetings do
       post 'request_for' => 'meetings#request_for_meeting', on: :member
     end

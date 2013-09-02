@@ -31,13 +31,13 @@ class User < ActiveRecord::Base
   def strip_whitespace
     self.fio = self.fio.strip
   end
-  # before_validation :set_password, on: :create
-  # 
-  # private 
-  #   def set_password
-  #     o =  [('a'..'z'), ('A'..'Z'), (0..9)].map{|i| i.to_a}.flatten
-  #     self.password = self.password_confirmation = (0..16).map{ o[rand(o.length)] }.join if self.password.blank?
-  #     RegistrationMailer.welcome(user, generated_password).deliver
-  #   end
+   before_validation :set_password, on: :create
+   
+   private 
+     def set_password
+       o =  [('a'..'z'), ('A'..'Z'), (0..9)].map{|i| i.to_a}.flatten
+       self.password = self.password_confirmation = (0..16).map{ o[rand(o.length)] }.join if self.password.blank?
+       RegistrationMailer.welcome(user, generated_password).deliver
+     end
   # attr_accessible :title, :body
 end
