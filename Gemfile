@@ -16,6 +16,7 @@ group :development, :test do
   gem "factory_girl_rails"
 end
 
+gem 'thin'
 group :test do
   gem "email_spec"
   gem "database_cleaner"
@@ -49,6 +50,8 @@ gem 'compass', '>= 0.12.2'
 gem 'compass-rails', '>= 1.0.3'
 gem "susy"
 gem "sassy-buttons"
+
+gem 'jquery-datatables-rails', git: 'git://github.com/rweng/jquery-datatables-rails.git'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

@@ -1,8 +1,9 @@
 <h1>Заявка на заседания</h1>
 
-<table id="show-meeting-requests">
+<table id="show-meeting-requests" class="table table-hover">
   <thead>
     <tr>
+      <th>Дата</th>
       <th>Адвокат</th>
       <th>Заседание</th>
       <th>Статус</th>
@@ -11,9 +12,11 @@
       <% end %>
     </tr>
   </thead>
-<% @request_meetings.each do |request_meeting| %>
   <tbody>
-    <tr class="<%= cycle("odd", "even") %>">
+
+<% @request_meetings.each do |request_meeting| %>
+  <tr>
+      <td><%= request_meeting.meeting.will_be_on.strftime("%Y-%m-%d") %></td>
       <td><%= request_meeting.user %></td>
       <td><%= request_meeting.meeting %></td>
       <td class="status"><%= status request_meeting.status %></td>
@@ -24,11 +27,11 @@
          <% end %>
       <% if can? :manage, :all and request_meeting.status != 2%>
         | <%= link_to 'Подтвердить', approve_request_meeting_path(request_meeting), method: :post, class: "approve entypo-check" %>
-        | <%= link_to 'Отменить', cancel_request_meeting_path(request_meeting), method: :post, class: "cancel entypo-cancel-circled" %>
         | <%= link_to 'Исправить', edit_request_meeting_path(request_meeting), class: "edit entypo-pencil" %>
       <% end %>
       </td>
     </tr>
-  </tbody>
+
 <% end %>
+  </tbody>
 </table>

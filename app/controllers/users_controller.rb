@@ -81,7 +81,7 @@ class UsersController < ApplicationController
     @user.destroy
 
     respond_to do |format|
-      format.html { redirect_to users_url }
+      format.html { redirect_to users_url, notice: 'Адвокат исключён из системы' }
       format.json { head :no_content }
     end
   end
