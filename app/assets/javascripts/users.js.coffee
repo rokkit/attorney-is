@@ -52,3 +52,6 @@ jQuery ->
             sGroupBy: "year"
             bHideGroupingColumn: false
             sGroupingClass: "info"
+
+jQuery ->
+  $('.best_in_place').best_in_place()

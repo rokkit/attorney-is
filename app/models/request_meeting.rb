@@ -14,11 +14,13 @@ class RequestMeeting < ActiveRecord::Base
   end
   
   def approve!
-    self.status = 2 #заявка подтвержена администратором
-    self.meeting.user = self.user
-    self.meeting.save!
-    if save!
-      inform "Вы включены в график дежурств на #{self.meeting.will_be_at}"
+    if self.user.decrement_request_limit()
+      self.status = 2 #заявка подтвержена администратором
+      self.meeting.user = self.user
+      self.meeting.save!
+      if save!
+        inform "Вы включены в график дежурств на #{self.meeting.will_be_at}"
+      end
     end
   end
 

@@ -33,7 +33,7 @@
     <% end %>
 </div>
 <% if can? :manage, :all %>
-<%= link_to "Добавить дежурство на произвольную дату", new_meeting_path,remote: true, class: "add-meeting-any-date entypo-plus-circled",data: {toggle: 'modal', target: '#modal-window'} %>
+  <%= link_to raw("<i class='icon-plus-sign'></i>Добавить дежурство на произвольную дату"), new_meeting_path,remote: true, class: "add-meeting-any-date",data: {toggle: 'modal', target: '#modal-window'} %>
 <% end %>
 
 <div class="modal hide fade" id="modal-window">

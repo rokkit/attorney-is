@@ -12,9 +12,11 @@ class User < ActiveRecord::Base
   :register_number,
   :phone,
   :address,
-  :admin
+  :admin,
+  :request_limit
   
-  validates :email, :fio, :register_number, :phone, :presence => true
+  validates :email, :fio, :register_number, :phone,:request_limit, :presence => true
+  validates :request_limit, :phone, numericality: {greater_than: 0}
   before_validation :strip_whitespace 
   has_many :meetings
   has_many :request_meetings
@@ -30,6 +32,15 @@ class User < ActiveRecord::Base
 
   def strip_whitespace
     self.fio = self.fio.strip
+  end
+
+  def decrement_request_limit
+    if self.request_limit > 1
+      self.decrement! :request_limit
+      return true
+    else
+      raise Exception.new "Limit end"
+    end
   end
    before_validation :set_password, on: :create
    

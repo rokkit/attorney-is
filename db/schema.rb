@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130902082607) do
+ActiveRecord::Schema.define(:version => 20130903131933) do
 
   create_table "meetings", :force => true do |t|
     t.string   "title"
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(:version => 20130902082607) do
     t.integer  "invited_by_id"
     t.string   "invited_by_type"
     t.boolean  "change_password"
+    t.integer  "request_limit",                        :default => 3,  :null => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
