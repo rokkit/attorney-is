@@ -17,11 +17,11 @@
 <% @request_meetings.each do |request_meeting| %>
   <tr>
       <td><%= request_meeting.meeting.will_be_on.strftime("%Y-%m-%d") %></td>
-      <td><%= request_meeting.user %></td>
-      <td><%= request_meeting.meeting %></td>
+      <td><%= link_to request_meeting.user, request_meeting.user  %></td>
+      <td><%= link_to request_meeting.meeting, request_meeting.meeting  %></td>
       <td class="status"><%= status request_meeting.status %></td>
       <td class="actions">
-        <%= link_to 'Подробнее', request_meeting, class: "read-more entypo-doc-text" %>
+        <%= link_to raw('<i class="icon-align-justify"></i>Подробнее'), request_meeting, class: "read-more" %>
         <% if can? :manage, request_meeting %>
           | <%= link_to 'Отменить', cancel_request_meeting_path(request_meeting), method: :post, class: "cancel entypo-cancel-circled" %>
          <% end %>
