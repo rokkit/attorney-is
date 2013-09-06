@@ -1,4 +1,8 @@
 development:
+    ADMIN_FIO: First User
+    ADMIN_EMAIL:  indmaksim@gmail.com
+    ADMIN_PHONE: 79523707281 
+    ADMIN_PASSWORD: password
     twilio:
       from: '+12692056408'
       sid: 'ACcbedf28d420b79c50d8acba6e98bd951'

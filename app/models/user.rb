@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  rolify
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
@@ -20,10 +21,9 @@ class User < ActiveRecord::Base
   before_validation :strip_whitespace 
   has_many :meetings
   has_many :request_meetings
-  has_and_belongs_to_many :roles
   
   def admin?
-    self.admin
+    has_role? :admin
   end
   
   def to_s
@@ -46,9 +46,10 @@ class User < ActiveRecord::Base
    
    private 
      def set_password
-       o =  [('a'..'z'), ('A'..'Z'), (0..9)].map{|i| i.to_a}.flatten
-       self.password = self.password_confirmation = (0..16).map{ o[rand(o.length)] }.join if self.password.blank?
-       RegistrationMailer.welcome(user, generated_password).deliver
+       #o =  [('a'..'z'), ('A'..'Z'), (0..9)].map{|i| i.to_a}.flatten
+       generated_password = Devise.friendly_token.first(8) #(0..16).map{ o[rand(o.length)] }.join# if self.password.blank?
+       self.password = self.password_confirmation = generated_password
+        Registration.welcome(self, generated_password).deliver
+        Sms.inform self.phone, "Ваш пароль: #{generated_password}"
      end
-  # attr_accessible :title, :body
 end

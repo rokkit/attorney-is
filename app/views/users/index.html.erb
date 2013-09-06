@@ -13,10 +13,10 @@
   <tbody>
 <% @users.each do |user| %>
   <tr class="<%= cycle("odd", "even") %>">
-    <td><%= link_to user.fio, user %></td>
+    <td><%= link_to "#{user.roles.first} #{user.fio}", user %></td>
     <td><%= user.register_number %></td>
     <td><%= user.phone %></td>
-    <td><%= best_in_place user, :request_limit %></td>
+    <td><b id='edit-<%= user.id %>'>Изменить</b> <%= best_in_place user, :request_limit, activator: "#edit-#{ user.id }" %></td>
     <td><%= link_to "Исключить", user_path(user),:confirm => 'Подтвердите исключение', :method => :delete %></td>
   </tr>
 <% end %>

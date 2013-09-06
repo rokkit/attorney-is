@@ -42,6 +42,7 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'devise_invitable'
 gem 'cancan'
+gem "rolify"
 gem 'russian'
 gem 'twilio-ruby'
 
@@ -50,6 +51,7 @@ gem 'compass', '>= 0.12.2'
 gem 'compass-rails', '>= 1.0.3'
 gem "susy"
 gem "sassy-buttons"
+gem 'simple_form'
 
 gem 'jquery-datatables-rails', git: 'git://github.com/rweng/jquery-datatables-rails.git'
 gem 'best_in_place'

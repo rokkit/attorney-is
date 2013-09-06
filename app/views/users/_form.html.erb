@@ -1,4 +1,4 @@
-<%= form_for @user, html: {id: "invite"} do |f| %>
+<%= simple_form_for @user, html: {id: "invite"} do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> ошибок не позволило создать пользователя:</h2>
@@ -18,11 +18,10 @@
       <span class="add-on">+</span>
       <%= f.telephone_field :phone, class:"form-control" %>
     </div>
-    <%= f.label :register_number, "Номер реестра" %>
-    <%= f.telephone_field :register_number %>
+    <%= f.input :register_number, label: "Номер реестра" %>
   <% end %>
-  <%= f.label :email, "Почта" %>
-  <%= f.email_field :email %>
+  <%= f.input :email, label: "Почта" %>
+  <%= f.input :role_ids, :collection => Role.all, :as => :radio_buttons, :label_method => lambda {|t| t.to_s.titleize}, :label => false, :item_wrapper_class => 'inline', checked: @user.role_ids.first %>
   
   <div class="actions">
     <%= f.submit "Добавить" %>

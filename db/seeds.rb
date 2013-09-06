@@ -5,5 +5,18 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+#User.delete_all
+puts 'ROLES'
+['admin','observer', 'manager', 'attorney'].each do |role|
+  Role.find_or_create_by_name(role)
+  puts 'role: ' << role
+end
+puts 'DEFAU-LT USERS'
 User.delete_all
-u = User.create!(fio: "Admin", email:"admin@example.com", password: "password", password_confirmation: "password", admin: true, phone: 777, :register_number => 1)
+user = User.find_or_create_by_email :email => APP['ADMIN_EMAIL'].dup, :password => APP['ADMIN_PASSWORD'].dup, :password_confirmation => APP['ADMIN_PASSWORD'].dup, phone: APP['ADMIN_PHONE'], fio: APP['ADMIN_FIO'].dup, register_number: 1
+puts 'user: ' << user.fio
+#user.confirm!
+user.add_role :admin
+user.save!
+
+
