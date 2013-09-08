@@ -1,4 +1,15 @@
 AttorneyIs::Application.routes.draw do
+
+    root :to => 'pages#index'
+  devise_for :users, :controllers => {:sessions => "auth/sessions"}, path:'',path_names: {user_registration: "invited_user"}
+  post "invited_user" => "devise_invitable/registrations#create"
+  resources :domains, shallow: true do
+    resources :meetings do
+      post 'request_for' => 'meetings#request_for_meeting', on: :member
+    end
+  end
+
+
   resources :request_meetings do
     post 'approve' => 'request_meetings#approve', on: :member
     post 'confirm' => 'request_meetings#confirm', on: :member
@@ -6,16 +17,13 @@ AttorneyIs::Application.routes.draw do
   end
 
 
-    devise_for :users, :controllers => {:sessions => "sessions"}
-    resources :meetings do
-      post 'request_for' => 'meetings#request_for_meeting', on: :member
-    end
 
 
-    root :to => 'meetings#index'
-    scope :res do
-     resources :users
-   end
+
+
+    match 'pages/admin' => 'pages#admin'
+
+      resources :users
   
 
 

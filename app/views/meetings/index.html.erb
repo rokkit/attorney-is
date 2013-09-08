@@ -16,7 +16,7 @@
       <%= content_tag :span, id:"cell_#{date}" do%>
         <span class="day"><%= date.day %></span>
         <% if can? :manage, :all and @meetings_by_date[date.to_date] == nil and date>=Date.today %>
-          <%= link_to raw("<i class='icon-plus'></i>Добавить"), new_meeting_path(meeting: { will_be_on: date }), class: "add-meeting",remote: true, data: {toggle: 'modal', target: '#modal-window'}  %>
+          <%= link_to raw("<i class='icon-plus'></i>Добавить"), new_domain_meeting_path(@domain,meeting: { will_be_on: date }), class: "add-meeting",remote: true, data: {toggle: 'modal', target: '#modal-window'}  %>
         <% end %>
         <dl class="meeting-details">
         <% if @meetings_by_date[date.to_date] %>
@@ -33,7 +33,7 @@
     <% end %>
 </div>
 <% if can? :manage, :all %>
-  <%= link_to raw("<i class='icon-plus-sign'></i>Добавить дежурство на произвольную дату"), new_meeting_path,remote: true, class: "add-meeting-any-date",data: {toggle: 'modal', target: '#modal-window'} %>
+  <%= link_to raw("<i class='icon-plus-sign'></i>Добавить дежурство на произвольную дату"), new_domain_meeting_path(@domain),remote: true, class: "add-meeting-any-date",data: {toggle: 'modal', target: '#modal-window'} %>
 <% end %>
 
 <div class="modal hide fade" id="modal-window">

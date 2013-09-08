@@ -1,0 +1,10 @@
+<h1>Панель администрирования системы</h1>
+
+<h3><%= link_to "Ведомства и  учреждения", domains_path %></h3>
+<% @domains.each do |domain| %>
+  <div class="row">
+    <div class="span4 well">
+      <%= link_to domain.name, domain %>
+    </div>
+  </div>
+<% end %>

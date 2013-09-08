@@ -3,10 +3,11 @@ class MeetingsController < ApplicationController
   load_and_authorize_resource
   skip_authorize_resource :only => :request_for_meeting
   before_filter :authenticate_user!
+  before_filter :load_domain, only: [:index, :new, :create]
   # GET /meetings
   # GET /meetings.json
   def index
-    @meetings = Meeting.all
+    @meetings = @domain.meetings
     @meetings_by_date = @meetings.group_by(&:will_be_on)
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
     respond_to do |format|
@@ -47,8 +48,9 @@ class MeetingsController < ApplicationController
   # POST /meetings
   # POST /meetings.json
   def create
-    @meeting = Meeting.new(params[:meeting])
 
+    @meeting = Meeting.new(params[:meeting])
+    @meeting.domain = @domain
     respond_to do |format|
       if @meeting.save
         format.html { redirect_to @meeting, notice: 'Заседание успено добавлено' }
@@ -95,5 +97,9 @@ class MeetingsController < ApplicationController
     p[:request_meeting] = Hash.new
     p[:request_meeting][:meeting_id] = params[:id]
     redirect_to new_request_meeting_path p
+  end
+
+  def load_domain
+    @domain = Domain.find params[:domain_id]
   end
 end

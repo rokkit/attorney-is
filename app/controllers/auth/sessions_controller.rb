@@ -1,4 +1,5 @@
-class SessionsController < Devise::SessionsController
+class Auth::SessionsController < Devise::SessionsController
+
   # GET /resource/sign_in
   def new
      self.resource = build_resource(nil, :unsafe => true)

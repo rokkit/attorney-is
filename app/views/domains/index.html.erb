@@ -1,0 +1,23 @@
+<h1>Ведомтсва и учреждения</h1>
+
+<table>
+  <tr>
+    <th>Наименование</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @domains.each do |domain| %>
+  <tr>
+    <td><%= domain.name %></td>
+    <td><%= link_to 'Подробнее', domain %></td>
+    <td><%= link_to 'Редактировать', edit_domain_path(domain) %></td>
+    <td><%= link_to 'Удалить', domain, method: :delete, data: { confirm: 'Подтвердите удаление' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Добавить', new_domain_path, class: "btn" %>

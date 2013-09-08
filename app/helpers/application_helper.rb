@@ -6,4 +6,8 @@ module ApplicationHelper
       link_to link_text, link_path
     end
   end
+
+  def icon_link(icon, link_text, link_path)
+    link_to raw("<i class='#{icon}'></i> #{link_text}"), link_path
+  end
 end

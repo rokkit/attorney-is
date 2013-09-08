@@ -14,9 +14,10 @@ class User < ActiveRecord::Base
   :phone,
   :address,
   :admin,
-  :request_limit
+  :request_limit, :role_ids, :roles
   
   validates :email, :fio, :register_number, :phone,:request_limit, :presence => true
+  validates :email, uniqueness: true
   validates :request_limit, :phone, numericality: {greater_than: 0}
   before_validation :strip_whitespace 
   has_many :meetings

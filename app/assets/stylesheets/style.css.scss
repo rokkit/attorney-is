@@ -5,9 +5,9 @@
 
 //====== FONTS / ICONS
 //=== Fonts
-@import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic|PT+Sans+Narrow:400,700&subset=latin,cyrillic);
-$pt-sans-narrow: 'PT Sans Narrow';
-$pt-sans: 'PT Sans';
+/*@import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic|PT+Sans+Narrow:400,700&subset=latin,cyrillic);*/
+/*$pt-sans-narrow: 'PT Sans Narrow';*/
+/*$pt-sans: 'PT Sans';*/
 
 //=== Icons
 @import url(http://weloveiconfonts.com/api/?family=entypo);
@@ -23,11 +23,11 @@ $pt-sans: 'PT Sans';
 
 //====== MAIN STYLES
 body {
-	background-image: image-url("white_wall_hash.png");
-	margin: 0;
-	font: 13px / 1.5em $pt-sans, "Helvetica Neue", helvetica, Arial, sans-serif;
-	letter-spacing: 0.03em;
-	color: $grey;
+  background-image: image-url("white_wall_hash.png");
+  margin: 0;
+  /*font: 13px / 1.5em $pt-sans, "Helvetica Neue", helvetica, Arial, sans-serif;*/
+  /*letter-spacing: 0.03em;*/
+  /*color: $grey;*/
 }
 
 a {

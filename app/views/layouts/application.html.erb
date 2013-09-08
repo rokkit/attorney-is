@@ -8,28 +8,7 @@
 </head>
 <body>
 	<div id="page" class="container">
-		<header>
-			<nav id="main-nav">
-				<ul>
-          <li>
-          <%= link_to "Профиль: #{current_user}", current_user %>
-          </li>
-        
-					<li><%= nav_link "Заседания", meetings_path %></li>
-					<li><%= nav_link "Заявки на заседания", request_meetings_path %></li>
-          <% if can? :manage, :all %>
-					  <li><%= nav_link "Адвокаты", users_path %></li>
-          <% end %>
-          <li>
-					<% if user_signed_in? %>
-						<%= link_to "Выход", destroy_user_session_path, method: :delete %>
-					<% else %>
-						<%= link_to "Войти", new_user_session_path %>
-					<% end %>
-					</li>
-				</ul>
-			</nav>
-		</header>
+    <%= render "layouts/header" if user_signed_in? %>
 
 		<section id="content">
 			<% unless notice.nil? %>

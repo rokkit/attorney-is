@@ -1,0 +1,13 @@
+
+<p>
+  <h3><%= @domain.name %></h3>
+  </p>
+    <ul>
+      <li><%= link_to raw("<i class='icon-calendar'></i> Календарь"), domain_meetings_path(@domain), class: "btn" %></li>
+      <li></li>
+      <li></li>
+    </ul>
+
+
+<%= link_to 'Редактировать', edit_domain_path(@domain) %> |
+<%= link_to 'Назад', domains_path %>
