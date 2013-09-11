@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   :phone,
   :address,
   :admin,
-  :request_limit, :role_ids, :roles
+  :request_limit, :role_ids, :roles, :attorney_formation, :attorney_consult 
   
   validates :email, :fio, :register_number, :phone,:request_limit, :presence => true
   validates :email, uniqueness: true
@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
   has_many :request_meetings
   
   def admin?
-    has_role? :admin
+    has_role? :admin || has_role?(:observer)
   end
   
   def to_s

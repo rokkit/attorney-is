@@ -1,13 +1,12 @@
-<h3><%= @domain.name %></h3>
-
-<p>
   <h3><%= @domain.try :name %></h3>
-  </p>
 <div class="row well-menu">
   <div class="well span4"><%= link_to raw("<i class='icon-calendar'></i> Судебные заседания"), domain_meetings_path(@domain) %></div>
   <div class="well span4"><%= link_to raw("<i class='icon-user'></i> Адвокаты"), users_path(dom: @domain) %></div>
   <div class="well span4"><%= link_to raw("<i class='icon-question-sign'></i> Заявки на заседания"), request_meetings_path(dom: @domain) %></div>
 </div>
 
-<%= link_to 'Редактировать', edit_domain_path(@domain) %> |
+<% if current_user.admin? %>
+  <%= link_to 'Редактировать', edit_domain_path(@domain) %> 
+<% end %>
+  |
 <%= link_to 'Назад', domains_path %>

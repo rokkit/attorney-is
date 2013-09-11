@@ -14,6 +14,8 @@
 	<div class="actions">
 		<% if can? :request, @meeting %>
 		    <%= link_to 'Подать заявку', request_for_meeting_path, method: :post, class: "btn make-request entypo-user-add" %>
+      <% elsif current_user.admin? %>
+		    <%= link_to 'Подать заявку', request_for_meeting_path, method: :post, class: "btn make-request entypo-user-add" %>
 		<% end %>
 		<% if can? :manage, :all %>
 			| <%= link_to 'Изменить', edit_meeting_path(@meeting), class: "btn edit entypo-pencil" %>

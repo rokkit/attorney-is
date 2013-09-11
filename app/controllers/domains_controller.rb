@@ -5,7 +5,7 @@ class DomainsController < ApplicationController
   # GET /domains
   # GET /domains.json
   def index
-    if current_user.admin?
+    if can? :read, :all
      @domains = Domain.all
     else
      @domains = current_user.roles.map { |role| Domain.find role.resource_id unless role.resource_id.nil? }.compact

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130911141628) do
+ActiveRecord::Schema.define(:version => 20130911205208) do
 
   create_table "domains", :force => true do |t|
     t.string   "name"
@@ -84,6 +84,8 @@ ActiveRecord::Schema.define(:version => 20130911141628) do
     t.string   "invited_by_type"
     t.boolean  "change_password"
     t.integer  "request_limit",                        :default => 3,  :null => false
+    t.string   "attorney_formation"
+    t.string   "attorney_consult"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

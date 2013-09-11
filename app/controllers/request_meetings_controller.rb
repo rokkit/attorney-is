@@ -11,6 +11,8 @@ class RequestMeetingsController < ApplicationController
       if params[:dom].present?
         @request_meetings = RequestMeeting.includes(:meeting).where(meetings: { domain_id: params[:dom] }) 
         @domain = Domain.find params[:dom]
+      else
+        @request_meetings = RequestMeeting.all
       end
     else 
       @request_meetings = current_user.request_meetings

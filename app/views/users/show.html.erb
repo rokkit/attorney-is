@@ -1,25 +1,25 @@
-<dl class="dl-horizontal">
-  <dt><%= @user.roles.first %></dt>
-  <dd><%= @user.fio %></dd>
-  <dt>Телефон</dt>
-  <dd><%= @user.phone %></dd>
-  <dt>Почта</dt>
-  <dd><%= @user.email %></dd>
-  <dt>Подано заявлений (всего)</dt>
-  <dd><%= @user.request_meetings.count %></dd>
-</dl>
+<div class="well">
+<ul>
+  <ul><%= @user.roles.first %> <%= @user.fio %></ul>
+  <ul>Телефон: <%= @user.phone %></ul>
+  <ul>Почта: <%= @user.email %></ul>
+  <ul>Наименование адвокатского образования: <%= @user.attorney_formation %></ul>
+  <ul>Наименование адвокатской консультации: <%= @user.attorney_consult %></ul>
+  <ul>Подано заявлений (всего): <%= @user.request_meetings.count %></ul>
+</ul>
 <h3>Доступ открыт к следующим ресурсам:</h3>
 <ul>
   <% @user.roles.each do |role| %>
     <% if role.resource_type %>
-    <li>
-      <%= "#{role.resource_type.constantize.find(role.resource_id).try(:name)}" %>
+      <li>
+        <%= "#{role.resource_type.constantize.find(role.resource_id).try(:name)}" %>
       </li>
     <% end %>
   <% end %>
 </ul>
 <div class="actions">
-  <%= link_to "Изменить пароль", edit_user_registration_path if @user == current_user %>
-	<%= link_to 'Редактировать', edit_user_path(@user), class: "btn" %> |
+  <%= link_to "Изменить пароль", edit_user_registration_path, class: 'btn' if @user == current_user %>
+	<%= link_to 'Редактировать', edit_user_path(@user), class: "btn" if can? :update, @user %> |
 	<%= link_to 'Назад', users_path, class: "btn back entypo-left-open-big" %>
+</div>
 </div>

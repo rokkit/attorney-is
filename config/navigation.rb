@@ -63,9 +63,8 @@ navigation.autogenerate_item_ids = false
     # primary.auto_highlight = false
       # primary.item :home, 'Адвокатская палата Санкт-Петербурга', root_path, class: 'site-name'
       if user_signed_in?
-        primary.item :user, current_user, class: "pull-right" do |user_actions|
-          user_actions.item :logout, "Выход", destroy_user_session_path, method: :delete
-        end
+        primary.item :user, current_user.to_s,root_path, class: "pull-right"
+        primary.item :logout, raw("<i class='icon-off'></i> Выход"), destroy_user_session_path, method: :delete, class: "pull-right"
       else
         primary.item :login, "Войти в систему", new_user_session_path, class: "pull-right"
       end

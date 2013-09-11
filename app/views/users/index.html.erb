@@ -18,9 +18,9 @@
     <td><%= user.register_number %></td>
     <td><%= user.phone %></td>
     <td><b id='edit-<%= user.id %>'>Изменить</b> <%= best_in_place user, :request_limit, activator: "#edit-#{ user.id }" %></td>
-    <td><%= link_to "Исключить", user_path(user),:confirm => 'Подтвердите исключение', :method => :delete %></td>
+    <td><%= link_to "Исключить", user_path(user),:confirm => 'Подтвердите исключение', :method => :delete if can? :manage, :all %></td>
   </tr>
 <% end %>
 </tbody>
 </table>
-<%= link_to raw('<i class="icon-user"></i> Добавить адвоката'), new_user_path, class: "btn approve" %>
+<%= link_to raw('<i class="icon-user"></i> Добавить адвоката'), new_user_path, class: "btn" if can? :manage, :all %>

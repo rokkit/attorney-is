@@ -71,14 +71,15 @@ class UsersController < ApplicationController
       if params[:domain].present?
         domains = params[:domain].keys
         domains.each do |domain|
-          p Domain.find(domain.to_i)
           @user.grant :attorney, Domain.find(domain.to_i)
         end
         @user.roles.each do |user_role|
           unless domains.include? user_role.resource_id.to_s
-            user_role.destroy
+            user_role.destroy if user_role.resource_id.present?
           end
         end
+      else
+        @user.roles.each {|r| r.destroy if r.resource_id.present? }
       end
     end
     respond_to do |format|
