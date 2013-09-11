@@ -67,14 +67,18 @@ class UsersController < ApplicationController
   # PUT /users/1.json
   def update
     @user = User.find(params[:id])
+    respond_to do |format|
+      if @user.update_attributes(params[:user])
     if current_user.admin?
       if params[:domain].present?
         domains = params[:domain].keys
         domains.each do |domain|
           @user.grant :attorney, Domain.find(domain.to_i)
+          @user.save
         end
         @user.roles.each do |user_role|
           unless domains.include? user_role.resource_id.to_s
+            puts "delete role #{user_role.id}"
             user_role.destroy if user_role.resource_id.present?
           end
         end
@@ -82,8 +86,7 @@ class UsersController < ApplicationController
         @user.roles.each {|r| r.destroy if r.resource_id.present? }
       end
     end
-    respond_to do |format|
-      if @user.update_attributes(params[:user])
+
         format.html { redirect_to @user, notice: 'Аккаунт успешно обновлен' }
         format.json { render json: @user }
       else
