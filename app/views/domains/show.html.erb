@@ -1,12 +1,8 @@
+<h3><%= @domain.name %></h3>
 
-<p>
-  <h3><%= @domain.name %></h3>
-  </p>
-<div class="row">
+<div class="row well-menu">
   <div class="well span4"><%= link_to raw("<i class='icon-calendar'></i> Судебные заседания"), domain_meetings_path(@domain) %></div>
   <div class="well span4"><%= link_to raw("<i class='icon-user'></i> Адвокаты"), users_path(dom: @domain) %></div>
-</div>
-<div class="row">
   <div class="well span4"><%= link_to raw("<i class='icon-question-sign'></i> Заявки на заседания"), request_meetings_path(dom: @domain) %></div>
 </div>
 
