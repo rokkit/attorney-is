@@ -15,7 +15,14 @@
     <%= f.label :name, "Наименование" %><br />
     <%= f.text_field :name %>
   </div>
-
+  <div class="field">
+    <%= f.label :address, "Адрес" %><br />
+    <%= f.text_area :address, cols: 40, rows:5 %>
+  </div>
+  <div class="field">
+    <%= f.label :phone, "Телефон" %><br />
+    <%= f.text_field :phone %>
+  </div>
   <div class="actions">
     <%= f.submit "Готово" %>
   </div>
