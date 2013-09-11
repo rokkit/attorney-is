@@ -1,8 +1,7 @@
-<h3><%= link_to "Ведомства и  учреждения", domains_path %></h3>
-<% @domains.each do |domain| %>
-  <div class="row">
-    <div class="span4 well">
-      <%= link_to domain.name, domain %>
-    </div>
-  </div>
-<% end %>
+<div class="row">
+  <div class="well span4"><%= link_to raw("<i class='icon-inbox'></i> Ведомства и  учреждения"), domains_path %></div>
+  <div class="well span4"><%= link_to raw("<i class='icon-user'></i> Адвокаты"), users_path %></div>
+</div>
+<div class="row">
+  <div class="well span4"><%= link_to raw("<i class='icon-question-sign'></i> Заявки на заседания"), request_meetings_path %></div>
+</div>

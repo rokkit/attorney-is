@@ -1,8 +1,8 @@
 <h1>
   <% if current_user.admin? %>
-    Добавление дежурств
+    Судебные заседания
   <% else %>
-    Запись на дежурства
+    Запись на cудебные заседания
   <% end %>
 </h1>
 <div id="meetings">
@@ -22,7 +22,7 @@
         <% if @meetings_by_date[date.to_date] %>
               
                 <% @meetings_by_date[date].each do |meeting| %>
-                  <dt><%= link_to "Дежурство #{meeting.will_be_at.try { |d| d.strftime('%H:%M')} }", meeting, class: (meeting.user.nil? ? "avaible" : "not_avaible" ) ,remote: true, data: {toggle: 'modal', target: '#modal-window'} %></dt>
+                  <dt><%= link_to "Судебное заседание #{meeting.will_be_at.try { |d| d.strftime('%H:%M')} }", meeting, class: (meeting.user.nil? ? "avaible" : "not_avaible" ) ,remote: true, data: {toggle: 'modal', target: '#modal-window'} %></dt>
                   <% if meeting.user  %>
                     <dd><i class="icon-user"></i> <%= meeting.user if can? :manage, :all %></dd>
                   <% end %>

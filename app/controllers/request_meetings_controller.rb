@@ -7,9 +7,14 @@ class RequestMeetingsController < ApplicationController
   # GET /request_meetings
   # GET /request_meetings.json
   def index
-
-    @request_meetings = RequestMeeting.all if current_user.admin?
-    @request_meetings = current_user.request_meetings unless current_user.admin?
+    if current_user.admin?
+      if params[:dom].present?
+        @request_meetings = RequestMeeting.includes(:meeting).where(meetings: { domain_id: params[:dom] }) 
+        @domain = Domain.find params[:dom]
+      end
+    else 
+      @request_meetings = current_user.request_meetings
+    end
 
     respond_to do |format|
       format.html # index.html.erb

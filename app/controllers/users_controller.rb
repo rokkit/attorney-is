@@ -7,8 +7,11 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
-
+    if params[:dom].present?
+      User.with_any_role :attorney, resource: Domain.find(params[:dom])
+    else
+      @users = User.all
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @users }
