@@ -61,7 +61,7 @@ navigation.autogenerate_item_ids = false
 
     # You can turn off auto highlighting for a specific level
     # primary.auto_highlight = false
-      primary.item :home, 'Адвокатская палата Санкт-Петербурга', root_path
+      # primary.item :home, 'Адвокатская палата Санкт-Петербурга', root_path, class: 'site-name'
       if user_signed_in?
         primary.item :user, current_user, class: "pull-right" do |user_actions|
           user_actions.item :logout, "Выход", destroy_user_session_path, method: :delete
