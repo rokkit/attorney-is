@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
   end
   
   def to_s
-    fio
+    "#{roles.first} #{fio}"
   end
 
   def strip_whitespace

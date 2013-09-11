@@ -1,4 +1,7 @@
 class DomainsController < ApplicationController
+
+  before_filter :authenticate_user!
+
   # GET /domains
   # GET /domains.json
   def index

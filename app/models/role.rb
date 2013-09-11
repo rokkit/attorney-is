@@ -11,7 +11,7 @@ class Role < ActiveRecord::Base
     when "observer"
       "Наблюдатель"
     when "manager"
-      "Усправляющий"
+      "Управляющий"
     when "attorney"
       "Адвокат"
     else

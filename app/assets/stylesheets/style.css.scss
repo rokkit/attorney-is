@@ -10,7 +10,7 @@
 /*$pt-sans: 'PT Sans';*/
 
 //=== Icons
-@import url(http://weloveiconfonts.com/api/?family=entypo);
+/*@import url(http://weloveiconfonts.com/api/?family=entypo);*/
 
 /* entypo */
 [class*="entypo-"] {
@@ -25,6 +25,7 @@
 body {
   background-image: image-url("white_wall_hash.png");
   margin: 0;
+  padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
   /*font: 13px / 1.5em $pt-sans, "Helvetica Neue", helvetica, Arial, sans-serif;*/
   /*letter-spacing: 0.03em;*/
   /*color: $grey;*/

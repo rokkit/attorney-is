@@ -1,27 +1,7 @@
-		<header>
-			<nav id="main-nav">
-				<ul>
-          <li>
-          <%= link_to "Профиль: #{current_user}", root_path %>
-          </li>
-        
-          <li>
-          <% if current_user.has_role? :admin %>
-            <%= nav_link raw("<i class='icon-calendar'></i> Заседания"), domains_path %>
-          <% else %>
-          <% end %>
-          </li>
-					<li><%= nav_link raw("<i class='icon-question-sign'></i> Заявки на заседания"), request_meetings_path %></li>
-          <% if can? :manage, :all %>
-            <li><%= nav_link raw("<i class='icon-user'></i> Адвокаты"), users_path %></li>
-          <% end %>
-          <li>
-					<% if user_signed_in? %>
-						<%= link_to "Выход", destroy_user_session_path, method: :delete %>
-					<% else %>
-						<%= link_to "Войти", new_user_session_path %>
-					<% end %>
-					</li>
-				</ul>
-			</nav>
-		</header>
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <%= render_navigation :expand_all => true, :renderer => :bootstrap %>
+    </div>
+  </div>
+</div>
