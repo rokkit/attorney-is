@@ -31,6 +31,10 @@ body {
   /*color: $grey;*/
 }
 
+div {
+	@include box-sizing(border-box);
+}
+
 a {
 	&, &:link, &:visited {
 		color: $blue;
@@ -118,9 +122,44 @@ header {
 	}
 }
 
+.navbar-inner {
+	.container {
+		position: relative;
+		.logo {
+			position: absolute;
+			left: 0;
+			top: 0;
+			a {
+				display: block;
+				background: image-url("logo.png") no-repeat top left;
+				width: 34px;
+				height: 50px;
+			}
+		}
+	}
+}
+
+//=== Well menu
+.well-menu {
+	.well {
+		text-align: center;
+		a {
+			display: block;
+			@include single-text-shadow(#fff, -1px, -1px, 0);
+			i {
+				display: block;
+				font-size: 30px;
+			}
+			&:hover {
+				text-decoration: none;
+			}
+		}
+	}
+}
+
 //====== CONTENT
 #content {
-	padding: 20px;
+	// padding: 20px;
 }
 
 //=== Misc
@@ -196,6 +235,7 @@ div.status {
 //====== FOOTER
 footer {
 	padding: 1em 0;
+	margin-top: 1em;
 	font-size: .9em;
 	border-top: 1px solid $blue;
 	.copyright {
