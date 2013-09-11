@@ -17,8 +17,8 @@
     }
 
     th {
-      background: #DDD;
-      color: #666;
+      background: lighten($blue, 0%);
+      color: #FFF;
       text-align: center;
       width: 14.2857142857143%;
     }
@@ -55,7 +55,7 @@
     font-size: .9em;
 		text-decoration: none;
 		float: right;
-    color: darken(#33CC00, 5%);
+    color: darken($blue, 5%);
 	}
 	dl {
 		font-size: .8em;

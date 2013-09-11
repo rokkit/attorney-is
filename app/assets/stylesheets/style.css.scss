@@ -118,9 +118,26 @@ header {
 	}
 }
 
+//=== Admin menu
+.admin-menu {
+	.well {
+		text-align: center;
+		a {
+			display: block;
+			i {
+				display: block;
+				font-size: 30px;
+			}
+			&:hover {
+				text-decoration: none;
+			}
+		}
+	}
+}
+
 //====== CONTENT
 #content {
-	padding: 20px;
+	// padding: 20px;
 }
 
 //=== Misc
@@ -196,6 +213,7 @@ div.status {
 //====== FOOTER
 footer {
 	padding: 1em 0;
+	margin-top: 1em;
 	font-size: .9em;
 	border-top: 1px solid $blue;
 	.copyright {
