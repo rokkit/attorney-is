@@ -29,6 +29,10 @@
 // $container-style: fluid;
 // @include border-box-sizing();
 
+div {
+	@include box-sizing(border-box);
+}
+
 // colours
 $blue: #528099;
 $grey: #333333;
