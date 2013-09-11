@@ -1,5 +1,5 @@
 <dl class="dl-horizontal">
-  <dt>ФИО</dt>
+  <dt><%= @user.roles.first %></dt>
   <dd><%= @user.fio %></dd>
   <dt>Телефон</dt>
   <dd><%= @user.phone %></dd>
@@ -8,8 +8,18 @@
   <dt>Подано заявлений (всего)</dt>
   <dd><%= @user.request_meetings.count %></dd>
 </dl>
+<h3>Доступ открыт к следующим ресурсам:</h3>
+<ul>
+  <% @user.roles.each do |role| %>
+    <% if role.resource_type %>
+    <li>
+      <%= "#{role.resource_type.constantize.find(role.resource_id).try(:name)}" %>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
 <div class="actions">
   <%= link_to "Изменить пароль", edit_user_registration_path if @user == current_user %>
-	<%= link_to 'Редактировать', edit_user_path(@user), class: "btn edit entypo-pencil" %> |
+	<%= link_to 'Редактировать', edit_user_path(@user), class: "btn" %> |
 	<%= link_to 'Назад', users_path, class: "btn back entypo-left-open-big" %>
 </div>

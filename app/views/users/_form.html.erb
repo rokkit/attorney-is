@@ -21,8 +21,12 @@
     <%= f.input :register_number, label: "Номер реестра" %>
   <% end %>
   <%= f.input :email, label: "Почта" %>
-  <%= f.input :role_ids, :collection => Role.all, :as => :radio_buttons, :label_method => lambda {|t| t.to_s.titleize}, :label => false, :item_wrapper_class => 'inline', checked: @user.role_ids.first %>
-  
+  <%= f.input :role_ids, :collection => Role.where(resource_type: nil), :as => :radio_buttons, :label_method => lambda {|t| t.to_s.titleize}, :label => false, :item_wrapper_class => 'inline', checked: @user.role_ids.first %>
+  <% Domain.all.each do |domain| -%>
+
+    <%= label_tag "domain_#{domain.id}", domain.name %>
+    <%= check_box_tag  "domain[#{domain.id}]", 1, @user.roles.any? {|role| role.resource_id == domain.id}%>
+  <% end -%>
   <div class="actions">
     <%= f.submit "Добавить" %>
   </div>

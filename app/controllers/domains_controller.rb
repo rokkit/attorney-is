@@ -5,7 +5,11 @@ class DomainsController < ApplicationController
   # GET /domains
   # GET /domains.json
   def index
-    @domains = Domain.all
+    if current_user.admin?
+     @domains = Domain.all
+    else
+     @domains = current_user.roles.map { |role| Domain.find role.resource_id unless role.resource_id.nil? }.compact
+    end
 
     respond_to do |format|
       format.html # index.html.erb

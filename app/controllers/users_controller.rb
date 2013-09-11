@@ -8,7 +8,9 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     if params[:dom].present?
-      User.with_any_role :attorney, resource: Domain.find(params[:dom])
+      @domain = Domain.find params[:dom]
+      @users = User.with_role :attorney
+      @users = @users.map { |user| user if user.has_role? :attorney, @domain }
     else
       @users = User.all
     end
@@ -65,7 +67,20 @@ class UsersController < ApplicationController
   # PUT /users/1.json
   def update
     @user = User.find(params[:id])
-
+    if current_user.admin?
+      if params[:domain].present?
+        domains = params[:domain].keys
+        domains.each do |domain|
+          p Domain.find(domain.to_i)
+          @user.grant :attorney, Domain.find(domain.to_i)
+        end
+        @user.roles.each do |user_role|
+          unless domains.include? user_role.resource_id.to_s
+            user_role.destroy
+          end
+        end
+      end
+    end
     respond_to do |format|
       if @user.update_attributes(params[:user])
         format.html { redirect_to @user, notice: 'Аккаунт успешно обновлен' }

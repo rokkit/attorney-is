@@ -1,6 +1,6 @@
 
 <p>
-  <h3><%= @domain.name %></h3>
+  <h3><%= @domain.try :name %></h3>
   </p>
 <div class="row">
   <div class="well span4"><%= link_to raw("<i class='icon-calendar'></i> Судебные заседания"), domain_meetings_path(@domain) %></div>
