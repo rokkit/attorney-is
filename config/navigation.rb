@@ -5,7 +5,7 @@ SimpleNavigation::Configuration.run do |navigation|
   # The default renderer is SimpleNavigation::Renderer::List which renders HTML lists.
   # The renderer can also be specified as option in the render_navigation call.
   # navigation.renderer = Your::Custom::Renderer
-  navigation.renderer = SimpleNavigation::Renderer::Bootstrap
+  #navigation.renderer = SimpleNavigation::Renderer::Bootstrap
 navigation.autogenerate_item_ids = false
   
 

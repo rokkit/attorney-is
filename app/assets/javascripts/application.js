@@ -12,17 +12,16 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require twitter/bootstrap
 //= require jquery.ui.datepicker
+//= require bootstrap.min
 //= require dataTables/jquery.dataTables
-//= require dataTables/jquery.dataTables.bootstrap
 //= require jquery.purr
 //= require best_in_place
 //= require_tree .
 
 // For fixed width containers
-$('.datatable').dataTable({
-  "sDom": "<'row'<'span6'l><'span6'f>r>t<'row'<'span6'i><'span6'p>>",
-  "sPaginationType": "bootstrap"
-});
+//$('.datatable').dataTable({
+  //"sDom": "<'row'<'span6'l><'span6'f>r>t<'row'<'span6'i><'span6'p>>",
+  //"sPaginationType": "bootstrap"
+//});
 

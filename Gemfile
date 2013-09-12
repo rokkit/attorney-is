@@ -34,7 +34,7 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
   gem 'jquery-ui-rails'
-  gem "twitter-bootstrap-rails"
+  #gem "twitter-bootstrap-rails"
 end
 
 gem 'jquery-rails'
@@ -45,6 +45,7 @@ gem 'cancan'
 gem "rolify"
 gem 'russian'
 gem 'twilio-ruby'
+gem 'carrierwave'
 
 # Visual stuff
 gem 'compass', '>= 0.12.2'
@@ -52,7 +53,7 @@ gem 'compass-rails', '>= 1.0.3'
 gem "susy"
 gem "sassy-buttons"
 gem 'simple_form'
-gem 'simple-navigation-bootstrap'
+gem 'simple-navigation'
 
 gem 'jquery-datatables-rails', git: 'git://github.com/rweng/jquery-datatables-rails.git'
 gem 'best_in_place'

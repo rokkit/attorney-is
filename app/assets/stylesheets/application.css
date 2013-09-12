@@ -10,10 +10,8 @@
  *
  *= require_self
  *= require jquery.ui.datepicker
+ *= require bootstrap
  *= require layout
- *= require bootstrap_and_overrides
- *= require bootstrap-modal
- *= require dataTables/jquery.dataTables.bootstrap
  *= require style
  *= require_tree .
  */
