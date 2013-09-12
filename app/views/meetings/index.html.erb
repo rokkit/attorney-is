@@ -1,10 +1,10 @@
 
 <div id="meetings">
-    
+  <%= Russian::l Time.now, format: "%a, %d %B %Y %R" %> 
     <h2 id="month">
-      <%= link_to "<", date: @date.prev_month %>
+      <%= link_to "<#{ Russian::strftime @date.prev_month, '%b'}", date: @date.prev_month %>
       <%= Russian::strftime @date,"%d %B %Y" %>
-      <%= link_to ">", date: @date.next_month %>
+      <%= link_to "#{ Russian::strftime @date.next_month, '%b'} >", date: @date.next_month %>
     </h2>
     <%= calendar @date do |date| %>
       <%= content_tag :span, id: "cell_#{date}" do%>
