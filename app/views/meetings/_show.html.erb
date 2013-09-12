@@ -1,15 +1,15 @@
 <div id="show-meeting">
 	<h3><%=  Russian::strftime @meeting.will_be_on, "%d %B %Y" %></h3>
 
+	<div class="lawyer">
+	  <h4>Назначенный адвокат:</h4>
+	  <p><%= @meeting.user || "Нет" %></p>
+	</div>
 	<div class="info">
 	  <h4>Дополнительная информация:</h4>
 	  <p><%= @meeting.content %></p>
 	</div>
 
-	<div class="lawyer">
-	  <h4>Назначенный адвокат:</h4>
-	  <p><%= @meeting.user || "Нет" %></p>
-	</div>
 
 	<div class="actions">
 		<% if can? :request, @meeting and !current_user.admin? %>
