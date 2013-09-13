@@ -2,5 +2,5 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Показать', @user, class: "btn edit" %> |
-<%= link_to 'Назад', users_path, class: "btn back entypo-left-open-big" %>
+<%= link_to 'Показать', @user %> |
+<%= link_to link_to raw("<i class='icon-chevron-left'></i> Назад"), users_path %>

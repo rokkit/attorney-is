@@ -10,25 +10,34 @@
       </ul>
     </div>
   <% end %>
-  <%= f.label :fio, "Ф.И.О" %>
-  <%= f.text_field :fio %>
-  <% if can? :manage, :all %>
-    <%= f.label :phone, "Телефон (Формат: 79210000000)" %>
-    <div class="input-prepend">
-      <span class="add-on">+</span>
-      <%= f.telephone_field :phone, class:"form-control" %>
+  <div class="row">
+    <div class="span6">
+    <%= f.label :fio, "Ф.И.О" %>
+    <%= f.text_field :fio %>
+    <% if can? :manage, :all %>
+      <%= f.label :phone, "Телефон (Формат: 79210000000)" %>
+      <div class="input-prepend">
+        <span class="add-on">+</span>
+        <%= f.telephone_field :phone, class:"form-control" %>
+      </div>
+      <%= f.input :register_number, label: "Номер реестра" %>
+    <% end %>
+    <%= f.input :email, label: "Почта" %>
+    <%= f.input :attorney_formation, label: "Наименование адвокатского образования" %>
+    <%= f.input :attorney_consult, label: "Наименование адвокатской консультации" %>
+    <%= f.input :role_ids, :collection => Role.where(resource_type: nil), :as => :radio_buttons, :label_method => lambda {|t| t.to_s.titleize}, :label => false, :item_wrapper_class => 'inline', checked: @user.role_ids.first %>
     </div>
-    <%= f.input :register_number, label: "Номер реестра" %>
-  <% end %>
-  <%= f.input :email, label: "Почта" %>
-  <%= f.input :attorney_formation, label: "Наименование адвокатского образования" %>
-  <%= f.input :attorney_consult, label: "Наименование адвокатской консультации" %>
-  <%= f.input :role_ids, :collection => Role.where(resource_type: nil), :as => :radio_buttons, :label_method => lambda {|t| t.to_s.titleize}, :label => false, :item_wrapper_class => 'inline', checked: @user.role_ids.first %>
-  <% Domain.all.each do |domain| -%>
-
-    <%= label_tag "domain_#{domain.id}", domain.name %>
-    <%= check_box_tag  "domain[#{domain.id}]", 1, @user.roles.any? {|role| role.resource_id == domain.id}%>
-  <% end -%>
+    <div class="span6">
+      <div class="row">
+        <% Domain.all.each do |domain| -%>
+          <div class="span3 user-domain">
+            <%= check_box_tag  "domain[#{domain.id}]", 1, @user.roles.any? {|role| role.resource_id == domain.id}%>
+            <%= label_tag "domain_#{domain.id}", domain.name %>
+          </div>
+        <% end -%>
+      </div>
+    </div>
+  </div>
   <div class="actions">
     <%= f.submit "Добавить" %>
   </div>

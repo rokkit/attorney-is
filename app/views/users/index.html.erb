@@ -23,4 +23,4 @@
 <% end %>
 </tbody>
 </table>
-<%= link_to raw('<i class="icon-user"></i> Добавить адвоката'), new_user_path, class: "btn" if can? :manage, :all %>
+<%= link_to raw('<i class="icon-user"></i> Добавить адвоката'), new_user_path if can? :manage, :all %>

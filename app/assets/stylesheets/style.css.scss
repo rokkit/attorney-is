@@ -165,6 +165,12 @@ header {
 				display: block;
 				letter-spacing: 3px;
 			}
+			a {
+				text-decoration: none;
+				&:hover {
+
+				}
+			}
 		}
 		.site-slogan {
 			margin: 0;
@@ -175,6 +181,24 @@ header {
 		// float: right;
 		text-align: right;
 		margin-top: 65px;
+		p {
+			margin: 0;
+		}
+		.date {
+			font-weight: 700;
+		}
+		.time {
+			border: 1px solid $blue;
+			display: inline-block;
+			padding: 3px;
+			.hour, .minute {
+				background-color: $blue;
+				display: inline-block;
+				padding: 3px;
+				font-size: 18px;
+				color: #fff;
+			}
+		}
 	}
 }
 
@@ -186,6 +210,12 @@ header {
 			text-decoration: none;
 		}
 	}
+}
+
+
+//====== CONTENT
+#content {
+	margin-top: 40px;
 }
 
 //=== SQUARES
@@ -231,9 +261,20 @@ header {
 	}
 }
 
-//====== CONTENT
-#content {
-	margin-top: 40px;
+//====== USER
+.user {
+
+}
+//=== edit form
+.user-domain {
+	overflow: hidden;
+	input {
+		float: left;
+	}
+	label {
+		float: left;
+		margin-left: 5px;
+	}
 }
 
 //=== Misc

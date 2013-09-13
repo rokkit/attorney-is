@@ -3,4 +3,4 @@
 <%= render 'form' %>
 
 <%= link_to 'Подробнее', @meeting, class: "btn" %> |
-<%= link_to 'Назад', meetings_path, class: "btn back entypo-left-open-big" %>
+<%= link_to link_to raw("<i class='icon-chevron-left'></i> Назад"), meetings_path %>

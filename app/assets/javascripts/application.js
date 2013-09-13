@@ -21,11 +21,12 @@
 //= require_tree .
 
 // For fixed width containers
-$('.datatable').dataTable({
-  "sDom": "<'row'<'span6'l><'span6'f>r>t<'row'<'span6'i><'span6'p>>",
-  "sPaginationType": "bootstrap"
-});
+jQuery(document).ready( function($) {
+	$('.datatable').dataTable({
+	  "sDom": "<'row'<'span6'l><'span6'f>r>t<'row'<'span6'i><'span6'p>>",
+	  "sPaginationType": "bootstrap"
+	});
 
-var currentDate = $.datepicker.formatDate('dd MM yy', new Date());
-$("#current-date .date").text(currentDate);
-console.log(currentDate);
+	// var currentDate = $.datepicker.formatDate('dd MM yy', new Date());
+	// $("#current-date .date").text(currentDate);
+});

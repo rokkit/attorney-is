@@ -21,5 +21,5 @@
 			| <%= link_to 'Изменить', edit_meeting_path(@meeting), class: "btn edit entypo-pencil" %>
 		<% end %>
 	</div>
-	<%= link_to 'Назад', meetings_path, class: "btn back entypo-left-open-big" %>
+	<%= link_to link_to raw("<i class='icon-chevron-left'></i> Назад"), meetings_path %>
 </div>

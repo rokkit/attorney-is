@@ -1,12 +1,12 @@
   <h3><%= @domain.try :name %></h3>
 <div class="row well-menu">
-  <div class="span4"><%= link_to raw("<i class='icon-calendar'></i> Судебные заседания"), domain_meetings_path(@domain) %></div>
-  <div class="span4"><%= link_to raw("<i class='icon-user'></i> Адвокаты"), users_path(dom: @domain) %></div>
-  <div class="span4"><%= link_to raw("<i class='icon-question-sign'></i> Заявки на заседания"), request_meetings_path(dom: @domain) %></div>
+  <div class="span4 square"><%= link_to raw("<i class='icon-calendar'></i> Судебные заседания"), domain_meetings_path(@domain) %></div>
+  <div class="span4 square"><%= link_to raw("<i class='icon-user'></i> Адвокаты"), users_path(dom: @domain) %></div>
+  <div class="span4 square"><%= link_to raw("<i class='icon-question-sign'></i> Заявки на заседания"), request_meetings_path(dom: @domain) %></div>
 </div>
 
 <% if current_user.admin? %>
   <%= link_to 'Редактировать', edit_domain_path(@domain) %> 
 <% end %>
   |
-<%= link_to 'Назад', domains_path %>
+<%= link_to link_to raw("<i class='icon-chevron-left'></i> Назад"), domains_path %>
