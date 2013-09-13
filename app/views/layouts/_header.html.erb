@@ -1,9 +1,19 @@
-<div class="navbar navbar-fixed-top">
-  <div class="navbar-inner">
-    <div class="container">
-    	<div class="logo"><a href="/">&nbsp;</a></div>
-    	<h2 class="site-name">Адвокатская палата Санкт-Петербурга</h2>
-    	<%= render_navigation :expand_all => true, :renderer => :bootstrap %>
-    </div>
-  </div>
+<div id="header">
+	<div class="row">
+		<div class="span8">
+			<div class="logo"><a href="/"><%= image_tag 'logo.jpg' %></a></div>
+			<div class="name-slogan">
+				<h2 class="site-name">Адвокатская палата <em>Санкт-Петербурга</em></h2>
+				<p class="site-slogan">Россия, 191025, Санкт- Петербург, Невский проспект, дом 53<br>
+					тел.: (812) 713- 14- 03, факс (812) 713-15- 89</p>
+			</div>
+		</div>
+		<div id="current-date" class="span3 offset1 hidden-phone">
+			<p>текущее время и дата</p>
+			<p class="date">&nbsp;</p>
+			<p class="time">&nbsp;</p>
+		</div>
+	</div>
 </div>
+
+<%= render_navigation :expand_all => true %>

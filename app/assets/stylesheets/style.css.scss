@@ -5,30 +5,29 @@
 
 //====== FONTS / ICONS
 //=== Fonts
-/*@import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic|PT+Sans+Narrow:400,700&subset=latin,cyrillic);*/
-/*$pt-sans-narrow: 'PT Sans Narrow';*/
-/*$pt-sans: 'PT Sans';*/
+// @import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic|PT+Sans+Narrow:400,700&subset=latin,cyrillic);*/
+// $pt-sans-narrow: 'PT Sans Narrow';*/
+// $pt-sans: 'PT Sans';*/
 
 //=== Icons
-/*@import url(http://weloveiconfonts.com/api/?family=entypo);*/
+// @import url(http://weloveiconfonts.com/api/?family=entypo);*/
 
 /* entypo */
-[class*="entypo-"] {
-	text-decoration: none;
-	:before {
-	  font-family: 'entypo', sans-serif;
-	  margin-right: 5px;
-	}
-}
+// [class*="entypo-"] {
+// 	text-decoration: none;
+// 	:before {
+// 	  font-family: 'entypo', sans-serif;
+// 	  margin-right: 5px;
+// 	}
+// }
 
 //====== MAIN STYLES
 body {
-  background-image: image-url("white_wall_hash.png");
+  // background-image: image-url("white_wall_hash.png");
   margin: 0;
-  padding-top: 120px; /* 60px to make the container go all the way to the bottom of the topbar */
-  /*font: 13px / 1.5em $pt-sans, "Helvetica Neue", helvetica, Arial, sans-serif;*/
+  font: 13px / 1.5em Arial, sans-serif;
   /*letter-spacing: 0.03em;*/
-  /*color: $grey;*/
+  color: $blue;
 }
 
 div {
@@ -38,6 +37,7 @@ div {
 a {
 	&, &:link, &:visited {
 		color: $blue;
+		text-decoration: underline;
 	}
 	&:hover, &:active {
 		color: lighten($blue, 20%);
@@ -92,6 +92,9 @@ h6 {
   font-weight: bold;
 }
 
+article, aside, figure, footer, header, hgroup,
+menu, nav, section { display: block; }
+
 //====== HEADER
 header {
 	overflow: hidden;
@@ -126,50 +129,111 @@ header {
 	}
 }
 
-.navbar-inner {
-	min-height: 110px;
-	.container {
-		position: relative;
-		.logo {
-			position: absolute;
-			left: 0;
-			top: 0;
-			a {
+#header {
+	position: relative;
+	border-bottom: 1px solid $blue;
+	padding: 20px 0;
+	height: 185px;
+	.logo {
+		// position: absolute;
+		// left: 0;
+		// top: 20px;
+		float: left;
+		width: 88px;
+		a {
+			display: block;
+			width: 88px;
+			height: 127px;
+			text-decoration: none;
+		}
+	}
+	.name-slogan {
+		// position: absolute;
+		// left: 100px;
+		// top: 36px;
+		float: left;
+		width: 370px;
+		text-align: center;
+		margin-top: 20px;
+		.site-name {
+			margin: 0;
+			text-transform: uppercase;
+			font-size: 30px;
+			border-bottom: 1px solid $blue;
+			em {
+				font-style: normal;
 				display: block;
-				background: image-url("logo.png") no-repeat top left;
-				width: 68px;
-				height: 100px;
+				letter-spacing: 3px;
 			}
 		}
-		.site-name {
-			position: absolute;
-			left: 80px;
-			top: 60px;
+		.site-slogan {
+			margin: 0;
+			font-size: 12px;
+		}
+	}
+	#current-date {
+		// float: right;
+		text-align: right;
+		margin-top: 65px;
+	}
+}
+
+.user-menu {
+	@include clear-nav();
+	li {
+		margin-left: 5px;
+		a {
+			text-decoration: none;
 		}
 	}
 }
 
+//=== SQUARES
+.square {
+	background-color: $blue;
+	margin-bottom: 1em;
+	color: #fff;
+	a {
+		color: #fff;
+		text-decoration: none;
+	}
+	&:hover {
+		background-color: lighten($blue, 5%);
+	}
+}
 //=== Well menu
 .well-menu {
-	.well {
+	.square {
 		text-align: center;
 		a {
+			padding: 2em 0;
 			display: block;
-			@include single-text-shadow(#fff, -1px, -1px, 0);
 			i {
 				display: block;
 				font-size: 30px;
 			}
 			&:hover {
-				text-decoration: none;
+				
 			}
+		}
+	}
+}
+
+//=== domains
+.domains {
+	.square {
+		h4, .edit-links {
+			margin: 20px;
+		}
+		.edit-links {
+			text-align: right;
 		}
 	}
 }
 
 //====== CONTENT
 #content {
-	// padding: 20px;
+	margin-top: 40px;
 }
 
 //=== Misc
@@ -224,7 +288,7 @@ div.status {
 
 //====== FOOTER
 footer {
-	padding: 1em 0;
+	padding: .5em 0;
 	margin-top: 1em;
 	font-size: .9em;
 	border-top: 1px solid $blue;

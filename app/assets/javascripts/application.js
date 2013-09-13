@@ -26,3 +26,6 @@ $('.datatable').dataTable({
   "sPaginationType": "bootstrap"
 });
 
+var currentDate = $.datepicker.formatDate('dd MM yy', new Date());
+$("#current-date .date").text(currentDate);
+console.log(currentDate);

@@ -5,8 +5,8 @@ SimpleNavigation::Configuration.run do |navigation|
   # The default renderer is SimpleNavigation::Renderer::List which renders HTML lists.
   # The renderer can also be specified as option in the render_navigation call.
   # navigation.renderer = Your::Custom::Renderer
-  navigation.renderer = SimpleNavigation::Renderer::Bootstrap
-navigation.autogenerate_item_ids = false
+  # navigation.renderer = SimpleNavigation::Renderer::Bootstrap
+# navigation.autogenerate_item_ids = false
   
 
   # Specify the class that will be applied to active navigation items. Defaults to 'selected'
@@ -68,7 +68,7 @@ navigation.autogenerate_item_ids = false
       else
         primary.item :login, "Войти в систему", new_user_session_path, class: "pull-right"
       end
-      primary.dom_class = 'nav pull-right'
+      primary.dom_class = 'user-menu pull-right'
   end
 
 end
