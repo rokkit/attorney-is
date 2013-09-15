@@ -1,5 +1,7 @@
 <div class="row well-menu">
   <div class="square span4"><%= link_to raw("<i class='icon-inbox'></i> Ведомства и  учреждения"), domains_path %></div>
+  <% if current_user.admin? %>
   <div class="square span4"><%= link_to raw("<i class='icon-user'></i> Адвокаты"), users_path %></div>
+  <% end %>
   <div class="square span4"><%= link_to raw("<i class='icon-question-sign'></i> Заявки на заседания"), request_meetings_path %></div>
 </div>
