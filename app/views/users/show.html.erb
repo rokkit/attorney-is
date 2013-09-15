@@ -1,5 +1,8 @@
 <div class="row user">
-  <div class="span6">
+	<div class="span2">
+		<%= image_tag @user.avatar.thumb.url.to_s %>
+	</div>
+  <div class="span4">
     <dl>
       <dt><%= @user.roles.first %></dt><dd><%= @user.fio %></dd>
       <dt>Телефон:</dt><dd><%= @user.phone %></dd>

@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   :phone,
   :address,
   :admin,
-  :request_limit, :role_ids, :roles, :attorney_formation, :attorney_consult 
+  :request_limit, :role_ids, :roles, :attorney_formation, :attorney_consult, :avatar
   
   validates :email, :fio, :register_number, :phone,:request_limit, :presence => true
   validates :email, uniqueness: true
@@ -22,6 +22,8 @@ class User < ActiveRecord::Base
   before_validation :strip_whitespace 
   has_many :meetings
   has_many :request_meetings
+  
+  mount_uploader :avatar, AvatarUploader
   
   def admin?
     has_role? :admin || has_role?(:observer)
