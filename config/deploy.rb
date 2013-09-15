@@ -18,7 +18,7 @@ set :deploy_via, :remote_cache
 
 # if you want to clean up old releases on each deploy uncomment this:
  after "deploy:restart", "deploy:cleanup"
-
+  
 # if you're still using the script/reaper helper you will need
 # these http://github.com/rails/irs_process_scripts
 
@@ -35,3 +35,11 @@ set :default_environment, {
   'RBENV_ROOT' => "$HOME/.rbenv/",
   'PATH' => "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
 }
+desc "Fix permission"
+task :fix_permissions, :roles => [ :app, :db, :web ] do
+  run "#{try_sudo} chmod 777 -R #{current_path}/log"
+  run "#{try_sudo} chmod 777 -R #{current_path}/tmp"
+  run "#{try_sudo} chmod 777 -R #{current_path}/public"
+end
+
+after "deploy:update_code", :fix_permissions
