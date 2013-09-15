@@ -9,6 +9,7 @@ group :development do
 end
 group :production do
   gem 'mysql2'
+  gem 'rmagick'
 end
 
 group :development, :test do
