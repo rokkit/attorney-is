@@ -1,6 +1,5 @@
 
 <div id="meetings">
-    <b><%= Russian::l Time.now, format: "%a, %d %B %Y %R" %> </b>
   <h2 id="month">
     <%= link_to "<#{ Russian::strftime @date.prev_month, '%b'}", date: @date.prev_month %>
       <%= Russian::strftime @date,"%d %B %Y" %>
