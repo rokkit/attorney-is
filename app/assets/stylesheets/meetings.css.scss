@@ -12,13 +12,13 @@
     width: 100%;
 
     td, th {
-      padding: 6px;
-      border: 1px solid #999;
+      border: 1px solid lighten($blue, 30%);
     }
 
     th {
       background: lighten($blue, 0%);
       color: #FFF;
+      padding: 6px;
       text-align: center;
       width: 14.2857142857143%;
     }
@@ -26,13 +26,14 @@
     td {
       background: #FFF;
       color: #777;
-      height: 80px;
+      padding: 3px;
+      height: 70px;
       vertical-align: top;
       font-size: 16px;
     }
 
     .notmonth, .notmonth a { color: #CCC; }
-    .today { background-color: #d9ffd8; }
+    //.today { background-color: #d9ffd8; }
   }
   #month {
     margin: 0;
@@ -60,6 +61,7 @@
 	dl {
 		font-size: .8em;
     margin-top: 2em;
+    margin-bottom: 5px;
 		// padding-left: 20px;
 		dt {
       margin-bottom: 2px;
@@ -69,8 +71,8 @@
         padding: 0 3px;
         @include border-radius(3px);
 				&.avaible {
-				    background-color: $edit;
-				    color: #000;
+				    background-color: lighten($blue, 0%); //$edit;
+				    color: #FFF;
 				}
 				&.not_avaible {
 				    background-color: $cancel;

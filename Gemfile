@@ -9,7 +9,6 @@ group :development do
 end
 group :production do
   gem 'mysql2'
-  gem 'rmagick'
 end
 
 group :development, :test do
@@ -17,6 +16,7 @@ group :development, :test do
   gem "factory_girl_rails"
 end
 
+  gem 'rmagick'
 gem 'thin'
 group :test do
   gem "email_spec"

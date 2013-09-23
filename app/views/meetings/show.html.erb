@@ -16,7 +16,8 @@
 		    <%= link_to 'Подать заявку', request_for_meeting_path, method: :post, class: "make-request entypo-user-add" %> |
 		<% end %>
 		<% if can? :manage, :all %>
-			<%= link_to 'Изменить', edit_meeting_path(@meeting), class: "edit entypo-pencil" %>
+
+			| <%= link_to 'Изменить', edit_meeting_path(@meeting), class: "" %>
 		<% end %>
 	</div>
 </div>

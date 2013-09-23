@@ -12,7 +12,7 @@
 //=== Icons
 // @import url(http://weloveiconfonts.com/api/?family=entypo);*/
 
-/* entypo */
+// /* entypo */
 // [class*="entypo-"] {
 // 	text-decoration: none;
 // 	:before {
@@ -26,7 +26,7 @@ body {
   // background-image: image-url("white_wall_hash.png");
   margin: 0;
   font: 13px / 1.5em Arial, sans-serif;
-  /*letter-spacing: 0.03em;*/
+  // letter-spacing: 0.03em;
   color: $blue;
 }
 
@@ -37,10 +37,10 @@ div {
 a {
 	&, &:link, &:visited {
 		color: $blue;
-		text-decoration: underline;
 	}
 	&:hover, &:active {
-		color: lighten($blue, 20%);
+		color: $blue; //lighten($blue, 20%);
+		text-decoration: underline;
 	}
 }
 
@@ -134,72 +134,81 @@ header {
 	border-bottom: 1px solid $blue;
 	padding: 20px 0;
 	height: 185px;
-	.logo {
-		// position: absolute;
-		// left: 0;
-		// top: 20px;
-		float: left;
-		width: 88px;
-		a {
-			display: block;
+	.branding{
+		width: 470px;
+		margin: 0 auto;
+		.logo {
+			// position: absolute;
+			// left: 0;
+			// top: 20px;
+			float: left;
 			width: 88px;
-			height: 127px;
-			text-decoration: none;
-		}
-	}
-	.name-slogan {
-		// position: absolute;
-		// left: 100px;
-		// top: 36px;
-		float: left;
-		width: 370px;
-		text-align: center;
-		margin-top: 20px;
-		.site-name {
-			margin: 0;
-			text-transform: uppercase;
-			font-size: 30px;
-			border-bottom: 1px solid $blue;
-			em {
-				font-style: normal;
-				display: block;
-				letter-spacing: 3px;
-			}
 			a {
+				display: block;
+				width: 88px;
+				height: 127px;
 				text-decoration: none;
-				&:hover {
+			}
+		}
+		.name-slogan {
+			// position: absolute;
+			// left: 100px;
+			// top: 36px;
+			float: left;
+			width: 370px;
+			text-align: center;
+			margin-top: 20px;
+			.site-name {
+				margin: 0;
+				text-transform: uppercase;
+				font-size: 2.2em;
+				border-bottom: 1px solid $blue;
+				em {
+					font-style: normal;
+					display: block;
+					letter-spacing: 3px;
+				}
+				a {
+					text-decoration: none;
+					&:hover {
 
+					}
 				}
 			}
-		}
-		.site-slogan {
-			margin: 0;
-			font-size: 12px;
-		}
-	}
-	#current-date {
-		// float: right;
-		text-align: right;
-		margin-top: 65px;
-		p {
-			margin: 0;
-		}
-		.date {
-			font-weight: 700;
-		}
-		.time {
-			border: 1px solid $blue;
-			display: inline-block;
-			padding: 3px;
-			.hour, .minute {
-				background-color: $blue;
-				display: inline-block;
-				padding: 3px;
-				font-size: 18px;
-				color: #fff;
+			.site-slogan {
+				margin: 0;
+				font-size: 12px;
 			}
 		}
 	}
+}
+
+#current-date {
+	float: left;
+	// margin-top: 65px;
+	p {
+		margin: 0;
+		float: left;
+		&.date, &.time {
+			margin-left: .5em;
+			font-weight: 700;
+		}
+	}
+	// .date {
+	// 	font-weight: 700;
+	// }
+	// .time {
+	// 	border: 1px solid $blue;
+	// 	display: inline-block;
+	// 	padding: 3px;
+	// 	.hour, .minute {
+	// 		background-color: $blue;
+	// 		display: inline-block;
+	// 		padding: 3px;
+	// 		font-size: 18px;
+	// 		color: #fff;
+	// 	}
+	// }
 }
 
 .user-menu {
@@ -220,23 +229,27 @@ header {
 
 //=== SQUARES
 .square {
-	background-color: $blue;
+	// background-color: $blue;
 	margin-bottom: 1em;
-	color: #fff;
+	// color: #fff;
+	border:1px solid $blue;
 	a {
-		color: #fff;
+		color: $blue;
 		text-decoration: none;
 	}
 	&:hover {
-		background-color: lighten($blue, 5%);
+		a {
+			// background-color: lighten($blue, 55%);
+		}
 	}
 }
+
 //=== Well menu
 .well-menu {
 	.square {
 		text-align: center;
 		a {
-			padding: 2em 0;
+			padding: 1em 0;
 			display: block;
 			i {
 				display: block;
@@ -252,7 +265,14 @@ header {
 //=== domains
 .domains {
 	.square {
-		h4, .edit-links {
+		h4 {
+			margin: 0;
+			a {
+				display: block;
+				padding: 20px;
+			}
+		}
+		.edit-links {
 			margin: 20px;
 		}
 		.edit-links {
@@ -326,6 +346,29 @@ div.status {
 		@include sassy-button-gradient("matte", lighten($cancel, 10%), $cancel, #fff);
 	}
 }
+
+//====== BOOTSTRAP OVERRIDE
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+.uneditable-input,
+.input-append .add-on,
+.input-prepend .add-on {
+	border: 1px solid $blue;
+}
+
 
 //====== FOOTER
 footer {

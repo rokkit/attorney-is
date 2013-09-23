@@ -4,7 +4,7 @@
 	  <h4>Назначенный адвокат:</h4>
 	  <p><%= @meeting.user || "Нет" %></p>
 	</div>
-	<div class="info">
+	<div class="dop-info">
 	  <h4>Дополнительная информация:</h4>
 	  <p><%= @meeting.content %></p>
 	</div>
@@ -17,6 +17,7 @@
 		<% if can? :manage, :all %>
 			<%= link_to 'Изменить', edit_meeting_path(@meeting), class: "edit entypo-pencil" %>
 			<%= link_to 'Снять адвоката с дежурства', request_meeting_path(RequestMeeting.where(user_id: @meeting.user, meeting_id: @meeting).first) if @meeting.user.present? %>
+
 		<% end %>
 	</div>
 </div>
