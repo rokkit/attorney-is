@@ -24,10 +24,10 @@ class User < ActiveRecord::Base
   has_many :request_meetings
   
   mount_uploader :avatar, AvatarUploader
-  
   def admin?
     has_role? :admin || has_role?(:observer)
   end
+  
   
   def to_s
     "#{roles.first} #{fio}"

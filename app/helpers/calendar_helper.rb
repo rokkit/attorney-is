@@ -1,4 +1,34 @@
 module CalendarHelper
+  
+  def russian_month month
+    case month
+      when 01
+        "Январь"
+      when 02
+        "Ферваль"
+      when 03
+        "Март"
+      when 04
+        "Апрель"
+      when 05
+        "Май"
+      when 06
+        "Июнь"
+      when 07
+        "Июль"
+      when '08'
+        "Август"
+      when '09'
+        "Сентябрь"
+      when 10
+        "Октябрь"
+      when 11
+        "Ноябрь"
+      when 12
+        "Декабрь"
+    end
+  end
+  
   def calendar(date = Date.today, &block)
     Calendar.new(self, date, block).table
   end
