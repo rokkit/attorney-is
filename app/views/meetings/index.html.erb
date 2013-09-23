@@ -8,7 +8,7 @@
     <%= calendar @date do |date| %>
       <%= content_tag :span, id: "cell_#{date}" do%>
         <span class="day"><%= date.day %></span>
-        <% if can? :manage, :all and @meetings_by_date[date.to_date] == nil and date>=Date.today %>
+        <% if can? :manage, :all and @meetings_by_date[date.to_date] == nil #and date>=Date.today %>
           <%= link_to raw("<i class='icon-plus'></i> Добавить"), new_domain_meeting_path(@domain,meeting: { will_be_on: date }), class: "add-meeting",remote: true, data: {toggle: 'modal', target: '#modal-window'}  %>
         <% end %>
         <dl class="meeting-details">
