@@ -1,0 +1,18 @@
+<h1>Участвовал в</h1>
+<table class="table">
+  <thead>
+  <tr>
+    <th>Дата</th>
+    <th>Учреждение</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+<% @meetings.each do |meeting| %>
+<tr>
+	<td><%= meeting.will_be_on %><td>
+		<td><%= meeting.domain.try :name %></td>
+</tr>
+<% end %>
+</tbody>
+</table>

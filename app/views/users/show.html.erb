@@ -25,6 +25,11 @@
   </ul>
   </div>
 </div>
+<div class="row user">
+	<div class="span12">
+		<%= render 'meetings/list_for_user' %>
+	</div>
+</div>
 <div class="actions">
   <%= link_to raw("<i class='icon-asterisk'></i> Изменить пароль"), edit_user_registration_path if @user == current_user %>
 	<%= link_to raw("<i class='icon-pencil'></i> Редактировать"), edit_user_path(@user) if can? :update, @user %> |
