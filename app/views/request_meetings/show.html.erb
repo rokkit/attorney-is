@@ -15,5 +15,7 @@
 	  <p><%= status @request_meeting.status %></p>
 	</div>
 </div>
-
+<% if can? :manage, :all %>
+	<%= link_to 'Отменить заявку', cancel_request_meeting_path(@request_meeting), method: :post, class: "cancel entypo-cancel-circled" %>
+<% end %>
 <%= link_to link_to raw("<i class='icon-chevron-left'></i> Назад"), request_meetings_path %>

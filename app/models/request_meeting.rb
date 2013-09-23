@@ -26,7 +26,9 @@ class RequestMeeting < ActiveRecord::Base
 
   
   def cancel!
-    InformMailer.cancel_request(self).deliver
+    # InformMailer.cancel_request(self).deliver
+    self.meeting.user = nil
+    self.meeting.save
     date = self.meeting.will_be_at
     if destroy
       inform "Ваша заявка на дежурство #{date} отклонена"

@@ -1,5 +1,4 @@
 <div id="show-meeting">
-	<h3><%=  Russian::strftime @meeting.will_be_on, "%d %B %Y" %></h3>
 
 	<div class="lawyer">
 	  <h4>Назначенный адвокат:</h4>
@@ -17,6 +16,7 @@
 		<% end %>
 		<% if can? :manage, :all %>
 			<%= link_to 'Изменить', edit_meeting_path(@meeting), class: "edit entypo-pencil" %>
+			<%= link_to 'Снять адвоката с дежурства', request_meeting_path(RequestMeeting.where(user_id: @meeting.user, meeting_id: @meeting).first) if @meeting.user.present? %>
 		<% end %>
 	</div>
 </div>
