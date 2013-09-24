@@ -136,15 +136,15 @@ header {
 	padding: 20px 0;
 	height: 185px;
 	.branding{
-		// width: 470px;
-		// margin: 0 auto;
+		width: 790px;
+		margin: 0 auto;
+		overflow: hidden;
 		.logo {
 			// position: absolute;
 			// left: 0;
 			// top: 20px;
 			float: left;
 			width: 88px;
-			margin-left: 125px;
 			margin-right: 20px;
 			a {
 				display: block;
@@ -155,7 +155,7 @@ header {
 		}
 		.name-slogan {
 			float: left;
-			width: 730px;
+			width: 680px;
 			text-align: left;
 			padding-top: 3px;
 			// margin-top: 12px;
