@@ -27,6 +27,8 @@ jQuery(document).ready( function($) {
 	  "sPaginationType": "bootstrap"
 	});
 
+	$('.domains .square').equalHeights();
+
 	// var currentDate = $.datepicker.formatDate('dd MM yy', new Date());
 	// $("#current-date .date").text(currentDate);
 });
