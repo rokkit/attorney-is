@@ -332,15 +332,22 @@ header {
 	.checkbox {
 		margin-bottom: 10px;
 	}
+	.control-label {
+		width: 90px;
+	}
+	.controls {
+		margin-left: 110px;
+	}
 	input[type="email"],
 	input[type="password"] {
 		font-size: 16px;
 		height: auto;
 		margin-bottom: 15px;
-		padding: 7px 9px;
+		padding: 5px 9px;
 	}
 	.login-btn {
 		float: right;
+		padding: 10px 40px;
 	}
 }
 
