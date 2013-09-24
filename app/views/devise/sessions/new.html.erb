@@ -4,7 +4,7 @@
 <%= form_for(resource, :as => resource_name, html: { class: "form-signin form-horizontal"}, :url => session_path(resource_name)) do |f| %>
         <!-- <h2 class="form-signin-heading">Информационная система</h2> -->
   <div class="control-group">
-    <label class="control-label" for="user[email]">Email</label>
+    <label class="control-label" for="user[email]">Электронная почта</label>
     <div class="controls">
     	<%= f.email_field :email, :autofocus => true, class: "input-block-level" %>
     </div>
