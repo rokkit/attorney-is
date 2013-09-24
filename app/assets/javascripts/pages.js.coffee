@@ -1,3 +1,12 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+change_time =  ->
+    console.log("d")
+    date = new Date()
+    d = $("#time_delimiter")
+    h = $("#hour")
+    m = $("#minute")
+    d.toggleClass("white-delimiter")
+    h.html date.getHours()
+    m.html date.getMinutes()
+jQuery ->
+
+    setInterval change_time, 1000

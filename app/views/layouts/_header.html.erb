@@ -14,8 +14,10 @@
 <!-- <p>текущее время и дата</p> -->
 <p class="date"><%= Russian::strftime DateTime.now, "%d %B %Y" %></p>
 <p class="time">
-	<span class="hour"><%= Time.now.strftime "%H" %></span> : 
-	<span class="minute"><%= Time.now.strftime "%M" %></span>
+	<span id="hour" class="hour"><%= Time.now.strftime "%H" %></span>
+    <span id="time_delimiter">:</span> 
+     
+	<span id="minute" class="minute"><%= Time.now.strftime "%M" %></span>
 </p>
 </div>
 <%= render_navigation :expand_all => true %>
