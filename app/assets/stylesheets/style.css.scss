@@ -169,7 +169,7 @@ header {
 				em {
 					font-style: normal;
 					display: block;
-					letter-spacing: 30.4px;
+					letter-spacing: 30.2px;
 				}
 				a {
 					text-decoration: none;
@@ -270,6 +270,8 @@ header {
 //=== domains
 .domains {
 	.square {
+		position: relative;
+		padding-bottom: 60px;
 		h4 {
 			margin: 0;
 			a {
@@ -279,9 +281,9 @@ header {
 		}
 		.edit-links {
 			margin: 20px;
-		}
-		.edit-links {
-			text-align: right;
+			position: absolute;
+			bottom: 0;
+			right: 0;
 		}
 	}
 }
