@@ -4,6 +4,7 @@
 <table class="table users-table">
   <thead>
   <tr>
+	<th></th>
     <th>ФИО</th>
     <th>№ Реестра</th>
     <th>Телефон</th>
@@ -14,7 +15,8 @@
   <tbody>
 <% @users.each do |user| %>
   <tr class="<%= cycle("odd", "even") %>">
-    <td><%= link_to "#{user.roles.first} #{user.fio}", user %></td>
+	<td><%= user.roles.first %></td>
+    <td><%= link_to user.fio, user %></td>
     <td><%= user.register_number %></td>
     <td><%= number_to_phone user.phone %></td>
     <td><b id='edit-<%= user.id %>'>Изменить</b> <%= best_in_place user, :request_limit, activator: "#edit-#{ user.id }" %></td>
