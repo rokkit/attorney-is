@@ -1,6 +1,8 @@
 <div class="domains">
+	  <% last = 0 %>
 <% @domains.each do |domain| %>
-  <div class="square">
+  <% last+=1 %>
+  <div class="square<%= (last=0;' last') if last==4 %>">
     <h4><%= link_to domain.name, domain %></h4>
     <% if current_user.admin? %>
       <div class="edit-links"><%= link_to raw("<i class='icon-pencil'></i> Редактировать"), edit_domain_path(domain) %>

@@ -285,7 +285,7 @@ header {
 		position: relative;
 		padding-bottom: 60px;
 		@include span-columns(3, 12);
-		&:nth-child(4n) { @include omega; }
+		&.last { @include omega; }
 		h4 {
 			margin: 0;
 			a {
