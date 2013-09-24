@@ -3,7 +3,10 @@
 		<div class="square"><%= link_to raw("<i class='icon-inbox'></i> Ведомства и  учреждения"), domains_path %></div>
 		  <% if current_user.try :admin? %>
 		  <div class="square"><%= link_to raw("<i class='icon-user'></i> Базовый список адвокатов"), users_path %></div>
-		  <% end %>
 		  <div class="square last"><%= link_to raw("<i class='icon-question-sign'></i> Поступившие заявки на заседания"), request_meetings_path %></div>
+          <% else %>
+  		  <div class="square last"><%= link_to raw("<i class='icon-question-sign'></i> Поданные заявки на заседания"), request_meetings_path %></div>        
+		  <% end %>
+          
 	</div>
 </div>
