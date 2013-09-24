@@ -251,8 +251,8 @@ header {
 }
 
 .blocks {
-	@include span-columns(11, 12);
-	@include prefix(1);
+	@include span-columns(10, 12);
+	@include pre(1);
 	padding: 20px 0;
 }
 
