@@ -333,10 +333,10 @@ header {
 		margin-bottom: 10px;
 	}
 	.control-label {
-		width: 90px;
+		width: 130px;
 	}
 	.controls {
-		margin-left: 110px;
+		margin-left: 140px;
 	}
 	input[type="email"],
 	input[type="password"] {
@@ -347,8 +347,10 @@ header {
 	}
 	.login-btn {
 		float: right;
-		padding: 10px 40px;
-		font-size: 16px;
+		padding: 10px 50px;
+		&:hover {
+			color: #fff;
+		}
 	}
 }
 
