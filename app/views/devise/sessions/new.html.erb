@@ -1,15 +1,22 @@
 
 <div class="container" style="margin-top: 90px;">
 
-<%= form_for(resource, :as => resource_name, html: { class: "form-signin"}, :url => session_path(resource_name)) do |f| %>
-        <h2 class="form-signin-heading">Информационная система</h2>
-	  	<%= f.email_field :email, :autofocus => true, class: "input-block-level" %>
-	  	<%= f.password_field :password,  class: "input-block-level"  %>
-
-        <label class="checkbox">
-        </label>
+<%= form_for(resource, :as => resource_name, html: { class: "form-signin form-horizontal"}, :url => session_path(resource_name)) do |f| %>
+        <!-- <h2 class="form-signin-heading">Информационная система</h2> -->
+  <div class="control-group">
+    <label class="control-label" for="user[email]">Email</label>
+    <div class="controls">
+    	<%= f.email_field :email, :autofocus => true, class: "input-block-level" %>
+    </div>
+	</div>
+  <div class="control-group">
+    <label class="control-label" for="user[password]">Пароль</label>
+    <div class="controls">
+      <%= f.password_field :password,  class: "input-block-level"  %>
+    </div>
+  </div>
 	  <%= f.submit "Вход", class: "btn" %>
-     <% end %>
+<% end %>
 
 <%= render "devise/shared/links" %>
     </div>
