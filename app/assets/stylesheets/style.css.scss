@@ -174,9 +174,6 @@ header {
 				}
 				a {
 					text-decoration: none;
-					&:hover {
-
-					}
 				}
 			}
 			.site-slogan {
@@ -184,7 +181,7 @@ header {
 				padding-left: 127px;
 				font-size: 20px;
 				text-transform: uppercase;
-				letter-spacing: 23px;
+				letter-spacing: 19px;
 			}
 		}
 	}
@@ -256,6 +253,7 @@ header {
 .blocks {
 	@include span-columns(11, 12);
 	@include prefix(1);
+	padding: 20px 0;
 }
 
 //=== Well menu
