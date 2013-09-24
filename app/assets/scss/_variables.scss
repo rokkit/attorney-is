@@ -27,7 +27,7 @@ $column-width   : 70px;
 $gutter-width   : 20px;
 $grid-padding   : $gutter-width;
 $container-style: fixed;
-@include border-box-sizing();
+// @include border-box-sizing();
 
 // colours
 $blue: #184491;
