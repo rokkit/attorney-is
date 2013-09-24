@@ -144,7 +144,7 @@ header {
 			// top: 20px;
 			float: left;
 			width: 88px;
-			margin-right: 20px;
+			margin-left: 20px;
 			a {
 				display: block;
 				width: 88px;
@@ -251,10 +251,17 @@ header {
 	}
 }
 
+.blocks {
+	@include span-columns(10, 12);
+	@include prefix(2);
+}
+
 //=== Well menu
 .well-menu {
 	.square {
 		text-align: center;
+		@include span-columns(4, 12);
+		&:nth-child(3n) { @include omega; }
 		a {
 			padding: 1em 0;
 			display: block;
@@ -271,9 +278,12 @@ header {
 
 //=== domains
 .domains {
+	overflow: hidden;
 	.square {
 		position: relative;
 		padding-bottom: 60px;
+		@include span-columns(3, 12);
+		&:nth-child(4n) { @include omega; }
 		h4 {
 			margin: 0;
 			a {
