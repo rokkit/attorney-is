@@ -132,11 +132,11 @@ header {
 
 #header {
 	position: relative;
-	border-bottom: 1px solid $blue;
+	// border-bottom: 1px solid $blue;
 	padding: 20px 0;
 	height: 185px;
 	.branding{
-		width: 470px;
+		// width: 470px;
 		margin: 0 auto;
 		.logo {
 			// position: absolute;
@@ -144,6 +144,7 @@ header {
 			// top: 20px;
 			float: left;
 			width: 88px;
+			margin-right: 20px;
 			a {
 				display: block;
 				width: 88px;
@@ -156,18 +157,19 @@ header {
 			// left: 100px;
 			// top: 36px;
 			float: left;
-			width: 370px;
+			// width: 370px;
 			text-align: center;
-			margin-top: 20px;
+			margin-top: 12px;
 			.site-name {
 				margin: 0;
 				text-transform: uppercase;
-				font-size: 2.2em;
-				border-bottom: 1px solid $blue;
+				font-size: 3em;
+				letter-spacing: 30px;
+				// border-bottom: 1px solid $blue;
 				em {
 					font-style: normal;
 					display: block;
-					letter-spacing: 3px;
+					letter-spacing: 38px;
 				}
 				a {
 					text-decoration: none;
@@ -178,7 +180,7 @@ header {
 			}
 			.site-slogan {
 				margin: 0;
-				font-size: 12px;
+				font-size: 20px;
 				text-transform: uppercase;
 				letter-spacing: 7px;
 			}
