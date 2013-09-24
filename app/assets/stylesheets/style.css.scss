@@ -252,8 +252,8 @@ header {
 }
 
 .blocks {
-	@include span-columns(10, 12);
-	@include prefix(2);
+	@include span-columns(11, 12);
+	@include prefix(1);
 }
 
 //=== Well menu
