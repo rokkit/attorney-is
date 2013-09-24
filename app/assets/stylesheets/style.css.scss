@@ -144,7 +144,7 @@ header {
 			// top: 20px;
 			float: left;
 			width: 88px;
-			margin-right: 20px;
+			margin-left: 20px;
 			a {
 				display: block;
 				width: 88px;
@@ -253,10 +253,17 @@ header {
 	}
 }
 
+.blocks {
+	@include span-columns(11, 12);
+	@include prefix(1);
+}
+
 //=== Well menu
 .well-menu {
 	.square {
 		text-align: center;
+		@include span-columns(4, 12);
+		&:nth-child(3n) { @include omega; }
 		a {
 			padding: 1em 0;
 			display: block;
@@ -273,9 +280,12 @@ header {
 
 //=== domains
 .domains {
+	overflow: hidden;
 	.square {
 		position: relative;
 		padding-bottom: 60px;
+		@include span-columns(3, 12);
+		&:nth-child(4n) { @include omega; }
 		h4 {
 			margin: 0;
 			a {
@@ -305,6 +315,32 @@ header {
 	label {
 		float: left;
 		margin-left: 5px;
+	}
+}
+
+//=== LOGIN FORM
+.form-signin {
+	max-width: 400px;
+	padding: 19px 29px 29px;
+	margin: 0 auto 20px;
+	background-color: #fff;
+	border: 1px solid #e5e5e5;
+	-webkit-border-radius: 5px;
+	   -moz-border-radius: 5px;
+	        border-radius: 5px;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+	   -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+	        box-shadow: 0 1px 2px rgba(0,0,0,.05);
+	.form-signin-heading,
+	.checkbox {
+		margin-bottom: 10px;
+	}
+	input[type="email"],
+	input[type="password"] {
+		font-size: 16px;
+		height: auto;
+		margin-bottom: 15px;
+		padding: 7px 9px;
 	}
 }
 

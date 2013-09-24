@@ -1,7 +1,7 @@
 // ---------------------------------------------------------------------------
 // Imports
 
-// @import "susy";
+@import "susy";
 @import "sassy-buttons";
 
 // Add Compass' IE and vendor prefix support variables.
@@ -22,12 +22,12 @@
 // ---------------------------------------------------------------------------
 // Basic Grid
 
-// $total-columns  : 12;
-// $column-width   : 5em;
-// $gutter-width   : 1em;
-// $grid-padding   : $gutter-width;
-// $container-style: fluid;
-// @include border-box-sizing();
+$total-columns  : 12;
+$column-width   : 65px;
+$gutter-width   : 20px;
+$grid-padding   : $gutter-width;
+$container-style: fixed;
+@include border-box-sizing();
 
 // colours
 $blue: #184491;

@@ -1,11 +1,9 @@
-<div class="row">
-	<div class="span10 offset1">
-		<div class="row-fluid well-menu">
-			<div class="square span4"><%= link_to raw("<i class='icon-inbox'></i> Ведомства и  учреждения"), domains_path %></div>
-			  <% if current_user.try :admin? %>
-			  <div class="square span4"><%= link_to raw("<i class='icon-user'></i> Базовый список адвокатов"), users_path %></div>
-			  <% end %>
-			  <div class="square span4"><%= link_to raw("<i class='icon-question-sign'></i> Поступившие заявки на заседания"), request_meetings_path %></div>
-		</div>
+<div class="blocks">
+	<div class="row-fluid well-menu">
+		<div class="square"><%= link_to raw("<i class='icon-inbox'></i> Ведомства и  учреждения"), domains_path %></div>
+		  <% if current_user.try :admin? %>
+		  <div class="square"><%= link_to raw("<i class='icon-user'></i> Базовый список адвокатов"), users_path %></div>
+		  <% end %>
+		  <div class="square"><%= link_to raw("<i class='icon-question-sign'></i> Поступившие заявки на заседания"), request_meetings_path %></div>
 	</div>
 </div>
