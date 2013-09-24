@@ -65,8 +65,6 @@ SimpleNavigation::Configuration.run do |navigation|
       if user_signed_in?
         primary.item :user, current_user.to_s,root_path, class: "pull-right"
         primary.item :logout, raw("<i class='icon-off'></i> Выход"), destroy_user_session_path, method: :delete, class: "pull-right"
-      else
-        primary.item :login, "Войти в систему", new_user_session_path, class: "pull-right"
       end
       primary.dom_class = 'user-menu pull-right'
   end

@@ -1,5 +1,4 @@
 change_time =  ->
-    console.log("d")
     date = new Date()
     d = $("#time_delimiter")
     h = $("#hour")
@@ -8,5 +7,4 @@ change_time =  ->
     h.html date.getHours()
     m.html date.getMinutes()
 jQuery ->
-
     setInterval change_time, 1000
