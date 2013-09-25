@@ -136,7 +136,7 @@ header {
 	padding: 20px 0;
 	height: 185px;
 	.branding{
-		width: 790px;
+		// width: 790px;
 		margin: 0 auto;
 		overflow: hidden;
 		.logo {
@@ -155,32 +155,35 @@ header {
 		}
 		.name-slogan {
 			float: left;
-			width: 680px;
+			// width: 680px;
 			text-align: left;
 			padding-top: 3px;
 			// margin-top: 12px;
 			.site-name {
 				margin: 0;
 				text-transform: uppercase;
-				font-size: 4.2em;
+				font-size: 67px;
 				line-height: 1;
 				// letter-spacing: 23px;
 				// border-bottom: 1px solid $blue;
 				em {
 					font-style: normal;
 					display: block;
-					letter-spacing: 6px;
+					letter-spacing: 8px;
 				}
 				a {
 					text-decoration: none;
 				}
 			}
-			.site-slogan {
-				margin: 0;
-				font-size: 17px;
-				text-transform: uppercase;
-				letter-spacing: 19px;
-			}
+		}
+		.site-slogan {
+			margin: 0;
+			font-size: 17px;
+			text-transform: uppercase;
+			letter-spacing: 28px;
+			clear: both;
+			text-align: center;
+			padding: 3px 0;
 		}
 	}
 }
@@ -189,13 +192,14 @@ header {
 }
 #current-date {
 	float: left;
-	// margin-top: 65px;
+	margin-top: 15px;
+	font-size: 1.5em;
 	p {
 		margin: 0;
 		float: left;
 		&.date, &.time {
 			margin-left: .5em;
-			font-weight: 700;
+			font-weight: 300;
 		}
 	}
 	// .date {
@@ -333,10 +337,10 @@ header {
 		margin-bottom: 10px;
 	}
 	.control-label {
-		width: 130px;
+		width: 100px;
 	}
 	.controls {
-		margin-left: 140px;
+		margin-left: 110px;
 	}
 	input[type="email"],
 	input[type="password"] {
