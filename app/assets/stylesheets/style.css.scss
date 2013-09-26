@@ -180,12 +180,13 @@ header {
 	}
 	.site-slogan {
 		margin: 0;
-		font-size: 23px;
+		font-size: 27px;
 		text-transform: uppercase;
-		letter-spacing: 28px;
+		letter-spacing: 24px;
 		clear: both;
 		text-align: center;
-		padding: 15px 0 3px 0;
+		padding: 15px 0 3px 15px;
+		font-weight: 700;
 	}
 }
 .white-delimiter {
