@@ -12,7 +12,7 @@
     width: 100%;
 
     td, th {
-      border: 1px solid lighten($blue, 30%);
+      border: 1px solid $blue;
     }
 
     th {
@@ -43,7 +43,7 @@
     a {
       text-decoration: none;
       padding: 0 10px;
-      color: #999;
+      // color: #999;
     }
   }
 
