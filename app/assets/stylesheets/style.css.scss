@@ -379,19 +379,19 @@ header {
 		color: #000;
 	}
 	.approve, .make-request {
-		color: $approve;
+		color: $blue;
 	}
 }
 .status {
 	text-align: center;
 	.approved {
-		color: $approve;
+		color: $blue;
 	}
 	.declined {
-		color: $cancel;
+		color: $blue;
 	}
 	.waiting {
-		color: $edit;
+		color: $blue;
 	}
 }
 div.status {
@@ -448,7 +448,6 @@ footer {
 	padding: .5em 0;
 	margin-top: 1em;
 	font-size: .9em;
-	border-top: 1px solid $blue;
 	.copyright {
 		text-align: center;
 	}

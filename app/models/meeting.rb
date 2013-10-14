@@ -7,6 +7,7 @@ class Meeting < ActiveRecord::Base
 
   
   validates :will_be_on, presence: true
+  has_many :request_meetings
   def to_s
     "Заседание #{will_be_on}"
   end
