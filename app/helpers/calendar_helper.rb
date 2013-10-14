@@ -2,29 +2,29 @@ module CalendarHelper
   
   def russian_month month
     case month
-      when 01
+      when '01'
         "Январь"
-      when 02
+      when '02'
         "Ферваль"
-      when 03
+      when '03'
         "Март"
-      when 04
+      when '04'
         "Апрель"
-      when 05
+      when '05'
         "Май"
-      when 06
+      when '06'
         "Июнь"
-      when 07
+      when '07'
         "Июль"
       when '08'
         "Август"
       when '09'
         "Сентябрь"
-      when 10
+      when '10'
         "Октябрь"
-      when 11
+      when '11'
         "Ноябрь"
-      when 12
+      when '12'
         "Декабрь"
     end
   end
@@ -68,6 +68,7 @@ module CalendarHelper
       classes = []
       classes << "today" if day == Date.today
       classes << "notmonth" if day.month != date.month
+      classes << "weekend" if ['Sun', 'Sat'].include?(day.strftime("%a"))
       classes.empty? ? nil : classes.join(" ")
     end
     def weeks
