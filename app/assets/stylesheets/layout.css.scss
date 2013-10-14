@@ -13,3 +13,10 @@ header, footer {
 #content {
 	@include span-columns(12 omega,12);
 }
+
+.content-left {
+	@include span-columns(6, 12);
+}
+.content-right {
+	@include span-columns(6 omega, 12);
+}
