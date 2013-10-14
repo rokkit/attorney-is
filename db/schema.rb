@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130915202216) do
+ActiveRecord::Schema.define(:version => 20131014112816) do
 
   create_table "domains", :force => true do |t|
     t.string   "name"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(:version => 20130915202216) do
     t.datetime "updated_at", :null => false
     t.time     "will_be_at"
     t.integer  "domain_id"
+    t.string   "judge"
   end
 
   create_table "request_meetings", :force => true do |t|

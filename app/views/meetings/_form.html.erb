@@ -10,7 +10,10 @@
       </ul>
     </div>
   <% end %>
-
+  <div class="field">
+    <%= f.label :judge, "Судья" %>
+    <%= f.text_area :judge, size:'3x2', class: "input-block-level" %>
+  </div>
   <div class="field">
     <%= f.label :content, "Дополнительная информация" %>
     <%= f.text_area :content, size:'3x2', class: "input-block-level" %>

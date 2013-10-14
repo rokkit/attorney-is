@@ -4,10 +4,16 @@
 	  <h4>Назначенный адвокат:</h4>
 	  <p><%= @meeting.user || "Нет" %></p>
 	</div>
-	<div class="dop-info">
-	  <h4>Дополнительная информация:</h4>
-	  <p><%= @meeting.content %></p>
+	<div class="lawyer">
+	  <h4>Судья:</h4>
+	  <p><%= @meeting.judge || "Не указан" %></p>
 	</div>
+    <% unless @meeting.content.empty? %>
+    	<div class="dop-info">
+    	  <h4>Дополнительная информация:</h4>
+    	  <p><%= @meeting.content %></p>
+    	</div>
+    <% end %>
 
 
 	<div class="actions">
