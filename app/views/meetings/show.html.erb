@@ -23,8 +23,8 @@
     	</div>
     <% end %>
     
-    <% if current_user.admin? %>
-    <h1>На заседание записались:</h1>
+    <% if current_user.admin? && !@meeting.request_meetings.empty?  %>
+    <h4>На заседание записались:</h4>
     <ul>
         <% @meeting.request_meetings.each do |rqm| %>
         <li>
