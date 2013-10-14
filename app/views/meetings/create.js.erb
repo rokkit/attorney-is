@@ -17,5 +17,5 @@
   $("#flash_notice").show(300);
   $("#modal-window").modal('hide');
   $("#cell_<%= @meeting.will_be_on %> a").remove();
-  $("#cell_<%= @meeting.will_be_on %> .meeting-details").html('<dt><a href="/meetings/<%= @meeting.id %>" class="avaible" data-remote="true" data-target="#modal-window" data-toggle="modal">Судебное заседание </a></dt>')
+  $("#cell_<%= @meeting.will_be_on %> .meeting-details").html('<dt><a href="/meetings/<%= @meeting.id %>" class="avaible">Судебное заседание </a></dt>')
 <% end -%>
