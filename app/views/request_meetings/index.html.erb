@@ -4,8 +4,10 @@
 <table id="show-meeting-requests" class="table table-hover">
   <thead>
     <tr>
-      <th>Дата</th>
+      <th>Дата заявки</th>
+      <% if current_user.admin? %>
       <th>Адвокат</th>
+      <% end %>
       <th>Заседание</th>
       <th>Статус</th>
       <% if can? :manage, :all %>
@@ -18,7 +20,9 @@
 <% @request_meetings.each do |request_meeting| %>
   <tr>
       <td><%= request_meeting.meeting.will_be_on.strftime("%Y-%m-%d") %></td>
-      <td><%= link_to request_meeting.user, request_meeting.user  %></td>
+      <% if current_user.admin? %>
+          <td><%= link_to request_meeting.user, request_meeting.user  %></td>
+      <% end %>
       <td><%= link_to request_meeting.meeting, request_meeting.meeting  %></td>
       <td class="status"><%= status request_meeting.status %></td>
       <td class="actions">

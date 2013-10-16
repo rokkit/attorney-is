@@ -2,7 +2,7 @@
 
 <div class="blocks">
 	<div class="well-menu">
-	  <div class="square"><%= link_to raw("<i class='icon-calendar'></i> Судебные заседания"), domain_meetings_path(@domain) %></div>
+	  <div class="square"><%= link_to raw("<i class='icon-calendar'></i> Судебные заседания"), calendar_domain_meetings_path(@domain) %></div>
 	  <% if current_user.admin? %>
           <div class="square"><%= link_to raw("<i class='icon-user'></i> Адвокаты"), users_path(dom: @domain) %></div>
       <% end %>

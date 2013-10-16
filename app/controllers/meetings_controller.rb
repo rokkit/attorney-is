@@ -3,9 +3,17 @@ class MeetingsController < ApplicationController
   load_and_authorize_resource
   skip_authorize_resource :only => :request_for_meeting
   before_filter :authenticate_user!
-  before_filter :load_domain, only: [:index, :new, :create]
+  before_filter :load_domain, only: [:index, :new, :create, :calendar]
   # GET /meetings
   # GET /meetings.json
+  
+  def calendar
+    d1 = Date.parse('jan 1 2011')
+    d2 = Date.parse('dec 31 2012')
+
+    @months = (d1..d2).map{ |m| m.strftime('%Y%m') }.uniq.map{ |m| Date::ABBR_MONTHNAMES[ Date.strptime(m, '%Y%m').mon ] }
+  end
+  
   def index
     @meetings = @domain.meetings
     @meetings_by_date = @meetings.group_by(&:will_be_on)
