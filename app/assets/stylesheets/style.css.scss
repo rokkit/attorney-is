@@ -133,7 +133,7 @@ header {
 #header {
 	position: relative;
 	// border-bottom: 1px solid $blue;
-	padding: 20px 0;
+	padding: 10px 0;
 	height: 185px;
 	.branding{
 		// width: 790px;
@@ -194,7 +194,7 @@ header {
 }
 #current-date {
 	float: left;
-	margin-top: 25px;
+	margin-top: 10px;
 	margin-left: 22px;
 	font-size: 1.5em;
 	p {
@@ -226,7 +226,7 @@ header {
 
 .user-menu {
 	@include clear-nav();
-	margin-top: 20px;
+	margin-top: 10px;
 	li {
 		margin-left: 5px;
 		a {
