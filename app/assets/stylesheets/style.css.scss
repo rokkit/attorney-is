@@ -324,6 +324,11 @@ header {
 	}
 }
 
+label.phone-label {
+	float: left;
+	width: 200px;
+}
+
 //=== LOGIN FORM
 .form-signin {
 	overflow: hidden;
@@ -437,12 +442,36 @@ input[type="color"],
 .input-prepend .add-on {
 	border: 1px solid $blue;
 	padding: 2px 5px;
+	color: $blue;
 }
 
+.input {
+	&.string,
+	&.email,
+	&.file,
+	&.phone {
+	display: block;
+	height: 4em;
+		label {
+			float: left;
+			width: 200px;
+		}
+		input {
+			float: left;
+		}
+	&.file {
+		input {
+			width: 220px;
+		}
+	}	
+	}
+}
 
 .table th, .table td {
 	border-bottom: 1px solid $blue;
 }
+
+
 
 
 //====== FOOTER
@@ -452,7 +481,7 @@ footer {
 	font-size: .9em;
 	border-top: 1px solid $blue;
 	.copyright {
-		text-align: center;
+		text-align: right;
 	}
 }
 

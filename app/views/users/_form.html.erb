@@ -10,15 +10,12 @@
       </ul>
     </div>
   <% end %>
-  <div class="row">
-    <div class="span6">
-	<%= f.input :avatar %>
-    <%= f.label :fio, "Ф.И.О" %>
-    <%= f.text_field :fio %>
+  <div class="content-two">
+  	<%= f.input :avatar, label: "Фото" %>
+    <%= f.input :fio, label: "Ф.И.О" %>
     <% if can? :manage, :all %>
-      <%= f.label :phone, "Телефон (Формат: 79210000000)" %>
-      <div class="input-prepend">
-        <span class="add-on">+</span>
+      <div class="input phone">
+        <%= f.label :phone, "Телефон (Формат: 79210000000)", class: "phone-label" %>
         <%= f.telephone_field :phone, class:"form-control" %>
       </div>
       <%= f.input :register_number, label: "Номер реестра" %>
@@ -28,17 +25,14 @@
     <%= f.input :attorney_consult, label: "Наименование адвокатской консультации" %>
     <%= f.input :role_ids, :collection => Role.where(resource_type: nil), :as => :radio_buttons, :label_method => lambda {|t| t.to_s.titleize}, :label => false, :item_wrapper_class => 'inline', checked: @user.role_ids.first %>
     </div>
-    <div class="span6">
-      <div class="row">
+    <div class="content-two content-omega">
         <% Domain.all.each do |domain| -%>
-          <div class="span3 user-domain">
+          <div class="user-domain">
             <%= check_box_tag  "domain[#{domain.id}]", 1, @user.roles.any? {|role| role.resource_id == domain.id}%>
             <%= label_tag "domain_#{domain.id}", domain.name %>
           </div>
         <% end -%>
-      </div>
     </div>
-  </div>
   <div class="actions">
     <%= f.submit "Добавить" %>
   </div>

@@ -20,3 +20,15 @@ header, footer {
 .content-right {
 	@include span-columns(6 omega, 12);
 }
+.content-one {
+	@include span-columns(3, 12);
+}
+.content-two {
+	@include span-columns(6, 12);
+}
+.content-three {
+	@include span-columns(9, 12);
+}
+.content-omega {
+	@include omega;
+}
