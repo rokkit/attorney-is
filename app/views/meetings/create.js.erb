@@ -16,6 +16,6 @@
   /*Show the flash_notice div*/
   $("#flash_notice").show(300);
   $("#modal-window").modal('hide');
-  $("#cell_<%= @meeting.will_be_on %> a").remove();
-  $("#cell_<%= @meeting.will_be_on %> .meeting-details").html('<dt><a href="/meetings/<%= @meeting.id %>" class="avaible">Судебное заседание </a></dt>')
+  $("#cell_<%= @meeting.will_be_on.strftime('%d_%m_%Y') %> a").remove();
+  $("#cell_<%= @meeting.will_be_on.strftime('%d_%m_%Y') %> .meeting-details").html('<dt><a href="/meetings/<%= @meeting.id %>" class="avaible">Судебное заседание </a></dt>')
 <% end -%>
