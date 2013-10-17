@@ -21,6 +21,10 @@
       padding: 6px;
       text-align: center;
       width: 14.2857142857143%;
+      border-right: 1px solid #fff;
+      &:last-of-type {
+        border-right: 0 none;
+      }
     }
 
     td {
@@ -107,3 +111,21 @@
 #show-meeting {
 
 }
+
+//=== MONTHS CALENDAR
+#months-calendar {
+  .square {
+    @include span-columns(3, 12);
+    &:nth-child(4n) { @include omega; }
+    .inner {
+      padding: 10px;
+    }
+    .month {
+      font-size: 1.4em;
+    }
+  }
+}
+
+
+
+
