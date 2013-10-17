@@ -1,43 +1,43 @@
 <div id="show-meeting">
-    <h1>Судебное заседание</h1>
-	<div class="lawyer">
-	  <h4>Дата проведения:</h4>
-	  <p><%= "#{@meeting.will_be_on} #{ @meeting.will_be_at}" %></p>
-	</div>
-	<div class="lawyer">
-	  <h4>Место проведения:</h4>
-	  <p><%= "#{@meeting.domain.name}" %></p>
-	</div>
-	<div class="lawyer">
-	  <h4>Назначенный адвокат:</h4>
-	  <p><%= @meeting.user || "Нет" %></p>
-	</div>
-	<div class="lawyer">
-	  <h4>Судья:</h4>
-	  <p><%= @meeting.judge || "Не указан" %></p>
-	</div>
-	<div class="lawyer">
-	  <h4>Клиент:</h4>
-	  <p><%= @meeting.client || "Не указан" %></p>
-	</div>
-    <% unless @meeting.content.empty? %>
-    	<div class="dop-info">
-    	  <h4>Дополнительная информация:</h4>
-    	  <p><%= @meeting.content %></p>
-    	</div>
-    <% end %>
+	<h1>Судебное заседание</h1>
+	<div class="content-left">
+		<div class="lawyer">
+		  <p><strong>Дата проведения:</strong> <%= "#{@meeting.will_be_on} #{ @meeting.will_be_at}" %></p>
+		</div>
+		<div class="lawyer">
+		  <p><strong>Место проведения:</strong> <%= "#{@meeting.domain.name}" %></p>
+		</div>
+		<div class="lawyer">
+		  <p><strong>Назначенный адвокат:</strong> <%= @meeting.user || "Нет" %></p>
+		</div>
+		<div class="lawyer">
+		  <p><strong>Судья:</strong> <%= @meeting.judge || "Не указан" %></p>
+		</div>
+		<div class="lawyer">
+		  <p><strong>Клиент:</strong> <%= @meeting.client || "Не указан" %></p>
+		</div>
+	    <% unless @meeting.content.empty? %>
+	    	<div class="dop-info">
+	    	  <p><strong>Дополнительная информация:</strong></p>
+	    	  <p><%= @meeting.content %></p>
+	    	</div>
+	    <% end %>
+    </div>
+
     
     <% if current_user.admin? && !@meeting.request_meetings.empty?  %>
-    <h4>На заседание записались:</h4>
-    <ul>
-        <% @meeting.request_meetings.each do |request_meeting| %>
-        <li>
-           <%= link_to request_meeting.user, request_meeting.user %> 
-           <%= link_to 'Отменить', cancel_request_meeting_path(request_meeting), method: :post, class: "btn cancel entypo-cancel-circled" %>
-           <%= link_to 'Подтвердить', approve_request_meeting_path(request_meeting), method: :post, class: "btn approve entypo-check" %>
-        </li>
-        <% end %>
-    </ul>
+    <div class="content-right">
+	    <h4>На заседание записались:</h4>
+	    <ul>
+	        <% @meeting.request_meetings.each do |request_meeting| %>
+	        <li>
+	           <%= link_to request_meeting.user, request_meeting.user %> 
+	           <%= link_to 'Отменить', cancel_request_meeting_path(request_meeting), method: :post, class: "btn cancel entypo-cancel-circled" %>
+	           <%= link_to 'Подтвердить', approve_request_meeting_path(request_meeting), method: :post, class: "btn approve entypo-check" %>
+	        </li>
+	        <% end %>
+	    </ul>
+    </div>
     <% end %>
 
 
