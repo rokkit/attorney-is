@@ -3,8 +3,9 @@
 		<div class="square">
 			<div class="inner">
 			    <div class="month"><%= month %></div>
-			    <%= link_to "Судебные заседания", domain_meetings_path(@domain, date: "01.0#{index+1}.#{Date.today.year}") %>
+			    <%= link_to "Судебные заседания", domain_meetings_path(@domain, date: "01.#{index+1}.#{Date.today.year}") %>
 		    </div>
 		</div>
 	<% end %>
 </div>
+

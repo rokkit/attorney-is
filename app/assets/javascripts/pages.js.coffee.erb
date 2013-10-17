@@ -1,5 +1,5 @@
 change_time = ->
-    date = new Date()
+    date = Date.parse("<%= Time.zone.now %>")
     d = $("#time_delimiter")
     h = $("#hour")
     m = $("#minute")
