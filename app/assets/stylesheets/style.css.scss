@@ -238,7 +238,7 @@ header {
 
 //====== CONTENT
 #content {
-	margin-top: 40px;
+	margin-top: 20px;
 }
 
 //=== SQUARES
@@ -446,12 +446,13 @@ input[type="color"],
 }
 
 .input {
+	clear: both;
 	&.string,
 	&.email,
 	&.file,
 	&.phone {
 	display: block;
-	height: 4em;
+	// height: 4em;
 		label {
 			float: left;
 			width: 200px;

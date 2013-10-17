@@ -11,16 +11,16 @@
     </div>
   <% end %>
 
-  <div class="input">
-    <%= f.label :name, "Наименование" %><br />
+  <div class="input string">
+    <%= f.label :name, "Наименование" %>
     <%= f.text_field :name %>
   </div>
-  <div class="input">
-    <%= f.label :address, "Адрес" %><br />
+  <div class="input string">
+    <%= f.label :address, "Адрес" %>
     <%= f.text_area :address, cols: 40, rows:5 %>
   </div>
-  <div class="input">
-    <%= f.label :phone, "Телефон" %><br />
+  <div class="input phone">
+    <%= f.label :phone, "Телефон" %>
     <%= f.text_field :phone %>
   </div>
   <div class="actions">
