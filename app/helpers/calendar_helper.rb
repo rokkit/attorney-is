@@ -48,6 +48,8 @@ module CalendarHelper
       classes << "today" if day == Date.today
       classes << "notmonth" if day.month != date.month
       classes << "weekend" if ['Sun', 'Sat'].include?(day.strftime("%a"))
+      classes << "date-cell"
+      
       classes.empty? ? nil : classes.join(" ")
     end
     def weeks
