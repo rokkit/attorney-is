@@ -1,27 +1,25 @@
 
 <div id="meetings">
   <h2 id="month">
-    <%= link_to "<#{ Russian::strftime @date.prev_month, '%b'}", date: @date.prev_month %>
+    <%= link_to "< #{ Russian::strftime @date.prev_month, '%b'}", nil, class: 'prev-month', date: @date.prev_month %>
       <%= russian_month @date.strftime("%m") %> <%= Russian::strftime @date,"%Y" %>
-      <%= link_to "#{ Russian::strftime @date.next_month, '%b'} >", date: @date.next_month %>
-    </h2>
+    <%= link_to "#{ Russian::strftime @date.next_month, '%b'} >", nil, class: 'next-month', date: @date.next_month %>
+  </h2>
     <%= calendar @date do |date| %>
-      <%= content_tag :span, id: "cell_#{date.strftime('%d_%m_%Y')}" do%>
-        <span class="day"><%= date.day %></span>
+      <%= content_tag :span, id: "cell_#{date.strftime('%d_%m_%Y')}", class: "date-cell" do%>
+        <div class="day"><%= date.day %></div>
         <% if can? :manage, :all and @meetings_by_date[date.to_date] == nil #and date>=Date.today %>
           <%= link_to raw("<i class='icon-plus'></i> Добавить"), new_domain_meeting_path(@domain,meeting: { will_be_on: date }), class: "add-meeting",remote: true, data: {toggle: 'modal', target: '#modal-window'}  %>
         <% end %>
-        <dl class="meeting-details">
+
         <% if @meetings_by_date[date.to_date] %>
-              
-                <% @meetings_by_date[date].each do |meeting| %>
-                  <dt><%= link_to "Судебное заседание #{meeting.will_be_at.try { |d| d.strftime('%H:%M')} }", meeting, class: (meeting.user.nil? ? "avaible" : "not_avaible" ), :target => "_blank" %></dt>
-                  <% if meeting.user  %>
-                    <dd><i class="icon-user"></i> <%= meeting.user if can? :manage, :all %></dd>
-                  <% end %>
-                <% end %>
+          <% @meetings_by_date[date].each do |meeting| %>
+            <%= link_to "Судебное заседание #{meeting.will_be_at.try { |d| d.strftime('%H:%M')} }", meeting, class: (meeting.user.nil? ? "avaible" : "not_avaible" ), :target => "_blank" %>
+            <% if meeting.user  %>
+              <i class="icon-user"></i> <%= meeting.user if can? :manage, :all %>
+            <% end %>
+          <% end %>
         <% end %>
-        </dl>
       <% end %>
     <% end %>
 </div>

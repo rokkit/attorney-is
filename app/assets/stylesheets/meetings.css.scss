@@ -9,8 +9,12 @@
 
   .calendar {
     border-collapse: collapse;
-    width: 800px;
+    width: 100%;
     margin: 0 auto;
+
+    tr {
+      border-bottom: 2px solid $blue;
+    }
 
     td, th {
       border: 1px solid $blue;
@@ -19,7 +23,8 @@
     th {
       background: lighten($blue, 0%);
       color: #FFF;
-      padding: 6px;
+      font-weight: 300;
+      padding: 3px;
       text-align: center;
       width: 14.2857142857143%;
       border-right: 1px solid #fff;
@@ -29,9 +34,10 @@
     }
 
     td {
+      position: relative;
       background: #FFF;
       color: #777;
-      padding: 3px;
+      padding: 0;
       height: 70px;
       vertical-align: top;
       font-size: 16px;
@@ -40,7 +46,12 @@
       }
     }
 
-    .notmonth, .notmonth a { color: #CCC; }
+    .notmonth,
+    .notmonth a,
+    .notmonth .day { color: #CCC; }
+    .notmonth .date-cell a {
+      border-top: 1px solid #ccc;
+    }
     //.today { background-color: #d9ffd8; }
   }
   #month {
@@ -53,55 +64,35 @@
       padding: 0 10px;
       // color: #999;
     }
+    .prev-month {
+      float: left;
+    }
+    .next-month {
+      float: right;
+    }
   }
 
   .day {
-    float: left;
-    font-size: 1.7em;
-    line-height: 1em;
+    font-size: 2.5em;
+    text-align: center;
+    line-height: 1;
+    margin: 3px;
+    color: $blue;
+    font-weight: 700;
   }
-	.add-meeting {
-    font-size: .9em;
-		text-decoration: none;
-		float: right;
-    color: darken($blue, 5%);
-	}
-	dl {
-		font-size: .8em;
-    margin-top: 2em;
-    margin-bottom: 5px;
-		// padding-left: 20px;
-		dt {
-      margin-bottom: 2px;
-			a {
-        clear: both;
-				display: block;
-        padding: 0 3px;
-        @include border-radius(3px);
-				&.avaible {
-				    background-color: lighten($blue, 0%); //$edit;
-				    color: #FFF;
-				}
-				&.not_avaible {
-				    background-color: $cancel;
-				    color: #FFF;
-				}
-			}
+  
+  .date-cell {
+    a {
+      display: block;
+      border-top: 1px solid $blue;
+      font-size: .7em;
+      text-align: center;
       &:hover {
-        + dd {
-          height: 40px;
-        }
+        text-decoration: none;
       }
-		}
-		dd {
-  		margin-left: 0px;
-      overflow: hidden;
-      height: 0px;
-      @include transition-property(height);
-      @include transition-duration(400ms);
-      @include transition-timing-function(ease-out);
-		}
-	}
+    }
+  }
+  
 }
 
 .add-meeting-any-date {
@@ -115,6 +106,10 @@
 
 //=== MONTHS CALENDAR
 #months-calendar {
+  h2 {
+    text-align: center;
+    font-size: 2.2em;
+  }
   .square {
     @include span-columns(3, 12);
     &:nth-child(4n) { @include omega; }
