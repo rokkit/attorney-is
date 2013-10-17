@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   :phone,
   :address,
   :admin,
-  :request_limit, :role_ids, :roles, :attorney_formation, :attorney_consult, :avatar
+  :request_limit, :role_ids, :roles, :attorney_formation, :attorney_consult, :avatar, :start_access, :end_access
   
   validates :email, :fio, :register_number, :phone,:request_limit, :presence => true
   validates :email, uniqueness: true
