@@ -2,6 +2,6 @@
 <% russian_months.each_with_index do |month, index| %>
 <div class="square">
     <%= month %>
-    <%= link_to "Судебные заседания", domain_meetings_path(@domain, date: "01.0#{index+1}.#{Date.today.year}")  %>
+    <%= link_to "Судебные заседания", domain_meetings_path(@domain, date: "01.#{index+1}.#{Date.today.year}")  %>
 </div>
 <% end %>
