@@ -1,5 +1,6 @@
 
 <div id="meetings">
+    <h2>Календарь судебных заседаний. Учреждение: <%= @domain.name %></h2>
   <h2 id="month">
     <%= link_to "<#{ Russian::strftime @date.prev_month, '%b'}", date: @date.prev_month %>
       <%= russian_month @date.strftime("%m") %> <%= Russian::strftime @date,"%Y" %>
@@ -9,7 +10,11 @@
       <%= content_tag :span, id: "cell_#{date.strftime('%d_%m_%Y')}" do%>
         <span class="day"><%= date.day %></span>
         <% if can? :manage, :all and @meetings_by_date[date.to_date] == nil #and date>=Date.today %>
+        <% if date>=Date.today %>
           <%= link_to raw("<i class='icon-plus'></i> Добавить"), new_domain_meeting_path(@domain,meeting: { will_be_on: date }), class: "add-meeting",remote: true, data: {toggle: 'modal', target: '#modal-window'}  %>
+        <% else %>
+         <a href='#' class="pasttimes add-meeting"><i class='icon-plus'></i> Добавить</a>
+         <% end %>
         <% end %>
         <dl class="meeting-details">
         <% if @meetings_by_date[date.to_date] %>

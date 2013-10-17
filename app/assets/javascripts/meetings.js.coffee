@@ -9,3 +9,7 @@ $("#form").on "ajax:beforeSend", (evt, xhr, settings) ->
   # prevent double submit
   $(":submit", this).click ->
     false
+    
+jQuery ->
+    $(".pasttimes").click ->
+        alert("Дата прошла. Добавление/удаление или редактирование заседаний за прошедшие даты не допускается.")
