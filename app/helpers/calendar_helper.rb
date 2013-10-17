@@ -8,11 +8,11 @@ module CalendarHelper
     months[month.to_i - 1]
   end
   
-  def calendar(date = Date.today, &block)
-    Calendar.new(self, date, block).table
+  def calendar(date = Date.today, meetings_by_date, &block)
+    Calendar.new(self, date, meetings_by_date, block).table
   end
 
-  class Calendar < Struct.new(:view, :date, :callback)
+  class Calendar < Struct.new(:view, :date, :meetings_by_date, :callback)
     #HEADER = %w[Sunday Monday Tuesday Wednesday Thursday Friday Saturday]
     HEADER = %w[Понедельник Вторник Среда Четверг Пятница Суббота Воскресенье]
     START_DAY = :monday
@@ -49,6 +49,7 @@ module CalendarHelper
       classes << "notmonth" if day.month != date.month
       classes << "weekend" if ['Sun', 'Sat'].include?(day.strftime("%a"))
       classes << "date-cell"
+      classes << 'avaible' if meetings_by_date[day]
       
       classes.empty? ? nil : classes.join(" ")
     end
