@@ -49,7 +49,9 @@ module CalendarHelper
       classes << "notmonth" if day.month != date.month
       classes << "weekend" if ['Sun', 'Sat'].include?(day.strftime("%a"))
       classes << "date-cell"
-      classes << 'avaible' if meetings_by_date[day]
+      classes << 'avaible' if meetings_by_date[day].try {|mbd| mbd.first.user.nil?}
+      classes << 'not_avaible' if meetings_by_date[day].try {|mbd| mbd.first.user.present?}
+      
       
       classes.empty? ? nil : classes.join(" ")
     end
