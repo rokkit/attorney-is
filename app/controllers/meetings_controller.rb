@@ -10,7 +10,7 @@ class MeetingsController < ApplicationController
   def calendar
     d1 = Date.parse('jan 1 2011')
     d2 = Date.parse('dec 31 2012')
-
+    @year = params[:year] || Date.today.year
     @months = (d1..d2).map{ |m| m.strftime('%Y%m') }.uniq.map{ |m| Date::ABBR_MONTHNAMES[ Date.strptime(m, '%Y%m').mon ] }
   end
   

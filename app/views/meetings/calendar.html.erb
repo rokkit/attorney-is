@@ -1,12 +1,13 @@
 <div id="months-calendar">
-	<h2><%= Date.today.year %></h2>
+	<h2><%= @year %> г.</h2>
 	<% russian_months.each_with_index do |month, index| %>
 		<div class="square">
 			<div class="inner">
-			    <%= link_to month, domain_meetings_path(@domain, date: "01.#{index+1}.#{Date.today.year}"), class: "month" %>
+			    <%= link_to month, domain_meetings_path(@domain, date: "01.#{index+1}.#{@year}"), class: "month" %>
 			    <%= link_to "Судебные заседания", domain_meetings_path(@domain, date: "01.#{index+1}.#{Date.today.year}") %>
 		    </div>
 		</div>
 	<% end %>
+    <%# (1.years.ago..1.years.since).map {|date| date.strftime("%Y")}.uniq %>
 </div>
 
