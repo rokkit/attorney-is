@@ -7,7 +7,10 @@
 	<th></th>
     <th>ФИО</th>
     <th>№ Реестра</th>
-    <th>Телефон</th>
+    <% if @domain %>
+        <th>Дата включения</th>
+        <th>Дата исключения</th>
+    <% end %>
     <th>Лимит заявок</th>
     <th></th>
   </tr>
@@ -18,7 +21,11 @@
 	<td><%= user.roles.first %></td>
     <td><%= link_to user.fio, user %></td>
     <td><%= user.register_number %></td>
-    <td><%= number_to_phone user.phone %></td>
+    <% if @domain %>
+        <td><%= user.start_access %></td>
+        <td><%= user.end_access %></td>
+    <% end %>
+    
     <td><b id='edit-<%= user.id %>'>Изменить</b> <%= best_in_place user, :request_limit, activator: "#edit-#{ user.id }" %></td>
     <td><%= link_to "Исключить", user_path(user),:confirm => 'Подтвердите исключение', :method => :delete if can? :manage, :all %></td>
   </tr>
