@@ -9,7 +9,7 @@
 
   .calendar {
     border-collapse: collapse;
-    width: 100%;
+    width: 850px;
     margin: 0 auto;
 
     tr {
@@ -29,7 +29,7 @@
       width: 14.2857142857143%;
       border-right: 1px solid #fff;
       &:last-of-type {
-        border-right: 0 none;
+        border-right-color: $blue;
       }
     }
 

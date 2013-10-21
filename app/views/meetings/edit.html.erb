@@ -1,5 +1,3 @@
 <h1>Изменить информацию о заседании</h1>
 
-<%= render 'form' %>
-
-<%= link_to 'Подробнее', @meeting, class: "btn" %> |
+<%= render 'form', locals: { :edit => true } %>

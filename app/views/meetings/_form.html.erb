@@ -34,7 +34,10 @@
     </div>
   </div>
 
-  <div class="actions">
+  <% if params[:action]=='edit' %>
+    <%= f.submit "Изменить", class: "btn" %>
+    <%= link_to 'Просмотр', @meeting, class: "btn" %>
+  <% else %>
     <%= f.submit "Добавить", class: "btn" %>
-  </div>
+  <% end %>
 <% end %>

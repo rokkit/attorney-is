@@ -26,6 +26,7 @@
     <%= f.input :role_ids, :collection => Role.where(resource_type: nil), :as => :radio_buttons, :label_method => lambda {|t| t.to_s.titleize}, :label => false, :item_wrapper_class => 'inline', checked: @user.role_ids.first %>
     </div>
     <div class="content-two content-omega">
+      <p>Утвердить возможность участия в заседаниях суда по следующим учреждениям:</p>
         <% Domain.all.each do |domain| -%>
           <div class="user-domain">
             <%= check_box_tag  "domain[#{domain.id}]", 1, @user.roles.any? {|role| role.resource_id == domain.id}%>
