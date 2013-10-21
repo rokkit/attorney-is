@@ -228,7 +228,7 @@ header {
 	@include clear-nav();
 	margin-top: 10px;
 	li {
-		margin-left: 5px;
+		margin-left: 15px;
 		a {
 			text-decoration: none;
 		}
@@ -313,6 +313,20 @@ header {
 
 }
 //=== edit form
+#user_avatar {
+	overflow: hidden;
+	border: 0;
+	width: 80px;
+	display: block;
+	margin-bottom: .5em;
+	&:before {
+		content: "Загрузить";
+		display: block;
+		padding: 0px 6px;
+		background-color: $blue;
+		color: #fff;
+	}
+}
 .user-domain {
 	overflow: hidden;
 	input {
@@ -443,6 +457,13 @@ input[type="color"],
 	border: 1px solid $blue;
 	padding: 2px 5px;
 	color: $blue;
+}
+
+input[type="submit"] {
+	background-color: $blue;
+	color: #fff;
+	border: 0 none;
+	padding: 3px 15px;
 }
 
 .input {
