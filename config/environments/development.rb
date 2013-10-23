@@ -41,8 +41,8 @@ AttorneyIs::Application.configure do
   config.action_mailer.smtp_settings = {
   :address              => "smtp.gmail.com",
   :port                 => 587,
-  :user_name            => 'indmaksim@gmail.com',
-  :password             => '14051992',
+  :user_name            => 'spb.attorney.i.s@gmail.com',
+  :password             => 'BHSbbshSJNS',
   :authentication       => 'plain',
   :enable_starttls_auto => true  }
 end
