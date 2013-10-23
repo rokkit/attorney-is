@@ -117,7 +117,12 @@
 
 //=== SHOW MEETING
 #show-meeting {
-
+  .lawyer {
+    strong {
+      display: inline-block;
+      width: 150px;
+    }
+  }
 }
 
 //=== MONTHS CALENDAR
