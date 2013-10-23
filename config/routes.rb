@@ -1,5 +1,8 @@
 AttorneyIs::Application.routes.draw do
 
+  resources :inform_mails
+
+
     root :to => 'pages#index'
   devise_for :users, :controllers => {:sessions => "auth/sessions"}, path:'',path_names: {user_registration: "invited_user"}
   post "invited_user" => "devise_invitable/registrations#create"

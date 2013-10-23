@@ -5,7 +5,7 @@ class RequestMeeting < ActiveRecord::Base
   attr_accessible :status, :meeting_id
   
   before_create :set_status
-  after_create :send_inform
+  after_create :send_notification_to_admins
 
   validates :user, :meeting, :presence => true
   
@@ -18,8 +18,10 @@ class RequestMeeting < ActiveRecord::Base
       self.status = 2 #заявка подтвержена администратором
       self.meeting.user = self.user
       self.meeting.save!
-      if save!
-        inform "Вы включены в график дежурств на #{self.meeting.will_be_at}"
+      if save
+        InformMail.create user: self.user,  
+          body: "Вы включены в график дежурств на #{self.meeting.will_be_at}",
+          sms_body: "Вы включены в график дежурств на #{self.meeting.will_be_at}"
       end
     end
   end
@@ -31,12 +33,15 @@ class RequestMeeting < ActiveRecord::Base
     self.meeting.save
     date = self.meeting.will_be_at
     if destroy
-      inform "Ваша заявка на дежурство #{date} отклонена"
+      InformMail.create user: self.user,  
+        body: "Ваша заявка отклонена. Заседание: #{self.meeting.will_be_at} в #{self.meeting.domain.name}",
+        sms_body: "Ваша заявка отклонена. Заседание: #{self.meeting.will_be_at} в #{self.meeting.domain.name}"
     end
   end
   
-  def send_inform
-    InformMailer.incomin_request(self).deliver
+  def send_notification_to_admins
+    InformMail.create user: User.first,  
+      body: "Новая заявка на заседание #{self.meeting.will_be_at} в #{self.meeting.domain.name}"
   end
   
 private 

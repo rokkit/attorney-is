@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131017070827) do
+ActiveRecord::Schema.define(:version => 20131023113023) do
 
   create_table "domains", :force => true do |t|
     t.string   "name"
@@ -21,6 +21,16 @@ ActiveRecord::Schema.define(:version => 20131017070827) do
     t.text     "address"
     t.string   "phone"
   end
+
+  create_table "inform_mails", :force => true do |t|
+    t.integer  "user_id"
+    t.text     "body"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.text     "sms_body"
+  end
+
+  add_index "inform_mails", ["user_id"], :name => "index_inform_mails_on_user_id"
 
   create_table "meetings", :force => true do |t|
     t.string   "title"
