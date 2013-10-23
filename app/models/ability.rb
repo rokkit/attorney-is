@@ -21,6 +21,7 @@ class Ability
         can [:show, :update], User do |u|
           u == user
         end
+        can [:calendar], Meeting
       end
       
       can :request, Meeting do |meeting|
