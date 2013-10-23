@@ -11,7 +11,7 @@
 <% @meetings.each do |meeting| %>
 <tr>
 	<td><%= meeting.will_be_on %><td>
-		<td><%= meeting.domain.try :name %></td>
+		<td><%= meeting.domain.name %></td>
 </tr>
 <% end %>
 </tbody>

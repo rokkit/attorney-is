@@ -5,7 +5,6 @@
 		<div class="square">
 			<div class="inner">
 			    <%= link_to month, domain_meetings_path(@domain, date: "01.#{index+1}.#{@year}"), class: "month" %>
-			    <%= link_to "Судебные заседания", domain_meetings_path(@domain, date: "01.#{index+1}.#{Date.today.year}") %>
 		    </div>
 		</div>
 	<% end %>
