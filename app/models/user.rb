@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
   :request_limit, :role_ids, :roles, :attorney_formation, :attorney_consult, :avatar, :start_access, :end_access,
   :lastname, :firstname, :secondname
   
-  validates :email, :fio, :register_number, :phone,:request_limit, :presence => true
+  validates :email, :register_number, :phone,:request_limit, :firstname, :lastname, :presence => true
   validates :email, uniqueness: true
   validates :request_limit, :phone, numericality: {greater_than: 0}
   before_validation :strip_whitespace 

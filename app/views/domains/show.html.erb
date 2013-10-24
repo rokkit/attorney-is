@@ -3,11 +3,11 @@
 <div class="blocks">
 	<div class="well-menu">
 	  <div class="square"><%= link_to raw("<i class='icon-calendar'></i> Судебные заседания"), calendar_domain_meetings_path(@domain) %></div>
-	  <% if current_user.admin? %>
-          <div class="square"><%= link_to raw("<i class='icon-user'></i> Адвокаты"), users_path(dom: @domain) %></div>
-      <% end %>
       
-	  <div class="square last"><%= link_to raw("<i class='icon-question-sign'></i> Заявки на заседания"), request_meetings_path(dom: @domain) %></div>
+	  <div class="square"><%= link_to raw("<i class='icon-question-sign'></i> Заявки на заседания"), request_meetings_path(dom: @domain) %></div>
+	  <% if current_user.admin? %>
+          <div class="square last"><%= link_to raw("<i class='icon-user'></i> Адвокаты"), users_path(dom: @domain) %></div>
+      <% end %>
 	</div>
 </div>
 
@@ -15,5 +15,4 @@
 <% if current_user.admin? %>
   <%= link_to 'Редактировать', edit_domain_path(@domain) %> 
 <% end %>
-  |
 <%= link_to link_to raw("<i class='icon-chevron-left'></i> Назад"), domains_path %>

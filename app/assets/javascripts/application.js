@@ -28,7 +28,10 @@ jQuery(document).ready( function($) {
 	});
 
 	$('.domains .square').equalHeights();
+    $.datepicker.regional[""].dateFormat = 'dd.mm.yy';
 
+    $.datepicker.setDefaults($.datepicker.regional['']);
+    
 	// var currentDate = $.datepicker.formatDate('dd MM yy', new Date());
 	// $("#current-date .date").text(currentDate);
 
