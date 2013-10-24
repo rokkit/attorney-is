@@ -2,9 +2,9 @@
 <div id="meetings">
     <h3>Учреждение: <%= @domain.name %></h3>
   <h2 id="month">
-    <%= link_to "< #{ russian_month @date.prev_month.strftime('%m')}", date: @date.prev_month, options: { class: 'prev-month' } %>
+    <%= link_to "< #{ russian_month @date.prev_month.strftime('%m')}", domain_meetings_path(@domain, date:@date.prev_month), class: 'prev-month' %>
       <%= russian_month @date.strftime("%m") %> <%= Russian::strftime @date,"%Y" %>
-    <%= link_to "#{ russian_month @date.next_month.strftime('%m')} >", date: @date.next_month, class: 'next-month' %>
+    <%= link_to "#{ russian_month @date.next_month.strftime('%m')} >",domain_meetings_path(@domain, date: @date.next_month), class: 'next-month'  %>
   </h2>
     <%= calendar @date, @meetings_by_date  do |date| %>
       <%= content_tag :span, id: "cell_#{date.strftime('%d_%m_%Y')}", class: ("meeting" if @meetings_by_date[date.to_date]) do%>

@@ -32,7 +32,8 @@
 	</div>
 </div>
 <div class="actions">
-  <%= link_to raw("<i class='icon-asterisk'></i> Изменить пароль"), edit_user_registration_path if @user == current_user %>
+    <%= link_to raw("<i class='icon-asterisk'></i> Выслать пароль"), generate_new_password_user_path(@user), method: :post if current_user.has_role? :admin %>
+    <%= link_to raw("<i class='icon-asterisk'></i> Изменить пароль"), edit_user_registration_path if @user == current_user %>
 	<%= link_to raw("<i class='icon-pencil'></i> Редактировать"), edit_user_path(@user) if can? :update, @user %> |
 	<%= link_to raw("<i class='icon-chevron-left'></i> Назад"), users_path %>
 </div>

@@ -95,6 +95,13 @@ class UsersController < ApplicationController
       end
     end
   end
+  
+  def generate_and_send_password
+    @user = User.find(params[:id])
+    @user.set_password
+    flash[:notice] = "Пароль создан и отправлен адвокату"
+    redirect_to @user
+  end
 
   # DELETE /users/1
   # DELETE /users/1.json

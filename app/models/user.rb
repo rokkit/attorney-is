@@ -14,7 +14,8 @@ class User < ActiveRecord::Base
   :phone,
   :address,
   :admin,
-  :request_limit, :role_ids, :roles, :attorney_formation, :attorney_consult, :avatar, :start_access, :end_access
+  :request_limit, :role_ids, :roles, :attorney_formation, :attorney_consult, :avatar, :start_access, :end_access,
+  :lastname, :firstname, :secondname
   
   validates :email, :fio, :register_number, :phone,:request_limit, :presence => true
   validates :email, uniqueness: true
@@ -22,6 +23,7 @@ class User < ActiveRecord::Base
   before_validation :strip_whitespace 
   has_many :meetings
   has_many :request_meetings
+  has_many :inform_mails
   
   mount_uploader :avatar, AvatarUploader
   def admin?
@@ -31,6 +33,10 @@ class User < ActiveRecord::Base
   
   def to_s
     "#{roles.first} #{fio}"
+  end
+  
+  def fio
+    "#{lastname} #{firstname} #{secondname}"
   end
 
   def strip_whitespace
@@ -47,7 +53,6 @@ class User < ActiveRecord::Base
   end
    before_validation :set_password, on: :create
    
-   private 
      def set_password
        #o =  [('a'..'z'), ('A'..'Z'), (0..9)].map{|i| i.to_a}.flatten
        generated_password = Devise.friendly_token.first(8) #(0..16).map{ o[rand(o.length)] }.join# if self.password.blank?

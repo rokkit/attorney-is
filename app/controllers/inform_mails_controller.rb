@@ -2,7 +2,11 @@ class InformMailsController < ApplicationController
   # GET /inform_mails
   # GET /inform_mails.json
   def index
-    @inform_mails = InformMail.order("created_at DESC")
+    if current_user.admin? 
+      @inform_mails = InformMail.order("created_at DESC")
+    else
+      @inform_mails = current_user.inform_mails.order("created_at DESC")
+    end
 
     respond_to do |format|
       format.html # index.html.erb
