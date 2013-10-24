@@ -22,6 +22,7 @@ class User < ActiveRecord::Base
   before_validation :strip_whitespace 
   has_many :meetings
   has_many :request_meetings
+  has_many :inform_mails
   
   mount_uploader :avatar, AvatarUploader
   def admin?
