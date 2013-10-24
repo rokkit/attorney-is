@@ -27,7 +27,9 @@ AttorneyIs::Application.routes.draw do
 
     match 'pages/admin' => 'pages#admin'
 
-      resources :users
+      resources :users do
+        post 'generate_new_password' => 'users#generate_and_send_password', on: :member
+      end
   
 
 
