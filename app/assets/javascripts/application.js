@@ -31,4 +31,6 @@ jQuery(document).ready( function($) {
 
 	// var currentDate = $.datepicker.formatDate('dd MM yy', new Date());
 	// $("#current-date .date").text(currentDate);
+
 });
+

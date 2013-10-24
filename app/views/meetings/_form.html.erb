@@ -1,3 +1,12 @@
+<script>
+$(function(){
+    $('.timepicker').datetimepicker({
+        pickDate: false,
+        pickSeconds: false
+    });   
+});
+
+</script>
 <%= form_for([@domain, @meeting], remote: true) do |f| %>
   <% if @meeting.errors.any? %>
     <div id="error_explanation">
@@ -28,9 +37,13 @@
       <%= f.label :will_be_on, "Дата" %>
       <%= f.text_field :will_be_on, class: "input-block-level" %>
     </div>
-    <div class="span2">
+    <div class="span2 timepicker input-append">
       <%= f.label :will_be_at, "Время" %>
-      <%= f.text_field :will_be_at, class: "input-block-level" %>
+      <%= f.text_field :will_be_at, class: "input-block-level", data: {format: "hh:mm" }%>
+      <span class="add-on">
+           <i data-time-icon="icon-time" data-date-icon="icon-calendar">
+           </i>
+         </span>
     </div>
   </div>
 

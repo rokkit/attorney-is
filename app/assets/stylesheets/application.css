@@ -14,6 +14,7 @@
  *= require bootstrap_and_overrides
  *= require bootstrap-modal
  *= require dataTables/jquery.dataTables.bootstrap
+ *= require bootstrap-timepicker
  *= require style
  *= require_tree .
  */
