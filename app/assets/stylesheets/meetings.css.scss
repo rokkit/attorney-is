@@ -12,14 +12,14 @@
     width: 850px;
     margin: 0 auto;
     *border-collapse:separate;
+    border: 1px solid $blue;
 
     tr {
       border-bottom: 2px solid $blue;
     }
 
     td,
-    th,
-    .date-cell {
+    th {
       border-top: 2px solid $blue;
       border-left: 2px solid $blue;
       border-right: 2px solid $blue;
@@ -78,7 +78,7 @@
   }
   
   .date-cell {
-      .day {
+    .day {
       font-size: 2.5em;
       text-align: center;
       line-height: 1;
