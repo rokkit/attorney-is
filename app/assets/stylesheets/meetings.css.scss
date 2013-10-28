@@ -154,9 +154,10 @@
   .years {
     text-align: center;
     overflow: hidden;
-    margin-bottom: 1em;
+    margin: 0 0 1em 0;
     li {
       display: inline;
+      font-size: .9em;
     }
   }
 }
