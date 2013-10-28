@@ -28,10 +28,8 @@
   </ul>
   </div>
 </div>
-<div class="row user">
-	<div class="span12">
+<div class="user">
 		<%= render 'meetings/list_for_user' %>
-	</div>
 </div>
 <div class="actions">
     <%= link_to raw("<i class='icon-asterisk'></i> Выслать пароль"), generate_new_password_user_path(@user), method: :post if current_user.has_role? :admin %>
