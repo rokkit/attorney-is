@@ -76,8 +76,8 @@ class UsersController < ApplicationController
         domains.each do |domain|
           @user.grant :attorney, Domain.find(domain.to_i)
           role = @user.roles.where(resource_id: domain.to_i).first
-          role.start_date = DateTime.parse(params[:roles][domain.to_s]['start'])
-          role.end_date = DateTime.parse(params[:roles][domain.to_s]['end'])
+          role.start_date = DateTime.parse(params[:roles][domain.to_s]['start']) if params[:roles][domain.to_s]['start'].present?
+          role.end_date = DateTime.parse(params[:roles][domain.to_s]['end']) if params[:roles][domain.to_s]['end'].present?
           role.save!
           @user.save
         end
