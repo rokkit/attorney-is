@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131024111900) do
+ActiveRecord::Schema.define(:version => 20131028070429) do
 
   create_table "domains", :force => true do |t|
     t.string   "name"
@@ -64,6 +64,8 @@ ActiveRecord::Schema.define(:version => 20131024111900) do
     t.string   "resource_type"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.datetime "start_date"
+    t.datetime "end_date"
   end
 
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"

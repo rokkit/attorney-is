@@ -21,7 +21,7 @@
     <% @user.roles.each do |role| %>
       <% if role.resource_type %>
         <li>
-          <%= "#{role.resource_type.constantize.find(role.resource_id).try(:name)}" %>
+          <%= "#{role.resource_type.constantize.find(role.resource_id).try(:name)}" %> c <%= role.start_date.try { |d| d.strftime("%d.%m.%Y") } %> по <%= role.end_date.try { |d| d.strftime("%d.%m.%Y") } %>
         </li>
       <% end %>
     <% end %>

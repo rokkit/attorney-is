@@ -38,12 +38,14 @@
     
     <div class="content-two content-omega">
       <p>Утвердить возможность участия в заседаниях суда по следующим учреждениям:</p>
-        <% Domain.all.each do |domain| -%>
-          <div class="user-domain">
-            <%= check_box_tag  "domain[#{domain.id}]", 1, @user.roles.any? {|role| role.resource_id == domain.id}%>
-            <%= label_tag "domain_#{domain.id}", domain.name %>
-          </div>
-        <% end -%>
+      <% Domain.all.each do |domain| -%>
+        <div class="user-domain">
+          <%= check_box_tag  "domain[#{domain.id}]", 1, @user.roles.any? {|role| role.resource_id == domain.id}%>
+          <%= label_tag "domain_#{domain.id}", domain.name %> <br>
+          <%= text_field_tag "roles[#{domain.id}][start]",nil, class: "input-small" %>
+          <%= text_field_tag "roles[#{domain.id}][end]",nil, class: "input-small" %>
+        </div>
+      <% end -%>
     </div>
     <% end %>
   <div class="actions">
