@@ -7,7 +7,7 @@
     <%= link_to "#{ russian_month @date.next_month.strftime('%m')} >",domain_meetings_path(@domain, date: @date.next_month), class: 'next-month'  %>
   </h2>
     <%= calendar @date, @meetings_by_date  do |date| %>
-      <%= content_tag :span, id: "cell_#{date.strftime('%d_%m_%Y')}", class: ("meeting" if @meetings_by_date[date.to_date]) do%>
+      <%= content_tag :span, id: "cell_#{date.strftime('%d_%m_%Y')}", class: ("meeting" if @meetings_by_date[date.to_date]) do %>
         <div class="day"><%= date.day %></div>
         <% if can? :manage, :all and @meetings_by_date[date.to_date] == nil #and date>=Date.today %>
         <% if date>=Date.today %>
