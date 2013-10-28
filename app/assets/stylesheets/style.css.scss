@@ -332,6 +332,9 @@ header {
 	overflow: hidden;
 	input {
 		float: left;
+		&.date-from {
+			clear: left;
+		}
 	}
 	label {
 		float: left;
