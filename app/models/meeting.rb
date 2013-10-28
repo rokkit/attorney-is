@@ -7,7 +7,7 @@ class Meeting < ActiveRecord::Base
 
   
   validates :will_be_on, :will_be_at, presence: true
-  has_many :request_meetings
+  has_many :request_meetings, dependent: :destroy
   def to_s
     "Заседание #{will_be_on}"
   end

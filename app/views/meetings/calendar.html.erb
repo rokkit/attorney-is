@@ -8,6 +8,14 @@
 		    </div>
 		</div>
 	<% end %>
-    <%# (1.years.ago..1.years.since).map {|date| date.strftime("%Y")}.uniq %>
+    <%= link_to "2009",  calendar_domain_meetings_path(@domain, year: "#{4.year.ago.strftime('%Y')}")%>
+    <%= link_to "2010",  calendar_domain_meetings_path(@domain, year: "#{3.year.ago.strftime('%Y')}")%>
+    <%= link_to "2011",  calendar_domain_meetings_path(@domain, year: "#{2.year.ago.strftime('%Y')}")%>
+    <%= link_to "2012",  calendar_domain_meetings_path(@domain, year: "#{1.year.ago.strftime('%Y')}")%>
+    <%= link_to "2013",  calendar_domain_meetings_path(@domain, year: "#{0.year.ago.strftime('%Y')}")%>
+    <%= link_to "2013",  calendar_domain_meetings_path(@domain, year: "#{0.year.ago.strftime('%Y')}")%>
+    <%= link_to "2013",  calendar_domain_meetings_path(@domain, year: "#{0.year.ago.strftime('%Y')}")%>
+        <%= link_to "2014",  calendar_domain_meetings_path(@domain, year: "#{1.year.from_now.strftime('%Y')}")%>
+            <%= link_to "2015",  calendar_domain_meetings_path(@domain, year: "#{2.year.from_now.strftime('%Y')}")%>
 </div>
 

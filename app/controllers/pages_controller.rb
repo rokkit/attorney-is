@@ -9,4 +9,8 @@ class PagesController < ApplicationController
   def admin
     @domains = Domain.all
   end
+  
+  def admin_panel
+    
+  end
 end

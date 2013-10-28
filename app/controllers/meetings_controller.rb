@@ -10,7 +10,8 @@ class MeetingsController < ApplicationController
   def calendar
     d1 = Date.parse('jan 1 2011')
     d2 = Date.parse('dec 31 2012')
-    @year = params[:year] || Date.today.year
+    @year = Date.today.year
+    @year = Date.strptime(params[:year],'%Y').strftime('%Y') if params[:year].present?
     @months = (d1..d2).map{ |m| m.strftime('%Y%m') }.uniq.map{ |m| Date::ABBR_MONTHNAMES[ Date.strptime(m, '%Y%m').mon ] }
   end
   
@@ -95,7 +96,7 @@ class MeetingsController < ApplicationController
     @meeting.destroy
 
     respond_to do |format|
-      format.html { redirect_to meetings_url }
+      format.html { redirect_to @meeting.domain }
       format.json { head :no_content }
     end
   end

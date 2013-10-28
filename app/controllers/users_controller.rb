@@ -102,6 +102,11 @@ class UsersController < ApplicationController
     flash[:notice] = "Пароль создан и отправлен адвокату"
     redirect_to @user
   end
+  
+  def send_password_to_all
+    flash[:notice] = "Рассылка паролей выполнена"
+    redirect_to pages_panel_path
+  end
 
   # DELETE /users/1
   # DELETE /users/1.json
@@ -113,5 +118,7 @@ class UsersController < ApplicationController
       format.html { redirect_to users_url, notice: 'Адвокат исключён из системы' }
       format.json { head :no_content }
     end
+  end
+  def abilities
   end
 end

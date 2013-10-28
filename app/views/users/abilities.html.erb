@@ -1,0 +1,29 @@
+<h1>Управление полномочиями</h1>
+<h2><%= @domain.try :name %></h2>
+
+<table class="table users-table">
+  <thead>
+  <tr>
+	<th></th>
+    <th>ФИО</th>
+    <th>№ Реестра</th>
+    <th>Лимит заявок</th>
+    <th></th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+<% @users.each do |user| %>
+  <tr class="<%= cycle("odd", "even") %>">
+	<td><%= user.roles.first %></td>
+    <td><%= link_to user.fio, user %></td>
+    <td><%= user.register_number %></td>
+    
+    <td><b id='edit-<%= user.id %>'>Изменить</b> <%= best_in_place user, :request_limit, activator: "#edit-#{ user.id }" %></td>
+        <td><%= link_to "Редактировать", edit_user_path(user, abilities: true) %></td>
+    <td><%= link_to "Исключить", user_path(user),:confirm => 'Подтвердите исключение', :method => :delete if can? :manage, :all %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+<%= link_to raw('<i class="icon-user"></i> Добавить адвоката'), new_user_path if can? :manage, :all %>
