@@ -18,6 +18,8 @@
       border-bottom: 2px solid $blue;
       td,
       th {
+        position: relative;
+        z-index: -1;
         border-top: 2px solid $blue;
         border-left: 2px solid $blue;
         border-right: 2px solid $blue;
