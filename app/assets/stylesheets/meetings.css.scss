@@ -8,9 +8,10 @@
   margin-bottom: 1em;
 
   .calendar {
-    // border-collapse: collapse;
+    border-collapse: collapse;
     width: 850px;
     margin: 0 auto;
+    *border-collapse:separate;
 
     tr {
       border-bottom: 2px solid $blue;
