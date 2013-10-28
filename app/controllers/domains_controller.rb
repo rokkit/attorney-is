@@ -8,7 +8,13 @@ class DomainsController < ApplicationController
     if can? :read, :all
      @domains = Domain.all
     else
-     @domains = current_user.roles.map { |role| Domain.find role.resource_id unless role.resource_id.nil? }.compact
+     @domains = current_user.roles.map do |role| 
+       unless role.resource_id.nil?
+         if (role.start_date.nil? || role.start_date <= DateTime.now) && (role.end_date.nil? || role.end_date >= DateTime.now) 
+           Domain.find role.resource_id 
+         end
+       end
+     end.compact
     end
 
     respond_to do |format|
