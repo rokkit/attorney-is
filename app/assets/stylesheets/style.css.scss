@@ -135,6 +135,7 @@ header {
 	// border-bottom: 1px solid $blue;
 	padding: 10px 0;
 	height: 185px;
+	margin: 0 -23px;
 	.branding{
 		// width: 790px;
 		margin: 0 auto;
@@ -165,12 +166,12 @@ header {
 				font-size: 59px;
 				line-height: 1;
 				text-align: right;
-				letter-spacing: 6px;
+				letter-spacing: 8px;
 
 				em {
 					font-style: normal;
 					display: block;
-					letter-spacing: 13px;
+					letter-spacing: 15px;
 				}
 				a {
 					text-decoration: none;
@@ -182,7 +183,7 @@ header {
 		margin: 0;
 		font-size: 27px;
 		text-transform: uppercase;
-		letter-spacing: 22px;
+		letter-spacing: 24px;
 		clear: both;
 		text-align: center;
 		padding: 15px 0 3px 15px;
@@ -195,7 +196,7 @@ header {
 #current-date {
 	float: left;
 	margin-top: 10px;
-	margin-left: 22px;
+	// margin-left: 22px;
 	font-size: 1.5em;
 	p {
 		margin: 0;
@@ -289,7 +290,7 @@ header {
 	overflow: hidden;
 	.square {
 		position: relative;
-		padding-bottom: 40px;
+		// padding-bottom: 40px;
 		@include span-columns(3, 12);
 		&.last { @include omega; }
 		h4 {
@@ -523,4 +524,7 @@ div.dataTables_info {
 	// float: left;
 }
 
+.hidden {
+	display: none;
+}
 

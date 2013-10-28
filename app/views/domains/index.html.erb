@@ -6,7 +6,7 @@
   <div class="square<%= (last=0;' last') if last==4 %>">
     <h4><%= link_to domain.name, domain %></h4>
     <% if current_user.admin? %>
-      <div class="edit-links"><%= link_to raw("<i class='icon-pencil'></i> Редактировать"), edit_domain_path(domain) %>
+      <div class="edit-links hidden"><%= link_to raw("<i class='icon-pencil'></i> Редактировать"), edit_domain_path(domain) %>
       <%= link_to raw("<i class='icon-remove'></i> Удалить"), domain, method: :delete, data: { confirm: 'Подтвердите удаление' } %></div>
     <% end %>
   </div>
