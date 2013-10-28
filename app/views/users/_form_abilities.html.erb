@@ -27,6 +27,7 @@
           <div class="user-domain">
             <%= check_box_tag  "domain[#{domain.id}]", 1, @user.roles.any? {|role| role.resource_id == domain.id}%>
             <%= label_tag "domain_#{domain.id}", domain.name %>
+           
           </div>
         <% end -%>
     </div>

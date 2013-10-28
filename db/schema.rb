@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131024111900) do
+ActiveRecord::Schema.define(:version => 20131028070429) do
 
   create_table "domains", :force => true do |t|
     t.string   "name"
@@ -64,13 +64,15 @@ ActiveRecord::Schema.define(:version => 20131024111900) do
     t.string   "resource_type"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.datetime "start_date"
+    t.datetime "end_date"
   end
 
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
 
   create_table "users", :force => true do |t|
-    t.string   "email",                              :default => "", :null => false
+    t.string   "email",                                :default => "", :null => false
     t.string   "encrypted_password",                   :default => ""
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -82,7 +84,7 @@ ActiveRecord::Schema.define(:version => 20131024111900) do
     t.string   "last_sign_in_ip"
     t.string   "fio"
     t.datetime "birthdate"
-    t.string   "register_number" #номер реестра
+    t.string   "register_number"
     t.integer  "phone"
     t.string   "address"
     t.boolean  "admin"
@@ -101,7 +103,7 @@ ActiveRecord::Schema.define(:version => 20131024111900) do
     t.string   "avatar"
     t.datetime "start_access"
     t.datetime "end_access"
-    t.integer  "number_certificate" #номер удостоверения
+    t.integer  "number_certificate"
     t.string   "firstname"
     t.string   "secondname"
     t.string   "lastname"

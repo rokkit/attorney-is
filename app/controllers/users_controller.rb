@@ -71,9 +71,14 @@ class UsersController < ApplicationController
       if @user.update_attributes(params[:user])
     if current_user.admin?
       if params[:domain].present?
+        
         domains = params[:domain].keys
         domains.each do |domain|
           @user.grant :attorney, Domain.find(domain.to_i)
+          role = @user.roles.where(resource_id: domain.to_i).first
+          role.start_date = DateTime.parse(params[:roles][domain.to_s]['start'])
+          role.end_date = DateTime.parse(params[:roles][domain.to_s]['end'])
+          role.save!
           @user.save
         end
         @user.roles.each do |user_role|
