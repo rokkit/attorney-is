@@ -1,6 +1,15 @@
 <h3>Календарь судебных заседаний <%= @domain.name %></h3>
 <div id="months-calendar">
 	<h2><%= @year %> г.</h2>
+    <ul class="years">
+        <li><%= link_to "2009",  calendar_domain_meetings_path(@domain, year: "#{4.year.ago.strftime('%Y')}")%></li>
+        <li><%= link_to "2010",  calendar_domain_meetings_path(@domain, year: "#{3.year.ago.strftime('%Y')}")%></li>
+        <li><%= link_to "2011",  calendar_domain_meetings_path(@domain, year: "#{2.year.ago.strftime('%Y')}")%></li>
+        <li><%= link_to "2012",  calendar_domain_meetings_path(@domain, year: "#{1.year.ago.strftime('%Y')}")%></li>
+        <li><%= link_to "2013",  calendar_domain_meetings_path(@domain, year: "#{0.year.ago.strftime('%Y')}")%></li>
+        <li><%= link_to "2014",  calendar_domain_meetings_path(@domain, year: "#{1.year.from_now.strftime('%Y')}")%></li>
+        <li><%= link_to "2015",  calendar_domain_meetings_path(@domain, year: "#{2.year.from_now.strftime('%Y')}")%></li>
+    </ul>
 	<% russian_months.each_with_index do |month, index| %>
 		<div class="square">
 			<div class="inner">
@@ -8,14 +17,5 @@
 		    </div>
 		</div>
 	<% end %>
-    <%= link_to "2009",  calendar_domain_meetings_path(@domain, year: "#{4.year.ago.strftime('%Y')}")%>
-    <%= link_to "2010",  calendar_domain_meetings_path(@domain, year: "#{3.year.ago.strftime('%Y')}")%>
-    <%= link_to "2011",  calendar_domain_meetings_path(@domain, year: "#{2.year.ago.strftime('%Y')}")%>
-    <%= link_to "2012",  calendar_domain_meetings_path(@domain, year: "#{1.year.ago.strftime('%Y')}")%>
-    <%= link_to "2013",  calendar_domain_meetings_path(@domain, year: "#{0.year.ago.strftime('%Y')}")%>
-    <%= link_to "2013",  calendar_domain_meetings_path(@domain, year: "#{0.year.ago.strftime('%Y')}")%>
-    <%= link_to "2013",  calendar_domain_meetings_path(@domain, year: "#{0.year.ago.strftime('%Y')}")%>
-        <%= link_to "2014",  calendar_domain_meetings_path(@domain, year: "#{1.year.from_now.strftime('%Y')}")%>
-            <%= link_to "2015",  calendar_domain_meetings_path(@domain, year: "#{2.year.from_now.strftime('%Y')}")%>
 </div>
 

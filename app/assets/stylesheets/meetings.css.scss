@@ -151,6 +151,14 @@
       display: block;
     }
   }
+  .years {
+    text-align: center;
+    overflow: hidden;
+    margin-bottom: 1em;
+    li {
+      display: inline;
+    }
+  }
 }
 
 
