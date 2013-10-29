@@ -522,6 +522,7 @@ footer {
 	}
 }
 
+// Data Tables overrides
 div.dataTables_wrapper {
 	overflow: hidden;
 	margin-bottom: 20px;
@@ -535,6 +536,11 @@ div.dataTables_info {
 }
 div.dataTables_paginate {
 	padding-top: 8px;
+}
+
+// Jquery UI overrides
+.ui-widget-header {
+	
 }
 
 .hidden {
