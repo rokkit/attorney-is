@@ -31,8 +31,7 @@
           <%= link_to 'Отменить', cancel_request_meeting_path(request_meeting), method: :post, class: "cancel entypo-cancel-circled" %>
          <% end %>
       <% if can? :manage, :all and request_meeting.status != 2%>
-        | <%= link_to 'Подтвердить', approve_request_meeting_path(request_meeting), method: :post, class: "approve entypo-check" %>
-        | <%= link_to 'Исправить', edit_request_meeting_path(request_meeting), class: "edit entypo-pencil" %>
+        <%= link_to 'Подтвердить', approve_request_meeting_path(request_meeting), method: :post, class: "approve entypo-check" %>
       <% end %>
       </td>
     </tr>

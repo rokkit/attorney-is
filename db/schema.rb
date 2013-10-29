@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131028070429) do
+ActiveRecord::Schema.define(:version => 20131029110414) do
 
   create_table "domains", :force => true do |t|
     t.string   "name"
@@ -72,12 +72,12 @@ ActiveRecord::Schema.define(:version => 20131028070429) do
   add_index "roles", ["name"], :name => "index_roles_on_name"
 
   create_table "users", :force => true do |t|
-    t.string   "email",                                :default => "", :null => false
-    t.string   "encrypted_password",                   :default => ""
+    t.string   "email",                                              :default => "", :null => false
+    t.string   "encrypted_password",                                 :default => ""
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                        :default => 0
+    t.integer  "sign_in_count",                                      :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -88,16 +88,16 @@ ActiveRecord::Schema.define(:version => 20131028070429) do
     t.integer  "phone"
     t.string   "address"
     t.boolean  "admin"
-    t.datetime "created_at",                                           :null => false
-    t.datetime "updated_at",                                           :null => false
-    t.string   "invitation_token",       :limit => 60
+    t.datetime "created_at",                                                         :null => false
+    t.datetime "updated_at",                                                         :null => false
+    t.string   "invitation_token",                     :limit => 60
     t.datetime "invitation_sent_at"
     t.datetime "invitation_accepted_at"
     t.integer  "invitation_limit"
     t.integer  "invited_by_id"
     t.string   "invited_by_type"
     t.boolean  "change_password"
-    t.integer  "request_limit",                        :default => 3,  :null => false
+    t.integer  "request_limit",                                      :default => 3,  :null => false
     t.string   "attorney_formation"
     t.string   "attorney_consult"
     t.string   "avatar"
@@ -107,6 +107,62 @@ ActiveRecord::Schema.define(:version => 20131028070429) do
     t.string   "firstname"
     t.string   "secondname"
     t.string   "lastname"
+    t.date     "date_adding_to_register"
+    t.date     "date_entry_adding_to_register"
+    t.integer  "number_entry_adding_from_register"
+    t.string   "entry_adding_from_register"
+    t.date     "date_excluding_from_register"
+    t.date     "date_entry_excluding_from_register"
+    t.integer  "number_entry_excluding_from_register"
+    t.string   "entry_excluding_from_register"
+    t.date     "date_creating_of_certificate"
+    t.integer  "status"
+    t.date     "date_adding_status"
+    t.date     "date_entry_adding_status"
+    t.integer  "number_entry_adding_status"
+    t.date     "date_ending_status"
+    t.date     "date_entry_ending_status"
+    t.integer  "number_ending_status"
+    t.string   "entry_ending_status"
+    t.integer  "inn"
+    t.integer  "sps"
+    t.boolean  "gender"
+    t.string   "nationality"
+    t.date     "birthday"
+    t.string   "birthplace"
+    t.string   "document"
+    t.string   "serial_document"
+    t.string   "number_document"
+    t.date     "document_created"
+    t.string   "who_created_document"
+    t.string   "who_created_document_code"
+    t.string   "official_address_for_contact"
+    t.string   "country"
+    t.string   "region"
+    t.string   "subdivion_russian_federation"
+    t.integer  "district_id"
+    t.integer  "index"
+    t.string   "city"
+    t.string   "street"
+    t.string   "house_number"
+    t.string   "house_second_number"
+    t.string   "appartement_number"
+    t.string   "city_punkt"
+    t.string   "home_phone"
+    t.string   "work_phone"
+    t.string   "fax_phone"
+    t.string   "phone_2"
+    t.string   "mobile_phone"
+    t.string   "site"
+    t.string   "post_address"
+    t.string   "additional_info"
+    t.string   "university"
+    t.date     "diplom_created"
+    t.string   "dimplom_serial"
+    t.integer  "diplom_number"
+    t.string   "academic_title"
+    t.string   "degree"
+    t.string   "experience"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
