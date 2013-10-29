@@ -133,8 +133,8 @@ header {
 #header {
 	position: relative;
 	// border-bottom: 1px solid $blue;
-	padding: 10px 0;
-	height: 185px;
+	padding: 2px 0;
+	height: 160px;
 	margin: 0 -23px;
 	.branding{
 		// width: 790px;
@@ -158,20 +158,20 @@ header {
 			float: left;
 			// width: 680px;
 			text-align: left;
-			padding-top: 10px;
+			padding-top: 22px;
 			// margin-top: 12px;
 			.site-name {
 				margin: 0;
 				text-transform: uppercase;
-				font-size: 50px;
+				font-size: 52px;
 				line-height: 1;
 				text-align: right;
-				letter-spacing: 8px;
+				letter-spacing: 12px;
 
 				em {
 					font-style: normal;
 					display: block;
-					letter-spacing: 14px;
+					letter-spacing: 19px;
 				}
 				a {
 					text-decoration: none;
@@ -186,7 +186,7 @@ header {
 		letter-spacing: 24px;
 		clear: both;
 		text-align: center;
-		padding: 15px 0 3px 15px;
+		padding: 6px 0 3px 15px;
 		font-weight: 700;
 	}
 }
@@ -195,8 +195,7 @@ header {
 }
 #current-date {
 	float: left;
-	margin-top: 10px;
-	// margin-left: 22px;
+	margin-top: 5px;
 	font-size: 1.5em;
 	p {
 		margin: 0;
@@ -208,26 +207,11 @@ header {
 			margin-left: .5em;
 		}
 	}
-	// .date {
-	// 	font-weight: 700;
-	// }
-	// .time {
-	// 	border: 1px solid $blue;
-	// 	display: inline-block;
-	// 	padding: 3px;
-	// 	.hour, .minute {
-	// 		background-color: $blue;
-	// 		display: inline-block;
-	// 		padding: 3px;
-	// 		font-size: 18px;
-	// 		color: #fff;
-	// 	}
-	// }
 }
 
 .user-menu {
 	@include clear-nav();
-	margin-top: 10px;
+	margin-top: 5px;
 	li {
 		margin-left: 15px;
 		a {
