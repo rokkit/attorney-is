@@ -68,14 +68,16 @@
     font-size: 22px;
     a {
       text-decoration: none;
-      padding: 0 10px;
+      padding: 0;
       // color: #999;
     }
     .prev-month {
       float: left;
+      padding-left: 2em;
     }
     .next-month {
       float: right;
+      padding-right: 2em;
     }
   }
   

@@ -1,20 +1,17 @@
 <div class="blocks">
 
+  <div class="row-fluid well-menu">
+    <div class="square">
+      <%= link_to raw("<i class='icon-inbox'></i> Базовый список учреждений"), admin_index_domains_path %>                            
+    </div>  
 
-          <div class="row-fluid well-menu">
-      		  <div class="square">
-                  <%= link_to raw("<i class='icon-inbox'></i> Базовый список учреждений"), admin_index_domains_path %>                            
-              </div>  
- 
-      		  <div class="square">
-                  <%= link_to raw("<i class='icon-envelope'></i> Выслать пароли"), send_password_to_all_users_path, method: :post %>                            
-              </div>  
-    		  <div class="square">
-                  <%= link_to raw("<i class='icon-user'></i> Базовый список адвокатов"), users_path %>
-              </div>
-              
-              
-          </div>
-
+    <div class="square">
+      <%= link_to raw("<i class='icon-envelope'></i> Выслать пароли"), send_password_to_all_users_path, method: :post %>
+    </div>
+    
+    <div class="square">
+      <%= link_to raw("<i class='icon-user'></i> Базовый список адвокатов"), users_path %>
+    </div>
+  </div>
           
 </div>

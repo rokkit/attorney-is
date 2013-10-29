@@ -459,8 +459,11 @@ input[type="color"],
 .input-append .add-on,
 .input-prepend .add-on {
 	border: 1px solid $blue;
-	padding: 0px 5px;
+	padding: 0px 5px !important;
 	color: $blue;
+}
+.input-block-level {
+	min-height: inherit !important;
 }
 
 input[type="submit"] {
@@ -522,9 +525,16 @@ footer {
 div.dataTables_wrapper {
 	overflow: hidden;
 	margin-bottom: 20px;
+	.date_range_filter {
+		// display: inline;
+		// width: 100px;
+	}
 }
 div.dataTables_info {
-	// float: left;
+	float: left;
+}
+div.dataTables_paginate {
+	padding-top: 8px;
 }
 
 .hidden {
