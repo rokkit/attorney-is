@@ -7,6 +7,7 @@ AttorneyIs::Application.routes.draw do
   devise_for :users, :controllers => {:sessions => "auth/sessions"}, path:'',path_names: {user_registration: "invited_user"}
   post "invited_user" => "devise_invitable/registrations#create"
   resources :domains, shallow: true do
+    get 'admin_index' => 'domains#admin_index', on: :collection
     resources :meetings do
       post 'request_for' => 'meetings#request_for_meeting', on: :member
           get 'calendar' => 'meetings#calendar', on: :collection

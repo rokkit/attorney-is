@@ -22,6 +22,9 @@ class DomainsController < ApplicationController
       format.json { render json: @domains }
     end
   end
+  def admin_index
+    @domains = Domain.all
+  end
 
   # GET /domains/1
   # GET /domains/1.json

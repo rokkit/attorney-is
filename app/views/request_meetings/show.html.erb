@@ -7,7 +7,12 @@
 
 	<div class="meeting">
 	  <h4>Заседание:</h4>
-	  <p><%= link_to @request_meeting.meeting, @request_meeting.meeting %></p>
+	  <p><%= link_to "#{@request_meeting.meeting}", @request_meeting.meeting %></p>
+	</div>
+    
+	<div class="meeting">
+	  <h4>Учреждение:</h4>
+	  <p><%= link_to "#{@request_meeting.meeting.domain.name}", @request_meeting.meeting.domain %></p>
 	</div>
 
 	<div class="status">

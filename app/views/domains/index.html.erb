@@ -7,14 +7,7 @@
     <h4><%= link_to domain.name, domain %></h4>
     <% if current_user.admin? %>
       <div class="edit-links hidden"><%= link_to raw("<i class='icon-pencil'></i> Редактировать"), edit_domain_path(domain) %>
-      <%= link_to raw("<i class='icon-remove'></i> Удалить"), domain, method: :delete, data: { confirm: 'Подтвердите удаление' } %></div>
     <% end %>
   </div>
 <% end %>
 </div>
-
-<br />
-
-<% if can? :manage, :all %>
-  <%= link_to raw("Добавить <i class='icon-plus'></i>"), new_domain_path %>
-<% end %>
