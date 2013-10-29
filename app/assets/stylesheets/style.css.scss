@@ -26,7 +26,7 @@ body {
   // background-image: image-url("white_wall_hash.png");
   background-color: #fff !important;
   margin: 0;
-  font: 13px / 1.5em Arial, sans-serif;
+  font: 14px / 1.5em Arial, sans-serif;
   // letter-spacing: 0.03em;
   color: $blue;
 }
@@ -332,6 +332,9 @@ header {
 	overflow: hidden;
 	input {
 		float: left;
+		&.date-from {
+			clear: left;
+		}
 	}
 	label {
 		float: left;

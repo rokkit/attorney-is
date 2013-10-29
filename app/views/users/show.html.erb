@@ -1,8 +1,8 @@
 <div class="row user">
-	<div class="span2">
+	<div class="span2 avatar-block">
 		<%= image_tag @user.avatar.thumb.url.to_s %>
 	</div>
-  <div class="span4">
+  <div class="span4 user-info-block">
     <dl>
       <dt><%= @user.roles.first %></dt><dd><%= @user.fio %></dd>
       <dt>Телефон:</dt><dd><%= number_to_phone @user.phone, area_code: true %></dd>
@@ -15,7 +15,7 @@
       <dt>Подано заявлений (всего):</dt><dd><%= @user.request_meetings.count %></dd>
     </dl>
   </div>
-  <div class="span6">
+  <div class="span6 user-domains-block">
   <h3>Доступ открыт к следующим учреждениям:</h3>
   <ul>
     <% @user.roles.each do |role| %>
@@ -28,10 +28,8 @@
   </ul>
   </div>
 </div>
-<div class="row user">
-	<div class="span12">
+<div class="user">
 		<%= render 'meetings/list_for_user' %>
-	</div>
 </div>
 <div class="actions">
     <%= link_to raw("<i class='icon-asterisk'></i> Выслать пароль"), generate_new_password_user_path(@user), method: :post if current_user.has_role? :admin %>
