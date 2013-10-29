@@ -46,13 +46,16 @@
       height: 70px;
       font-size: 16px;
       &.weekend {
-        background-color: lighten(red, 0%);
+        .day {
+          color: #777;
+        }
       }
     }
 
     .notmonth,
     .notmonth a,
-    .notmonth .day { color: #CCC; }
+    .notmonth .day,
+    .notmonth.weekend .day { color: #CCC; }
     .notmonth .date-cell a {
       border-top: 1px solid #ccc;
     }

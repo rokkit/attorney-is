@@ -13,7 +13,7 @@ puts 'ROLES'
 end
 puts 'DEFAU-LT USERS'
 User.delete_all
-user = User.find_or_create_by_email :email => APP['ADMIN_EMAIL'].dup, :password => APP['ADMIN_PASSWORD'].dup, :password_confirmation => APP['ADMIN_PASSWORD'].dup, phone: APP['ADMIN_PHONE'], fio: APP['ADMIN_FIO'].dup, register_number: 1
+user = User.find_or_create_by_email :email => APP['ADMIN_EMAIL'].dup, :password => APP['ADMIN_PASSWORD'].dup, :password_confirmation => APP['ADMIN_PASSWORD'].dup, phone: APP['ADMIN_PHONE'], fio: APP['ADMIN_FIO'].dup, firstname: APP['ADMIN_FIRSTNAME'].dup, lastname: APP['ADMIN_LAST'].dup, register_number: 1
 puts 'user: ' << user.fio
 #user.confirm!
 user.add_role :admin

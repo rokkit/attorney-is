@@ -163,7 +163,7 @@ header {
 			.site-name {
 				margin: 0;
 				text-transform: uppercase;
-				font-size: 59px;
+				font-size: 50px;
 				line-height: 1;
 				text-align: right;
 				letter-spacing: 8px;
@@ -171,7 +171,7 @@ header {
 				em {
 					font-style: normal;
 					display: block;
-					letter-spacing: 15px;
+					letter-spacing: 14px;
 				}
 				a {
 					text-decoration: none;
@@ -459,7 +459,7 @@ input[type="color"],
 .input-append .add-on,
 .input-prepend .add-on {
 	border: 1px solid $blue;
-	padding: 2px 5px;
+	padding: 0px 5px;
 	color: $blue;
 }
 
