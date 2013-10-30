@@ -13,9 +13,7 @@
     <div class="months">
 	<% russian_months.each_with_index do |month, index| %>
 		<div class="square">
-			<div class="inner">
-			    <%= link_to month, domain_meetings_path(@domain, date: "01.#{index+1}.#{@year}"), class: "month" %>
-		    </div>
+		    <%= link_to month, domain_meetings_path(@domain, date: "01.#{index+1}.#{@year}"), class: "month #{Russian::transliterate( month).downcase! }" %>
 		</div>
 	<% end %>
     </div>

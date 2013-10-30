@@ -148,12 +148,49 @@
   .square {
     @include span-columns(3, 12);
     &:nth-child(4n) { @include omega; }
-    .inner {
-      padding: 10px;
-    }
+    border: 0 none;
     .month {
-      font-size: 1.4em;
+      // font-size: 1.4em;
+      height: 100px;
       display: block;
+      @include hide-text;
+      background: image-url("month-icons.png") no-repeat -1px 0px;
+      &.yanvar {
+        background-position: -1px 0px;
+      }
+      &.fevral {
+        background-position: -251px 0px;
+      }
+      &.mart {
+        background-position: -501px 0px;
+      }
+      &.aprel {
+        background-position: -751px 0px;
+      }
+      &.may {
+        background-position: -1px -121px;
+      }
+      &.iyun {
+        background-position: -251px -121px;
+      }
+      &.iyul {
+        background-position: -501px -121px;
+      }
+      &.avgust {
+        background-position: -751px -121px;
+      }
+      &.sentyabr {
+        background-position: -1px -241px;
+      }
+      &.oktyabr {
+        background-position: -251px -241px;
+      }
+      &.noyabr {
+        background-position: -501px -241px;
+      }
+      &.dekabr {
+        background-position: -751px -241px;
+      }
     }
   }
   .years {
