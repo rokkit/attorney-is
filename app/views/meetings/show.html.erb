@@ -1,37 +1,38 @@
 <div id="show-meeting">
 	<h1>Судебное заседание</h1>
 	<div class="content-left">
-		<table>
+		<table class="list-table">
 			<tr>
-				<td><strong>Дата проведения:</strong></td>
+				<td class="title">Дата проведения:</td>
 				<td><%= "#{@meeting.will_be_on} #{ @meeting.will_be_at}" %></td>
 			</tr>
 			<tr>
-				<td><strong>Место проведения:</strong></td>
+				<td class="title">Место проведения:</td>
 				<td><%= "#{@meeting.domain.name}" %></td>
 			</tr>
 			<tr>
-				<td><strong>Судья:</strong></td>
+				<td class="title">Судья:</td>
 				<td><%= @meeting.judge || "Не указан" %></td>
 			</tr>
 			<tr>
-				<td><strong>Клиент:</strong></td>
+				<td class="title">Клиент:</td>
 				<td><%= @meeting.client || "Не указан" %></td>
 			</tr>
 			<tr>
-				<td><strong>Назначенный адвокат:</strong></td>
+				<td class="title">Назначенный адвокат:</td>
 				<td><%= @meeting.user || "Нет" %> <br>
 		          Номер реестра: <%= @meeting.user.try :register_number %>
       			</td>
 			</tr>
+			<tr>
+				<td class="title">Дополнительная информация:</td>
+				<td><%= @meeting.content.present? ? @meeting.content : "Нет" %></td>
+			</tr>
+			<tr>
+				<td class="title">Запись произведена:</td>
+				<td><%= @meeting.created_at %></td>
+			</tr>
 		</table>
-
-    	<div class="dop-info">
-    	  <p><strong>Дополнительная информация:</strong> <%= @meeting.content.present? ? @meeting.content : "Нет" %></p>
-    	</div>
-    	<div class="dop-info">
-    	  <p><strong>Запись произведена: </strong><%= @meeting.created_at %></p>
-    	</div>
     </div>
 
     
