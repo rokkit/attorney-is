@@ -41,7 +41,7 @@ class RequestMeeting < ActiveRecord::Base
   
   def send_notification_to_admins
     InformMail.create user: User.first,  
-      body: "Новая заявка на заседание #{self.meeting.will_be_at} в #{self.meeting.domain.name}"
+      body: "Новая заявка на заседание #{self.meeting.will_be_on.strftime("%d.%m.%Y")} #{self.meeting.will_be_at.strftime("%R")} в #{self.meeting.domain.name}"
   end
   
 private 

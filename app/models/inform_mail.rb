@@ -1,6 +1,6 @@
 class InformMail < ActiveRecord::Base
   belongs_to :user
-  attr_accessible :body, :sms_body, :user
+  attr_accessible :body, :sms_body, :user, :user_id
   
   after_create :send_email_and_sms
   
