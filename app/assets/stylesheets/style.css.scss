@@ -481,8 +481,10 @@ input[type="submit"] {
 }
 
 .table th, .table td {
-	border-bottom: 1px solid $blue;
+	// border: 1px solid $blue;
 }
+.table-bordered{border:1px solid $blue;border-collapse:separate;*border-collapse:collapse;border-left:0;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;}
+.table-bordered th,.table-bordered td{border-left:1px solid $blue;}
 
 
 
