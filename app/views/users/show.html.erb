@@ -1,59 +1,50 @@
-<div class="row user">
-	<div class="span2 avatar-block">
-		<%= image_tag @user.avatar.thumb.url.to_s %>
-	</div>
-  <div class="span4 user-info-block">
-    <!--<dl>
-      <dt><%= @user.roles.first %></dt><dd><%= @user.fio %></dd>
-      <dt>Телефон:</dt><dd><%= number_to_phone @user.phone, area_code: true %></dd>
-      <dt>Почта:</dt><dd><%= @user.email %></dd>
-      <dt>Реестровый номер <dd><%= @user.register_number %></dd></dt>
-      <dt>Дата включения в базовый список <dd><%= @user.start_access.present? ? @user.start_access.strftime("%d.%m.%Y") : "Не указана" %></dd></dt>
-      <dt>Дата исключения из базового списка <dd><%= @user.end_access.present? ? @user.end_access.strftime("%d.%m.%Y") : "Не указана" %></dd></dt>
-      <dt>Наименование адвокатского образования:</dt><dd><%= @user.attorney_formation %></dd>
-      <dt>Наименование адвокатской консультации:</dt><dd><%= @user.attorney_consult %></dd>
-      <dt>Подано заявлений (всего):</dt><dd><%= @user.request_meetings.count %></dd>
-    </dl>-->
-    <table>
+<div class="user">
+  <div class="user-info-block">
+    <table class="list-table">
       <tr>
-        <td><%= @user.roles.first %></td>
+        <td class="title"><%= @user.roles.first %></td>
         <td><%= @user.fio %></td>
       </tr>
       <tr>
-        <td>Телефон:</td>
+        <td class="title">Телефон:</td>
         <td><%= number_to_phone @user.phone, area_code: true %></td>
       </tr>
       <tr>
-        <td>Почта:</td>
+        <td class="title">Почта:</td>
         <td><%= @user.email %></td>
       </tr>
       <tr>
-        <td>Реестровый номер:</td>
+        <td class="title">Реестровый номер:</td>
         <td><%= @user.register_number %></td>
       </tr>
       <tr>
-        <td>Дата включения в базовый список:</td>
+        <td class="title">Дата включения в базовый список:</td>
         <td><%= @user.start_access.present? ? @user.start_access.strftime("%d.%m.%Y") : "Не указана" %></td>
       </tr>
       <tr>
-        <td>Дата исключения из базового списка:</td>
+        <td class="title">Дата исключения из базового списка:</td>
         <td><%= @user.end_access.present? ? @user.end_access.strftime("%d.%m.%Y") : "Не указана" %></td>
       </tr>
       <tr>
-        <td>Наименование адвокатского образования:</td>
+        <td class="title">Наименование адвокатского образования:</td>
         <td><%= @user.attorney_formation %></td>
       </tr>
       <tr>
-        <td>Наименование адвокатской консультации:</td>
+        <td class="title">Наименование адвокатской консультации:</td>
         <td><%= @user.attorney_consult %></td>
       </tr>
       <tr>
-        <td>Подано заявлений (всего):</td>
+        <td class="title">Подано заявлений (всего):</td>
         <td><%= @user.request_meetings.count %></td>
       </tr>
     </table>
   </div>
-  <div class="span6 user-domains-block">
+
+  <div class="avatar-block">
+    <%= image_tag @user.avatar.thumb.url.to_s %>
+  </div>
+
+  <div class="user-domains-block">
   <h3>Доступ открыт к следующим учреждениям:</h3>
   <ul>
     <% @user.roles.each do |role| %>

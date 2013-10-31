@@ -295,7 +295,15 @@ header {
 
 //====== USER
 .user {
-
+	.user-info-block {
+		@include span-columns(10, 12);
+	}
+	.avatar-block {
+		@include span-columns(2 omega, 12);
+	}
+	.user-domains-block {
+		clear: both;
+	}
 }
 //=== edit form
 #user_avatar {
@@ -420,6 +428,19 @@ div.status {
 	}
 	&.cancel {
 		@include sassy-button-gradient("matte", lighten($cancel, 10%), $cancel, #fff);
+	}
+}
+
+.list-table {
+	margin-bottom: 1em;
+	tr {
+		td {
+			padding-right: 1em;
+			&.title {
+				font-weight: 700;
+				// text-align: right;
+			}
+		}
 	}
 }
 
