@@ -1,4 +1,4 @@
-<%= form_for(@inform_mail) do |f| %>
+<%= simple_form_for(@inform_mail) do |f| %>
   <% if @inform_mail.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@inform_mail.errors.count, "error") %> prohibited this inform_mail from being saved:</h2>
@@ -12,14 +12,15 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :user %><br />
-    <%= f.text_field :user %>
+    <%= f.association :user, label: "Адвокат", input_html: {style:'width:400px;'}  %>
   </div>
   <div class="field">
-    <%= f.label :body %><br />
-    <%= f.text_area :body %>
+    <%= f.input :body, label: 'Соообщение', input_html: {style:'width:400px;'} %>
+  </div>
+  <div class="field">
+    <%= f.input :sms_body, label: 'СМС-сообщение', input_html: { style:'width:400px;'} %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Отправить" %>
   </div>
 <% end %>

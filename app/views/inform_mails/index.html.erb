@@ -10,7 +10,7 @@
 
 <% @inform_mails.each do |inform_mail| %>
   <tr>
-    <td><%= inform_mail.user %></td>
+    <td><%= "#{inform_mail.user} (#{inform_mail.user.email})" %></td>
     <td><%= inform_mail.body %></td>
     <td><%= inform_mail.sms_body || '-' %></td>
     <td><%= inform_mail.created_at %></td>
