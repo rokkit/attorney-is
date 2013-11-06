@@ -16,8 +16,10 @@
     </div>  
 	</div>
     <div class="row-fluid well-menu">
+        <% if current_user.admin? %>
 		  <div class="square">
         <%= link_to raw("<i class='icon-wrench'></i> Административная панель"), pages_panel_path %>
       </div>  
+      <% end %>
     </div>
 </div>
