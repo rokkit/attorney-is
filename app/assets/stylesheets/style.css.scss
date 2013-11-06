@@ -134,7 +134,7 @@ header {
 	position: relative;
 	// border-bottom: 1px solid $blue;
 	padding: 2px 0;
-	height: 160px;
+	height: 166px;
 	margin: 0 -23px;
 	.branding{
 		// width: 790px;
@@ -163,7 +163,7 @@ header {
 			.site-name {
 				margin: 0;
 				text-transform: uppercase;
-				font-size: 52px;
+				font-size: 48px;
 				line-height: 1;
 				text-align: right;
 				letter-spacing: 12px;
@@ -171,7 +171,7 @@ header {
 				em {
 					font-style: normal;
 					display: block;
-					letter-spacing: 19px;
+					letter-spacing: 18px;
 				}
 				a {
 					text-decoration: none;
@@ -181,12 +181,12 @@ header {
 	}
 	.site-slogan {
 		margin: 0;
-		font-size: 27px;
+		font-size: 30px;
 		text-transform: uppercase;
-		letter-spacing: 24px;
+		letter-spacing: 22px;
 		clear: both;
 		text-align: center;
-		padding: 6px 0 3px 15px;
+		padding: 10px 0 3px 15px;
 		font-weight: 700;
 	}
 }
@@ -224,6 +224,7 @@ header {
 //====== CONTENT
 #content {
 	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
 //=== SQUARES
@@ -246,6 +247,7 @@ header {
 .blocks {
 	@include span-columns(10, 12);
 	@include pre(1);
+	@include post(1);
 	padding: 20px 0;
 }
 

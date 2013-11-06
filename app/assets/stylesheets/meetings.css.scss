@@ -46,8 +46,9 @@
       height: 70px;
       font-size: 16px;
       &.weekend {
+        background-color: #e23033;
         .day {
-          color: #777;
+          color: #eee;
         }
       }
     }
@@ -61,23 +62,31 @@
     }
     //.today { background-color: #d9ffd8; }
   }
+
+  h3 {
+    margin-left: 40px;
+  }
+
   #month {
     margin: 0;
     padding-bottom: 10px;
     text-align: center;
-    font-size: 22px;
+    font-size: 18px;
     a {
       text-decoration: none;
       padding: 0;
       // color: #999;
     }
+    .month-name {
+      text-transform: uppercase;
+    }
     .prev-month {
       float: left;
-      padding-left: 2em;
+      padding-left: 40px;
     }
     .next-month {
       float: right;
-      padding-right: 2em;
+      padding-right: 40px;
     }
   }
   
@@ -110,6 +119,7 @@
       }
       a {
         border-top: 0px solid #fff;
+        line-height: 1;
       }
     }
     &.not_avaible {
@@ -150,50 +160,55 @@
     &:nth-child(4n) { @include omega; }
     border: 0 none;
     .month {
-      // font-size: 1.4em;
+      font-size: 1.4em;
       height: 100px;
       display: block;
-      @include hide-text;
-      background: image-url("month-icons.png") no-repeat -1px 0px;
-      &.yanvar {
-        background-position: -1px 0px;
-      }
-      &.fevral {
-        background-position: -251px 0px;
-      }
-      &.mart {
-        background-position: -503px 0px;
-      }
-      &.aprel {
-        background-position: -751px 0px;
-      }
-      &.may {
-        background-position: -1px -121px;
-      }
-      &.iyun {
-        background-position: -251px -121px;
-      }
-      &.iyul {
-        background-position: -503px -121px;
-      }
-      &.avgust {
-        background-position: -751px -121px;
-      }
-      &.sentyabr {
-        background-position: -1px -243px;
-      }
-      &.oktyabr {
-        background-position: -251px -243px;
-      }
-      &.noyabr {
-        background-position: -503px -243px;
-      }
-      &.dekabr {
-        background-position: -751px -243px;
-      }
+      text-align: center;
+      line-height: 100px;
+      border: 2px solid $blue;
+      overflow: hidden;
+      // @include hide-text;
+      // background: image-url("month-icons.png") no-repeat -1px 0px;
+      // &.yanvar {
+      //   background-position: -1px 0px;
+      // }
+      // &.fevral {
+      //   background-position: -251px 0px;
+      // }
+      // &.mart {
+      //   background-position: -503px 0px;
+      // }
+      // &.aprel {
+      //   background-position: -751px 0px;
+      // }
+      // &.may {
+      //   background-position: -1px -121px;
+      // }
+      // &.iyun {
+      //   background-position: -251px -121px;
+      // }
+      // &.iyul {
+      //   background-position: -503px -121px;
+      // }
+      // &.avgust {
+      //   background-position: -751px -121px;
+      // }
+      // &.sentyabr {
+      //   background-position: -1px -243px;
+      // }
+      // &.oktyabr {
+      //   background-position: -251px -243px;
+      // }
+      // &.noyabr {
+      //   background-position: -503px -243px;
+      // }
+      // &.dekabr {
+      //   background-position: -751px -243px;
+      // }
     }
   }
   .years {
+    clear: both;
     text-align: center;
     overflow: hidden;
     margin: 0 0 1em 0;

@@ -13,6 +13,6 @@
 
 
 <% if current_user.admin? %>
-  <%= link_to 'Редактировать', edit_domain_path(@domain) %> 
+  <!-- <%= link_to 'Редактировать', edit_domain_path(@domain) %> -->
 <% end %>
-<%= link_to link_to raw("<i class='icon-chevron-left'></i> Назад"), domains_path %>
+<%= link_to link_to raw("<i class='icon-chevron-left'></i> Назад"), domains_path, class: 'actions' %>
