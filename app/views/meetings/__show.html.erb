@@ -1,0 +1,84 @@
+<div id="show-meeting">
+	<h1>Судебное заседание</h1>
+	<div class="content-left">
+		<table>
+			<tr>
+				<td><strong>Дата проведения:</strong></td>
+				<td><%= "#{@meeting.will_be_on} #{ @meeting.will_be_at}" %></td>
+			</tr>
+			<tr>
+				<td><strong>Место проведения:</strong></td>
+				<td><%= "#{@meeting.domain.name}" %></td>
+			</tr>
+			<tr>
+				<td><strong>Судья:</strong></td>
+				<td><%= @meeting.judge || "Не указан" %></td>
+			</tr>
+			<tr>
+				<td><strong>Клиент:</strong></td>
+				<td><%= @meeting.client || "Не указан" %></td>
+			</tr>
+			<tr>
+				<td><strong>Назначенный адвокат:</strong></td>
+				<td><%= @meeting.user || "Нет" %> <br>
+		          Номер реестра: <%= @meeting.user.try :register_number %>
+      			</td>
+			</tr>
+		</table>
+
+		<!-- <div class="lawyer">
+		  <p><strong>Дата проведения:</strong> <%= "#{@meeting.will_be_on} #{ @meeting.will_be_at}" %></p>
+		</div>
+		<div class="lawyer">
+		  <p><strong>Место проведения:</strong> <%= "#{@meeting.domain.name}" %></p>
+		</div>
+
+		<div class="lawyer">
+		  <p><strong>Судья:</strong> <%= @meeting.judge || "Не указан" %></p>
+		</div>
+		<div class="lawyer">
+		  <p><strong>Клиент:</strong> <%= @meeting.client || "Не указан" %></p>
+		</div>
+		<div class="lawyer">
+		  <p><strong>Назначенный адвокат:</strong> <%= @meeting.user || "Нет" %> <br>
+          Номер реестра: <%= @meeting.user.try :register_number %>
+          </p><br>
+		</div> -->
+
+    	<div class="dop-info">
+    	  <p><strong>Дополнительная информация:</strong> <%= @meeting.content.present? ? @meeting.content : "Нет" %></p>
+    	</div>
+    	<div class="dop-info">
+    	  <p><strong>Запись произведена: </strong><%= @meeting.created_at %></p>
+    	</div>
+    </div>
+
+    
+    <% if current_user.admin? && !@meeting.request_meetings.empty?  %>
+    <div class="content-right">
+	    <h4>На заседание записались:</h4>
+	    <ul>
+	        <% @meeting.request_meetings.each do |request_meeting| %>
+	        <li>
+	           <%= link_to request_meeting.user, request_meeting.user %> 
+	           <%= link_to 'Отменить', cancel_request_meeting_path(request_meeting), method: :post, class: "btn cancel entypo-cancel-circled" %>
+	           <%= link_to 'Подтвердить', approve_request_meeting_path(request_meeting), method: :post, class: "btn approve entypo-check" %>
+	        </li>
+	        <% end %>
+	    </ul>
+    </div>
+    <% end %>
+
+
+	<div class="actions">
+		<% if can? :request, @meeting and !current_user.admin? %>
+		    <%= link_to 'Подать заявку', request_for_meeting_path, method: :post, class: "btn make-request entypo-user-add" %>
+		<% end %>
+		<% if can? :manage, :all %>
+    		<%= link_to 'Удалить', @meeting, method: :delete, class: "edit entypo-pencil" %>            
+			<%= link_to 'Изменить', edit_meeting_path(@meeting), class: "edit entypo-pencil" %>
+			<%= link_to 'Снять адвоката с дежурства', request_meeting_path(RequestMeeting.where(user_id: @meeting.user, meeting_id: @meeting).first) if @meeting.user.present? %>
+
+		<% end %>
+	</div>
+</div>

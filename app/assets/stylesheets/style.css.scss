@@ -135,7 +135,8 @@ header {
 	// border-bottom: 1px solid $blue;
 	padding: 2px 0;
 	height: 166px;
-	margin: 0 -23px;
+	margin: 0;
+	background: image-url("head.gif") no-repeat top left;
 	.branding{
 		// width: 790px;
 		margin: 0 auto;
