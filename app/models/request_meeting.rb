@@ -20,8 +20,8 @@ class RequestMeeting < ActiveRecord::Base
       self.meeting.save!
       if save
         InformMail.create user: self.user,  
-          body: "Вы включены в график дежурств на #{self.meeting.will_be_at}",
-          sms_body: "Вы включены в график дежурств на #{self.meeting.will_be_at}"
+          body: "Вы включены в график дежурств на #{self.meeting.will_be_on.strftime("%d.%m.%Y")} #{self.meeting.will_be_at.strftime("%R")} в #{self.meeting.domain.name}",
+          sms_body: "Вы включены в график дежурств на #{self.meeting.will_be_on.strftime("%d.%m.%Y")} #{self.meeting.will_be_at.strftime("%R")} в #{self.meeting.domain.name}"
       end
     end
   end

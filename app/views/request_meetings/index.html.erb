@@ -32,7 +32,7 @@
       <td class="actions">
 
         <%= link_to raw('Подробнее'), request_meeting, class: "" %>
-        <% if can? :manage, request_meeting %>
+        <% if can? :manage, :all %>
           <%= link_to 'Отменить', cancel_request_meeting_path(request_meeting), method: :post, class: "" %>
          <% end %>
       <% if can? :manage, :all and request_meeting.status != 2%>
@@ -43,12 +43,14 @@
 
 <% end %>
   </tbody>
-  <tfoot>
-      <th colspan="2">Поисковая система</th>
-      <th>Поиск по ФИО</th>
+  <% if can? :manage, :all %>
+      <tfoot>
+          <th colspan="2">Поисковая система</th>
+          <th>Поиск по ФИО</th>
    
-      <th colspan='3'></th>
+          <th colspan='3'></th>
   
-  </tfoot>
+      </tfoot>
+  <% end %>
 </table>
 <p id="periodFilter"></p>

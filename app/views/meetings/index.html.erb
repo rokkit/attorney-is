@@ -8,13 +8,20 @@
   </h2>
     <%= calendar @date, @meetings_by_date  do |date| %>
       <%= content_tag :span, id: "cell_#{date.strftime('%d_%m_%Y')}", class: ("meeting" if @meetings_by_date[date.to_date]) do %>
-        <% if can? :manage, :all and @meetings_by_date[date.to_date] == nil #and date>=Date.today %>
-        <% if date>=Date.today %>
-          <%= link_to raw("<div class='day'>#{date.day}</div><i class='icon-plus'></i> Добавить"), new_domain_meeting_path(@domain,meeting: { will_be_on: date }), class: "add-meeting meeting-link",remote: true, data: {toggle: 'modal', target: '#modal-window'}  %>
-        <% else %>
-         <a href='#' class="pasttimes add-meeting"><div class='day'><%= date.day %></div><i class='icon-plus'></i> Добавить</a>
-         <% end %>
+        <% if @meetings_by_date[date.to_date] == nil #and date>=Date.today %>
+         <% if can? :manage, :all %>
+                 <% if date>=Date.today %>
+         
+                  <%= link_to raw("<div class='day'>#{date.day}</div><i class='icon-plus'></i> Добавить"), new_domain_meeting_path(@domain,meeting: { will_be_on: date }), class: "add-meeting meeting-link",remote: true, data: {toggle: 'modal', target: '#modal-window'}  %>
+          
+                 <% else %>
+                  <a href='#' class="pasttimes add-meeting"><div class='day'><%= date.day %></div><i class='icon-plus'></i> Добавить</a>
+                 <% end %>
+             <% else %>
+               <div class='day'><%= date.day %></div>
+             <% end %>
         <% end %>
+        
 
         <% if @meetings_by_date[date.to_date] %>
           <% @meetings_by_date[date].each do |meeting| %>
@@ -26,9 +33,6 @@
       <% end %>
     <% end %>
 </div>
-<% if can? :manage, :all %>
-  <%# link_to raw("<i class='icon-plus-sign'></i>Добавить дежурство на произвольную дату"), new_domain_meeting_path(@domain),remote: true, class: "add-meeting-any-date",data: {toggle: 'modal', target: '#modal-window'} %>
-<% end %>
 
 <div class="modal hide fade" id="modal-window">
   <div class="modal-header">
