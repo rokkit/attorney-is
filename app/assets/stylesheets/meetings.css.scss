@@ -209,12 +209,15 @@
   }
   .years {
     clear: both;
-    text-align: center;
+    // text-align: center;
     overflow: hidden;
     margin: 0 0 1em 0;
     li {
       display: inline;
-      font-size: .9em;
+      a {
+        font-size: .9em;
+        font-weight: 700;
+      }
     }
   }
 }

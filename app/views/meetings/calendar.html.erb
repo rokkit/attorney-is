@@ -9,10 +9,6 @@
 	<% end %>
     </div>
     <ul class="years">
-        <li><%= link_to "2009",  calendar_domain_meetings_path(@domain, year: "#{4.year.ago.strftime('%Y')}")%></li>
-        <li><%= link_to "2010",  calendar_domain_meetings_path(@domain, year: "#{3.year.ago.strftime('%Y')}")%></li>
-        <li><%= link_to "2011",  calendar_domain_meetings_path(@domain, year: "#{2.year.ago.strftime('%Y')}")%></li>
-        <li><%= link_to "2012",  calendar_domain_meetings_path(@domain, year: "#{1.year.ago.strftime('%Y')}")%></li>
         <li><%= link_to "2013",  calendar_domain_meetings_path(@domain, year: "#{0.year.ago.strftime('%Y')}")%></li>
         <li><%= link_to "2014",  calendar_domain_meetings_path(@domain, year: "#{1.year.from_now.strftime('%Y')}")%></li>
         <li><%= link_to "2015",  calendar_domain_meetings_path(@domain, year: "#{2.year.from_now.strftime('%Y')}")%></li>
