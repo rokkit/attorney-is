@@ -456,6 +456,28 @@ div.status {
 	}
 }
 
+//====== MESSAGE CENTER
+.advocate-message {
+	@include span-columns(6, 12);
+	select {
+		width: 440px;
+	}
+}
+.email-message,
+.sms-message {
+	@include span-columns(6, 12);
+	textarea {
+		width: 430px;
+		height: 150px;
+	}
+}
+.email-message {
+	clear: left;
+}
+.sms-message {
+	@include omega;
+}
+
 //====== BOOTSTRAP OVERRIDE
 textarea,
 input[type="text"],

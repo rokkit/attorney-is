@@ -11,14 +11,14 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.association :user, label: "Адвокат", input_html: {style:'width:400px;'}  %>
+  <div class="field advocate-message">
+    <%= f.association :user, label: "Адвокат"  %>
   </div>
-  <div class="field">
-    <%= f.input :body, label: 'Соообщение', input_html: {style:'width:400px;'} %>
+  <div class="field email-message">
+    <%= f.input :body, label: 'Соообщение' %>
   </div>
-  <div class="field">
-    <%= f.input :sms_body, label: 'СМС-сообщение', input_html: { style:'width:400px;'} %>
+  <div class="field sms-message">
+    <%= f.input :sms_body, label: 'СМС-сообщение' %>
   </div>
   <div class="actions">
     <%= f.submit "Отправить" %>
