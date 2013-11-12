@@ -20,7 +20,7 @@
 			</tr>
 			<tr>
 				<td class="title">Назначенный адвокат:</td>
-				<td><%= @meeting.user || "Нет" %> <br>
+				<td><%= @meeting.user.try(:fio) ? @meeting.user.try(:fio) : "Нет" %> <br>
 		          <% if @meeting.user.present? %>Реестровый номер: <%= @meeting.user.try :register_number %><% end %>
       			</td>
 			</tr>
