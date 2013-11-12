@@ -5,11 +5,15 @@
 	<% @domains.each do |domain| %>
 	<tr>
 	    <td><%= link_to domain.name, domain %></td>
-	      <td><%= link_to raw("<i class='icon-pencil'></i> Редактировать"), edit_domain_path(domain) %><td>
-	      <td><%= link_to raw("<i class='icon-remove'></i> Удалить"), domain, method: :delete, data: { confirm: 'Подтвердите удаление' } %><td>
+	    <td>
+	    	<%= link_to raw("<i class='icon-pencil'></i> Редактировать"), edit_domain_path(domain) %>
+	    </td>
+	    <td>
+	    	<%= link_to raw("<i class='icon-remove'></i> Удалить"), domain, method: :delete, data: { confirm: 'Подтвердите удаление' } %>
+	    </td>
 	</tr>
 	<% end %>
 </table>
 
-<%= link_to raw("Добавить <i class='icon-plus'></i>"), new_domain_path, class: 'btn' %>
+<%= link_to raw("Добавить <i class='icon-plus'></i>"), new_domain_path, class: 'button' %>
 

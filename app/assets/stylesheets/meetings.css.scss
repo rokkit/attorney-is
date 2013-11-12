@@ -12,19 +12,8 @@
     width: 850px;
     margin: 0 auto;
     border: 1px solid $blue;
-
-    tr {
-      // border-bottom: 2px solid $blue;
-      td {
-        position: relative;
-        z-index: -1;
-        border-top: 2px solid $blue;
-        border-left: 2px solid $blue;
-        border-right: 2px solid $blue;
-        border-bottom: 2px solid $blue;
-      }
-    }
-
+    
+    // table header
     th {
       background: lighten($blue, 0%);
       color: #FFF;
@@ -35,6 +24,16 @@
       border-right: 1px solid #fff;
       &:last-of-type {
         border-right-color: $blue;
+      }
+    }
+
+    // table body
+    tr {
+      border-bottom: 2px solid $blue;
+      td {
+        position: relative;
+        z-index: -1;
+        border: 2px solid $blue;
       }
     }
 

@@ -135,8 +135,8 @@ header {
 	// border-bottom: 1px solid $blue;
 	padding: 2px 0;
 	height: 166px;
-	margin: 0;
-	background: image-url("head.gif") no-repeat top left;
+	margin: 0 -10px;
+	background: image-url("head.png") no-repeat top left;
 
 	.home {
 		display: block;
@@ -380,7 +380,7 @@ label.phone-label {
 		height: auto;
 		margin-bottom: 15px;
 	}
-	.login-btn {
+	.login-button {
 		float: right;
 		padding: 5px 50px;
 		&:hover {
@@ -424,19 +424,22 @@ div.status {
 	text-align: left;
 }
 
-.btn {
-	@include sassy-button();
+.button {
+	background-color: #184491;
+	color: #FFF;
+	border: 0 none;
+	padding: 3px 15px;
 	&:link, &:visited, &:active {
 		color: #fff;
 	}
 	&.edit {
-		@include sassy-button-gradient("matte", lighten($edit, 10%), $edit, #fff);
+		//@include sassy-button-gradient("matte", lighten($edit, 10%), $edit, #fff);
 	}
 	&.approve {
-		@include sassy-button-gradient("matte", lighten($approve, 10%), $approve, #fff);
+		//@include sassy-button-gradient("matte", lighten($approve, 10%), $approve, #fff);
 	}
 	&.cancel {
-		@include sassy-button-gradient("matte", lighten($cancel, 10%), $cancel, #fff);
+		//@include sassy-button-gradient("matte", lighten($cancel, 10%), $cancel, #fff);
 	}
 }
 
