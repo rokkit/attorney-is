@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131029110414) do
+ActiveRecord::Schema.define(:version => 20131112084508) do
 
   create_table "domains", :force => true do |t|
     t.string   "name"
@@ -20,6 +20,9 @@ ActiveRecord::Schema.define(:version => 20131029110414) do
     t.datetime "updated_at",  :null => false
     t.text     "address"
     t.string   "phone"
+    t.string   "email"
+    t.string   "city"
+    t.string   "fio_major"
   end
 
   create_table "inform_mails", :force => true do |t|
