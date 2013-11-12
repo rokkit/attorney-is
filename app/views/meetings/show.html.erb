@@ -4,7 +4,7 @@
 		<table class="list-table table table-bordered">
 			<tr>
 				<td class="title">Дата проведения:</td>
-				<td><%= "#{@meeting.will_be_on} #{ @meeting.will_be_at}" %></td>
+				<td><%= "#{@meeting.will_be_on} #{ @meeting.will_be_at.strftime('%R')}" %></td>
 			</tr>
 			<tr>
 				<td class="title">Место проведения:</td>
@@ -12,16 +12,16 @@
 			</tr>
 			<tr>
 				<td class="title">Судья:</td>
-				<td><%= @meeting.judge || "Не указан" %></td>
+				<td><%= @meeting.judge.present? ? @meeting.judge : "Не указан" %></td>
 			</tr>
 			<tr>
 				<td class="title">Клиент:</td>
-				<td><%= @meeting.client || "Не указан" %></td>
+				<td><%= @meeting.client.present? ? @meeting.client : "Не указан" %></td>
 			</tr>
 			<tr>
 				<td class="title">Назначенный адвокат:</td>
 				<td><%= @meeting.user || "Нет" %> <br>
-		          Номер реестра: <%= @meeting.user.try :register_number %>
+		          <% if @meeting.user.present? %>Реестровый номер: <%= @meeting.user.try :register_number %><% end %>
       			</td>
 			</tr>
 			<tr>
@@ -29,7 +29,7 @@
 				<td><%= @meeting.content.present? ? @meeting.content : "Нет" %></td>
 			</tr>
 			<tr>
-				<td class="title">Запись произведена:</td>
+				<td class="title">Заседание добавлено:</td>
 				<td><%= @meeting.created_at %></td>
 			</tr>
 		</table>
@@ -43,6 +43,8 @@
 	        <% @meeting.request_meetings.each do |request_meeting| %>
 	        <li>
 	           <%= link_to request_meeting.user, request_meeting.user %> 
+               <%= request_meeting.created_at %> 
+
 	           <%= link_to 'Отменить', cancel_request_meeting_path(request_meeting), method: :post, class: "button entypo-cancel-circled" %>
 	           <%= link_to 'Подтвердить', approve_request_meeting_path(request_meeting), method: :post, class: "button entypo-check" %>
 	        </li>
