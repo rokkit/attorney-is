@@ -20,8 +20,8 @@ class RequestMeeting < ActiveRecord::Base
       self.meeting.save!
       if save
         InformMail.create user: self.user,  
-          body: "Вы включены в график дежурств на #{self.meeting.will_be_on.strftime("%d.%m.%Y")} #{self.meeting.will_be_at.strftime("%R")} в #{self.meeting.domain.name}",
-          sms_body: "Вы включены в график дежурств на #{self.meeting.will_be_on.strftime("%d.%m.%Y")} #{self.meeting.will_be_at.strftime("%R")} в #{self.meeting.domain.name}"
+          body: "Вы включены в график дежурств на #{self.meeting.will_be_on.strftime("%d.%m.%Y")} #{self.meeting.will_be_at.strftime("%R")} в #{self.meeting.domain.name}. Клиент: #{self.meeting.client}",
+          sms_body: "Вы включены в график дежурств на #{self.meeting.will_be_on.strftime("%d.%m.%Y")} #{self.meeting.will_be_at.strftime("%R")} в #{self.meeting.domain.name}. Клиент: #{self.meeting.client}"
       end
     end
   end
@@ -34,8 +34,8 @@ class RequestMeeting < ActiveRecord::Base
     date = self.meeting.will_be_at
     if destroy
       InformMail.create user: self.user,  
-        body: "Ваша заявка отклонена. Заседание: #{self.meeting.will_be_at} в #{self.meeting.domain.name}",
-        sms_body: "Ваша заявка отклонена. Заседание: #{self.meeting.will_be_at} в #{self.meeting.domain.name}"
+        body: "Ваша заявка отклонена. Заседание: #{self.meeting.will_be_on.strftime("%d.%m.%Y")} #{self.meeting.will_be_at.strftime("%R")} в #{self.meeting.domain.name}",
+        sms_body: "Ваша заявка отклонена. Заседание: #{self.meeting.will_be_on.strftime("%d.%m.%Y")} #{self.meeting.will_be_at.strftime("%R")} в #{self.meeting.domain.name}"
     end
   end
   
@@ -46,12 +46,6 @@ class RequestMeeting < ActiveRecord::Base
   
 private 
   def inform message
-          #client = Twilio::REST::Client.new(APP['twilio']['sid'], APP['twilio']['token'])
-          #client.account.sms.messages.create(
-            #from: APP['twilio']['from'],
-            #to: "+#{user.phone}",
-            #body: message
-          #)
           Sms.inform user.phone, message
           InformMailer.inform(self, message).deliver 
   end
