@@ -8,18 +8,17 @@
   </h2>
     <%= calendar @date, @meetings_by_date  do |date| %>
       <%= content_tag :span, id: "cell_#{date.strftime('%d_%m_%Y')}", class: ("meeting" if @meetings_by_date[date.to_date]) do %>
-        <div class="day"><%= date.day %></div>
         <% if can? :manage, :all and @meetings_by_date[date.to_date] == nil #and date>=Date.today %>
         <% if date>=Date.today %>
-          <%= link_to raw("<i class='icon-plus'></i> Добавить"), new_domain_meeting_path(@domain,meeting: { will_be_on: date }), class: "add-meeting meeting-link",remote: true, data: {toggle: 'modal', target: '#modal-window'}  %>
+          <%= link_to raw("<div class='day'>#{date.day}</div><i class='icon-plus'></i> Добавить"), new_domain_meeting_path(@domain,meeting: { will_be_on: date }), class: "add-meeting meeting-link",remote: true, data: {toggle: 'modal', target: '#modal-window'}  %>
         <% else %>
-         <a href='#' class="pasttimes add-meeting"><i class='icon-plus'></i> Добавить</a>
+         <a href='#' class="pasttimes add-meeting"><div class='day'><%= date.day %></div><i class='icon-plus'></i> Добавить</a>
          <% end %>
         <% end %>
 
         <% if @meetings_by_date[date.to_date] %>
           <% @meetings_by_date[date].each do |meeting| %>
-            <%= link_to "Судебное заседание #{meeting.will_be_at.try { |d| d.strftime('%H:%M')} }", meeting, class: 'meeting-link ' + (meeting.user.nil? ? "avaible" : "not_avaible" ), :target => "_blank" %>
+            <%= link_to raw("<div class='day'>#{date.day}</div>Судебное заседание #{meeting.will_be_at.try { |d| d.strftime('%H:%M')} }"), meeting, class: 'meeting-link ' + (meeting.user.nil? ? "avaible" : "not_avaible" ), :target => "_blank" %>
             <% if meeting.user  %>
             <% end %>
           <% end %>

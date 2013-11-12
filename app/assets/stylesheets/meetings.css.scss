@@ -102,13 +102,15 @@
       font-size: 2.5em;
       text-align: center;
       line-height: 1;
-      margin: 3px;
+      margin: 3px 0;
+      padding: 4px 0;
       color: $blue;
       font-weight: 700;
+      border-bottom: 1px solid $blue;
     }
     a {
       display: block;
-      border-top: 1px solid $blue;
+      // border-top: 1px solid $blue;
       font-size: .7em;
       text-align: center;
       &:hover {
@@ -121,8 +123,12 @@
       border-left: 1px solid #fff;
       border-right: 1px solid #fff;
       
-      .day, a {
+      a {
         color: #fff;
+        .day {
+          color: #fff;
+          border-color: #fff;
+        }
       }
       a {
         border-top: 0px solid #fff;
@@ -131,11 +137,11 @@
     }
     &.not_avaible {
       background-color: red;
-      .day, a {
-        color: #fff;
-      }
       a {
-        border-top: 0px solid #fff;
+        color: #fff;
+        .day {
+          border-color: #fff;
+        }
       }
     }
   }
