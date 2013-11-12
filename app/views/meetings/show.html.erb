@@ -44,9 +44,10 @@
 	        <li>
 	           <%= link_to request_meeting.user, request_meeting.user %> 
                <%= request_meeting.created_at %> 
-
+				<div style="text-align: right;">
 	           <%= link_to 'Отменить', cancel_request_meeting_path(request_meeting), method: :post, class: "button entypo-cancel-circled" %>
 	           <%= link_to 'Подтвердить', approve_request_meeting_path(request_meeting), method: :post, class: "button entypo-check" %>
+	           </div>
 	        </li>
 	        <% end %>
 	    </ul>
