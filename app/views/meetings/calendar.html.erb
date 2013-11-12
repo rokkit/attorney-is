@@ -4,7 +4,7 @@
     <div class="months">
 	<% russian_months.each_with_index do |month, index| %>
 		<div class="square <%= cycle('first', 'second', 'third', 'fourth') -%>">
-		    <%= link_to month, domain_meetings_path(@domain, date: "01.#{index+1}.#{@year}"), class: "month #{Russian::transliterate( month).downcase! }" %>
+		    <%= link_to month, domain_meetings_path(@domain, date: "01.#{index+1}.#{@year}"), class: "month #{Russian::transliterate( month).downcase! } #{'current-moth' if current_month?(index+1)}" %>
 		</div>
 	<% end %>
     </div>

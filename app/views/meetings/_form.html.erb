@@ -39,7 +39,8 @@ $(function(){
     </div>
     <div class="span2 timepicker input-append">
       <%= f.label :will_be_at, "Время" %>
-      <%= f.text_field :will_be_at, class: "input-block-level", data: {format: "hh:mm" }%>
+      <%# f.text_field :will_be_at, class: "input-block-level", data: {format: "hh:mm" }%>
+        <%= f.time_select :will_be_at, class: "input-block-level" %>
       <span class="add-on">
            <i data-time-icon="icon-time" data-date-icon="icon-calendar">
            </i>
