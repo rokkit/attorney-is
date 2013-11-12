@@ -30,12 +30,13 @@
       <td><%= request_meeting.meeting.will_be_on.strftime("%d.%m.%Y") %></td>
       <td class="status"><%= status request_meeting.status %></td>
       <td class="actions">
-        <%= link_to raw('Подробнее'), request_meeting, class: "button read-more" %>
+
+        <%= link_to raw('Подробнее'), request_meeting, class: "" %>
         <% if can? :manage, request_meeting %>
-          <%= link_to 'Отменить', cancel_request_meeting_path(request_meeting), method: :post, class: "button entypo-cancel-circled" %>
+          <%= link_to 'Отменить', cancel_request_meeting_path(request_meeting), method: :post, class: "" %>
          <% end %>
       <% if can? :manage, :all and request_meeting.status != 2%>
-        <%= link_to 'Подтвердить', approve_request_meeting_path(request_meeting), method: :post, class: "button entypo-check" %>
+        <%= link_to 'Подтвердить', approve_request_meeting_path(request_meeting), method: :post, class: "" %>
       <% end %>
       </td>
     </tr>
