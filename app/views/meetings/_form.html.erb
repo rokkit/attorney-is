@@ -49,9 +49,9 @@ $(function(){
   </div>
 
   <% if params[:action]=='edit' %>
-    <%= f.submit "Изменить", class: "btn" %>
-    <%= link_to 'Просмотр', @meeting, class: "btn" %>
+    <%= f.submit "Изменить", class: "button" %>
+    <%= link_to 'Просмотр', @meeting, class: "button" %>
   <% else %>
-    <%= f.submit "Добавить", class: "btn" %>
+    <%= f.submit "Добавить", class: "button" %>
   <% end %>
 <% end %>

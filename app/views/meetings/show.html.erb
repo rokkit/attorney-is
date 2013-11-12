@@ -43,8 +43,8 @@
 	        <% @meeting.request_meetings.each do |request_meeting| %>
 	        <li>
 	           <%= link_to request_meeting.user, request_meeting.user %> 
-	           <%= link_to 'Отменить', cancel_request_meeting_path(request_meeting), method: :post, class: "btn cancel entypo-cancel-circled" %>
-	           <%= link_to 'Подтвердить', approve_request_meeting_path(request_meeting), method: :post, class: "btn approve entypo-check" %>
+	           <%= link_to 'Отменить', cancel_request_meeting_path(request_meeting), method: :post, class: "button cancel entypo-cancel-circled" %>
+	           <%= link_to 'Подтвердить', approve_request_meeting_path(request_meeting), method: :post, class: "button approve entypo-check" %>
 	        </li>
 	        <% end %>
 	    </ul>
@@ -54,7 +54,7 @@
 
 	<div class="actions">
 		<% if can? :request, @meeting and !current_user.admin? %>
-		    <%= link_to 'Подать заявку', request_for_meeting_path, method: :post, class: "btn make-request entypo-user-add" %>
+		    <%= link_to 'Подать заявку', request_for_meeting_path, method: :post, class: "button make-request entypo-user-add" %>
 		<% end %>
 		<% if can? :manage, :all %>
     		<%= link_to 'Удалить', @meeting, method: :delete, class: "edit entypo-pencil" %>            
