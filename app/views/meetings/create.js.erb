@@ -17,6 +17,6 @@
   $("#flash_notice").show(300);
   $("#modal-window").modal('hide');
   $("#cell_<%= @meeting.will_be_on.strftime('%d_%m_%Y') %> a").remove();
-  $("#cell_<%= @meeting.will_be_on.strftime('%d_%m_%Y') %> .meeting-details").html('<dt><a href="/meetings/<%= @meeting.id %>" class="avaible">Судебное заседание </a></dt>')
+  $("#cell_<%= @meeting.will_be_on.strftime('%d_%m_%Y') %> ").append(' <%= link_to "Судебное заседание #{@meeting.will_be_at.try { |d| d.strftime('%H:%M')} }", @meeting, class: (@meeting.user.nil? ? "avaible" : "not_avaible" ), :target => "_blank" %>')
   $("#cell_<%= @meeting.will_be_on.strftime('%d_%m_%Y') %>").parent().addClass("avaible");
 <% end -%>

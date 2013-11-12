@@ -60,7 +60,7 @@ class DomainsController < ApplicationController
 
     respond_to do |format|
       if @domain.save
-        format.html { redirect_to @domain, notice: 'Успешно добавлено' }
+        format.html { redirect_to admin_index_domains_path, notice: 'Успешно добавлено' }
         format.json { render json: @domain, status: :created, location: @domain }
       else
         format.html { render action: "new" }

@@ -4,6 +4,7 @@
 <table id="show-meeting-requests" class="table table-bordered">
   <thead>
     <tr>
+      <th>№</th>
       <th>Дата заявки</th>
       <% if current_user.admin? %>
       <th>Адвокат</th>
@@ -19,7 +20,9 @@
 
 <% @request_meetings.each do |request_meeting| %>
   <tr>
+      <td><%= request_meeting.id %></td>
       <td><%= request_meeting.meeting.will_be_on.strftime("%d.%m.%Y") %></td>
+      
       <% if current_user.admin? %>
           <td><%= link_to request_meeting.user, request_meeting.user  %></td>
       <% end %>

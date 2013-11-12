@@ -34,7 +34,8 @@ jQuery ->
   ).rowGrouping(
             sGroupBy: "day"
             bHideGroupingColumn: false
+            iGroupingColumnIndex: 1
             sGroupingClass: "info").columnFilter aoColumns: [
-                                                    { type: "date-range", sRangeFormat: "Начало периода {from} конец периода {to} даты подачи заявки" }
+                                                    null, { type: "date-range", sRangeFormat: "Начало периода {from} конец периода {to} даты подачи заявки" }
                                                  ],
                                                  sPlaceHolder: "head:before"
