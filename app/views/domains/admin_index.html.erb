@@ -1,5 +1,4 @@
 <h3>Учреждения</h3>
-  <%= link_to raw("Добавить <i class='icon-plus'></i>"), new_domain_path %>
 
 <table class="table table-bordered">
 	<% last = 0 %>
@@ -12,5 +11,5 @@
 	<% end %>
 </table>
 
-<br />
+<%= link_to raw("Добавить <i class='icon-plus'></i>"), new_domain_path, class: 'btn' %>
 
