@@ -47,7 +47,7 @@
       font-size: 16px;
       &.weekend {
         .day {
-          color: #e23033;
+          color: $red;
         }
       }
     }
@@ -90,6 +90,14 @@
   }
   
   .date-cell {
+    position: relative;
+    // .meeting-link {
+    //   position: absolute;
+    //   top: 0;
+    //   padding-top: 55px;
+    //   width: 100%;
+    //   z-index: 1000;
+    // }
     .day {
       font-size: 2.5em;
       text-align: center;
@@ -136,6 +144,13 @@
 
 .add-meeting-any-date {
   text-decoration: none;
+}
+
+//=== NEW MEETING
+#new_meeting {
+  select {
+    width: 70px
+  }
 }
 
 //=== SHOW MEETING
@@ -205,6 +220,9 @@
       // &.dekabr {
       //   background-position: -751px -243px;
       // }
+    }
+    .current-moth {
+      color: $red;
     }
   }
   .years {
