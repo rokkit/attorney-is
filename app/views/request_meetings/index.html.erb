@@ -31,9 +31,9 @@
       <td class="status"><%= status request_meeting.status %></td>
       <td class="actions">
 
-        <%= link_to raw('Подробнее'), request_meeting, class: "" %>
+        <%= link_to raw('Подробнее'), request_meeting, class: "" %><br>
         <% if can? :manage, :all %>
-          <%= link_to 'Отменить', cancel_request_meeting_path(request_meeting), method: :post, class: "" %>
+          <%= link_to 'Отменить', cancel_request_meeting_path(request_meeting), method: :post, class: "" %><br>
          <% end %>
       <% if can? :manage, :all and request_meeting.status != 2%>
         <%= link_to 'Подтвердить', approve_request_meeting_path(request_meeting), method: :post, class: "" %>
