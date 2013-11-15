@@ -2,11 +2,17 @@ class InformMailsController < ApplicationController
   # GET /inform_mails
   # GET /inform_mails.json
   def index
-    if current_user.admin? 
-      @inform_mails = InformMail.order("created_at DESC")
+    # if current_user.admin? 
+    #   @inform_mails = InformMail.order("created_at DESC")
+    # else
+    
+    if params[:type].present?
+      @inform_mails = InformMail.io_type params[:type], current_user 
     else
       @inform_mails = current_user.inform_mails.order("created_at DESC")
     end
+    
+    @inform_mails = @inform_mails.order("created_at DESC")
 
     respond_to do |format|
       format.html # index.html.erb
@@ -45,11 +51,11 @@ class InformMailsController < ApplicationController
   # POST /inform_mails.json
   def create
     @inform_mail = InformMail.new(params[:inform_mail])
-
+    @inform_mail.sender = current_user
     respond_to do |format|
       if @inform_mail.save
         format.html { redirect_to @inform_mail, notice: 'Inform mail was successfully created.' }
-        format.json { render json: @inform_mail, status: :created, location: @inform_mail }
+        format.json { render json: inform_mails_path(type: "output"), status: :created, location: @inform_mail }
       else
         format.html { render action: "new" }
         format.json { render json: @inform_mail.errors, status: :unprocessable_entity }
@@ -83,5 +89,9 @@ class InformMailsController < ApplicationController
       format.html { redirect_to inform_mails_url }
       format.json { head :no_content }
     end
+  end
+  
+  def overview
+    
   end
 end

@@ -1,6 +1,8 @@
 AttorneyIs::Application.routes.draw do
 
-  resources :inform_mails
+  resources :inform_mails do
+    get 'overview' => 'inform_mails#overview', on: :collection
+  end
 
 
     root :to => 'pages#index'

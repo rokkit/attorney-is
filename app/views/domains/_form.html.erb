@@ -36,6 +36,11 @@
     <%= f.text_field :city %>
   </div>
   <div class="actions">
+      <% if controller.action_name == 'new' %>
     <%= f.submit "Добавить" %>
+    <% else %>
+    <%= f.submit "Изменить" %>
+    
+    <% end %>
   </div>
 <% end %>

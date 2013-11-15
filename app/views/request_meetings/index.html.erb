@@ -1,5 +1,5 @@
-<h1>Заявки на заседания</h1>
-<h2><%= @domain.try :name %></h2>
+<h3>Заявки на заседания</h3>
+<h4><%= @domain.try :name %></h4>
 
 <table id="show-meeting-requests" class="table table-bordered">
   <thead>
@@ -54,3 +54,6 @@
   <% end %>
 </table>
 <p id="periodFilter"></p>
+
+<%= link_to link_to raw("<i class='icon-chevron-left'></i> Назад"), root_path, class: 'actions' %>
+

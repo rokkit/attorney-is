@@ -1,5 +1,12 @@
-<h1>Архив сообщений</h1>
+<h3>Архив сообщений</h3>
+<h4>
+<% if params[:type] == 'input' %>
+Входящие
 
+<% elsif %>
+Исходящие
+<% end %>
+</h4>
 <table class="table table-bordered">
   <tr>
     <th width="18%">Получатель</th>

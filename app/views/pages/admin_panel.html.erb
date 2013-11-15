@@ -1,3 +1,4 @@
+<h3>Административная панель</h3>
 <div class="blocks">
 
   <div class="row-fluid well-menu">
@@ -5,13 +6,12 @@
       <%= link_to raw("<i class='icon-inbox'></i> Базовый список учреждений"), admin_index_domains_path %>                            
     </div>  
 
-    <div class="square">
-      <%= link_to raw("<i class='icon-envelope'></i> Отправка сообщений и уведомлений"), new_inform_mail_path %>
-    </div>
+
     
-    <div class="square last">
+    <div class="square">
       <%= link_to raw("<i class='icon-user'></i> Базовый список адвокатов"), users_path %>
     </div>
   </div>
           
 </div>
+<%= link_to link_to raw("<i class='icon-chevron-left'></i> Назад"), root_path, class: 'actions' %>
