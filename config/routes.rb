@@ -38,7 +38,10 @@ AttorneyIs::Application.routes.draw do
         get 'manage_abilities' => 'users#manage_abilities', on: :member
         post 'send_password_to_all' => 'users#send_password_to_all', on: :collection
         get 'abilities' => 'users#abilities', on: :collection
-        collection { post :import }
+        collection { 
+           post :import
+           get :overview 
+         }
       end
   
 

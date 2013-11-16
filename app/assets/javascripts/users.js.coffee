@@ -8,7 +8,7 @@ jQuery ->
 
 jQuery ->
   $('.users-table').dataTable
-        aoColumnDefs:[{bSortable: false, aTargets:[0,4]}]
+        aoColumnDefs:[{bSortable: false, aTargets:[4]}]
         bPaginate: false
         oLanguage:
             sProcessing: "Подождите..."

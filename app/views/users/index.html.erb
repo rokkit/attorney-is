@@ -24,8 +24,8 @@
     <td><%= link_to user.fio, user %></td>
     <td><%= user.register_number_with_region %></td>
     <% if @domain %>
-        <td><%= user.start_access %></td>
-        <td><%= user.end_access %></td>
+        <td><%= user.start_access.try { |s| s.strftime("%d.%m.%Y") } %></td>
+        <td><%= user.end_access.try { |s| s.strftime("%d.%m.%Y") } %></td>
     <% end %>
     
     <td><b id='edit-<%= user.id %>'>Изменить</b> <%= best_in_place user, :request_limit, activator: "#edit-#{ user.id }" %></td>

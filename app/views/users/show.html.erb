@@ -20,7 +20,7 @@
       <% end %>
       <tr>
         <td class="title">Реестровый номер:</td>
-        <td><%= @user.register_number %></td>
+        <td><%= @user.register_number_with_region %></td>
       </tr>
       <tr>
         <td class="title">Дата включения в базовый список:</td>
@@ -57,7 +57,7 @@
     <% @user.roles.each do |role| %>
       <% if role.resource_type %>
         <li>
-          <%= "#{role.resource_type.constantize.find(role.resource_id).try(:name)}" %> c <%= role.start_date.try { |d| d.strftime("%d.%m.%Y") } %> по <%= role.end_date.try { |d| d.strftime("%d.%m.%Y") } %>
+          <%= "#{role.resource_type.constantize.find(role.resource_id).try(:name)}" %>  <%= role.start_date.try { |d| "c #{d.strftime("%d.%m.%Y")} по" }.presence || "" %> <%= role.end_date.try { |d| d.strftime("%d.%m.%Y") } %>
         </li>
       <% end %>
     <% end %>
