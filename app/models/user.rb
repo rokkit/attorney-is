@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
   devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :trackable, :validatable, :timeoutable
+         
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me,
@@ -38,6 +39,10 @@ class User < ActiveRecord::Base
   def fio
     "#{lastname} #{firstname} #{secondname}"
   end
+  
+  def register_number_with_region
+    "78/#{register_number}"
+  end
 
   def strip_whitespace
     self.fio = self.fio.strip
@@ -51,13 +56,37 @@ class User < ActiveRecord::Base
       raise Exception.new "Limit end"
     end
   end
+  
+  def self.import(file)
+    spreadsheet = open_spreadsheet(file)
+    header = spreadsheet.row(1)
+    (2..spreadsheet.last_row).each do |i|
+      row = Hash[[header, spreadsheet.row(i)].transpose]
+      product = find_by_id(row["id"]) || new
+      product.attributes = row.to_hash.slice(*accessible_attributes)
+      product.add_role(:attorney)
+      product.email = (0...20).map{ ('a'..'z').to_a[rand(26)] }.join
+      product.request_limit = 10
+      product.save!(validate: false)
+    end
+  end
+
+  def self.open_spreadsheet(file)
+    case File.extname(file.original_filename)
+    when ".csv" then Roo::CSV.new(file.path, csv_options: {col_sep: ";"})
+    when ".xls" then Excel.new(file.path, nil, :ignore)
+    when ".xlsx" then Excelx.new(file.path, nil, :ignore)
+    else raise "Unknown file type: #{file.original_filename}"
+    end
+  end
+  
    before_validation :set_password, on: :create
    
      def set_password
        #o =  [('a'..'z'), ('A'..'Z'), (0..9)].map{|i| i.to_a}.flatten
        generated_password = Devise.friendly_token.first(8) #(0..16).map{ o[rand(o.length)] }.join# if self.password.blank?
        self.password = self.password_confirmation = generated_password
-        Registration.welcome(self, generated_password).deliver
-        Sms.inform self.phone, "Ваш пароль: #{generated_password}"
+        # Registration.welcome(self, generated_password).deliver
+        # Sms.inform self.phone, "Ваш пароль: #{generated_password}"
      end
 end

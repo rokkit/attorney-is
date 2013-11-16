@@ -5,14 +5,19 @@
         <td class="title"><%= @user.roles.first %></td>
         <td><%= @user.fio %></td>
       </tr>
+      
       <tr>
         <td class="title">Телефон:</td>
         <td><%= number_to_phone @user.phone, area_code: true %></td>
       </tr>
+      <% if @user.encrypted_password.present? %>
       <tr>
         <td class="title">Почта:</td>
-        <td><a href="mailto:<%= @user.email %>"><%= @user.email %></a></td>
+        <td>
+            <a href="mailto:<%= @user.email %>"><%= @user.email %></a>
+        </td>
       </tr>
+      <% end %>
       <tr>
         <td class="title">Реестровый номер:</td>
         <td><%= @user.register_number %></td>
@@ -43,8 +48,10 @@
   <div class="avatar-block">
     <%= image_tag @user.avatar.thumb.url.to_s %>
   </div>
-
+  <% if @user.encrypted_password.present? %>
   <div class="user-domains-block">
+    
+      
   <h3>Доступ открыт к следующим учреждениям:</h3>
   <ul>
     <% @user.roles.each do |role| %>
@@ -55,15 +62,22 @@
       <% end %>
     <% end %>
   </ul>
+ 
   </div>
+  <% end %>
 </div>
 <div class="user">
+      <% if @user.password.present? %>
 		<%= render 'meetings/list_for_user' %>
+        <% end %>
 </div>
 <div class="actions">
-    <%= link_to raw("<i class='icon-asterisk'></i> Выслать пароль"), generate_new_password_user_path(@user), method: :post if current_user.has_role? :admin %>
+    <%= link_to raw("<i class='icon-asterisk'></i> Управление полномочиями"), manage_abilities_user_path(@user) if current_user.has_role? :admin %> |
+    <%= link_to raw("<i class='icon-asterisk'></i> Выслать пароль"), generate_new_password_user_path(@user), method: :post if current_user.has_role? :admin %> |
     <%= link_to raw("<i class='icon-asterisk'></i> Изменить пароль"), edit_user_registration_path if @user == current_user %>
 	<%= link_to raw("<i class='icon-pencil'></i> Редактировать"), edit_user_path(@user) if can? :update, @user %> |
-	<%= link_to raw("<i class='icon-chevron-left'></i> Назад"), users_path %>
+    <%= link_to "Исключить из системы", user_path(@user),:confirm => 'Подтвердите исключение', :method => :delete if can? :manage, :all %>
+	
 </div>
+<%= link_to raw("<i class='icon-chevron-left'></i> Назад"), users_path %>
 

@@ -11,8 +11,8 @@
     </div>
   <% end %>
   <div class="content-two">
-          <%= f.label :role_ids, 'Роль в системе' %>
-          <%= f.input :role_ids, :collection => Role.where(resource_type: nil), :as => :radio_buttons, :label_method => lambda {|t| t.to_s.titleize}, :label => false, :item_wrapper_class => 'inline', checked: @user.role_ids.first %>
+          <%# f.label :role_ids, 'Роль в системе' %>
+          <%# f.input :role_ids, :collection => Role.where(resource_type: nil), :as => :radio_buttons, :label_method => lambda {|t| t.to_s.titleize}, :label => false, :item_wrapper_class => 'inline', checked: @user.role_ids.first %>
   	<%= f.input :avatar, label: "Фото" %>
     <%= f.input :lastname, label: "Фамилия" %>
     <%= f.input :firstname, label: "Имя" %>

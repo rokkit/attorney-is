@@ -1,5 +1,7 @@
 AttorneyIs::Application.routes.draw do
 
+  get "importer/index"
+
   resources :inform_mails do
     get 'overview' => 'inform_mails#overview', on: :collection
   end
@@ -33,8 +35,10 @@ AttorneyIs::Application.routes.draw do
 
       resources :users do
         post 'generate_new_password' => 'users#generate_and_send_password', on: :member
+        get 'manage_abilities' => 'users#manage_abilities', on: :member
         post 'send_password_to_all' => 'users#send_password_to_all', on: :collection
         get 'abilities' => 'users#abilities', on: :collection
+        collection { post :import }
       end
   
 

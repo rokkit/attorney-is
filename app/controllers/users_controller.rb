@@ -9,10 +9,11 @@ class UsersController < ApplicationController
   def index
     if params[:dom].present?
       @domain = Domain.find params[:dom]
-      @users = User.with_role :attorney
+      @users = User.where("encrypted_password <> ''").with_role :attorney
       @users = @users.map { |user| user if user.has_role? :attorney, @domain }
+      @users = Kaminari.paginate_array(@users).page(params[:page]).per(30)
     else
-      @users = User.all
+      @users = User.page(params[:page]).per(30)
     end
     respond_to do |format|
       format.html # index.html.erb
@@ -67,6 +68,11 @@ class UsersController < ApplicationController
   # PUT /users/1.json
   def update
     @user = User.find(params[:id])
+    unless @user.encrypted_password.present?
+      @user.set_password
+      @user.email = params[:user][:email]
+      @user.save
+    end
     respond_to do |format|
       if @user.update_attributes(params[:user])
     if current_user.admin?
@@ -90,6 +96,9 @@ class UsersController < ApplicationController
       else
         @user.roles.each {|r| r.destroy if r.resource_id.present? }
       end
+      
+
+      
     end
 
         format.html { redirect_to @user, notice: 'Аккаунт успешно обновлен' }
@@ -125,5 +134,15 @@ class UsersController < ApplicationController
     end
   end
   def abilities
+  end
+  
+  def manage_abilities
+    @user = User.find(params[:id])
+    @user.email = nil unless @user.encrypted_password.present?
+  end
+  
+  def import
+    User.import(params[:file])
+    redirect_to users_url, notice: "Импорт данных выполнен"
   end
 end
