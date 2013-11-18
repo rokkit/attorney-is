@@ -5,7 +5,7 @@
   <thead>
     <tr>
       <th>№</th>
-      <th>Заседание</th>
+      <th>Дата заседания</th>
       <% if current_user.admin? %>
       <th>Адвокат</th>
       <% end %>
@@ -21,7 +21,7 @@
 <% @request_meetings.each_with_index do |request_meeting, i| %>
   <tr>
       <td><%= i+1 %></td>
-      <td><%= link_to request_meeting.meeting, request_meeting.meeting  %></td>
+      <td><%= link_to request_meeting.meeting.will_be_on, request_meeting.meeting  %></td>
       
       
       <% if current_user.admin? %>
