@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     if params[:dom].present?
       @domain = Domain.find params[:dom]
       @users = User.where("encrypted_password <> ''").with_role :attorney
-      @users = @users.map { |user| user if user.has_role? :attorney, @domain }
+      @users = @users.map { |user| user if user.roles.any? {|r|r.resource_id == @domain.id} }.compact
       @users = Kaminari.paginate_array(@users).page(params[:page]).per(30)
     else
       @users = User.page(params[:page]).per(30)

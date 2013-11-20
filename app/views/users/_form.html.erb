@@ -34,7 +34,7 @@
     
 
     <div class="content-two content-omega">
-      <p>Утвердить возможность участия в заседаниях суда по следующим учреждениям:</p>
+      <!-- <p>Утвердить возможность участия в заседаниях суда по следующим учреждениям:</p>
       <% Domain.all.each do |domain| -%>
         <% if  @user.roles.where(resource_id: domain.id).first.present? %>
             <div class="user-domain">
@@ -45,7 +45,7 @@
               <%= text_field_tag "roles[#{domain.id}][end]",@user.roles.where(resource_id: domain.id).first.end_date.try {|d| d.strftime("%d.%m.%Y") }, class: "input-small date-to" %>
             </div>
         <% end %>
-      <% end -%>
+      <% end -%> -->
     </div>
   <div class="actions">
     <%= f.submit "Добавить" %>

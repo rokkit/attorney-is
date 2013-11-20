@@ -76,7 +76,7 @@ class DomainsController < ApplicationController
 
     respond_to do |format|
       if @domain.update_attributes(params[:domain])
-        format.html { redirect_to @domain, notice: 'Успешно обновлено' }
+        format.html { redirect_to admin_index_domains_path, notice: 'Успешно обновлено' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -92,7 +92,7 @@ class DomainsController < ApplicationController
     @domain.destroy
 
     respond_to do |format|
-      format.html { redirect_to domains_url }
+      format.html { redirect_to admin_index_domains_path }
       format.json { head :no_content }
     end
   end

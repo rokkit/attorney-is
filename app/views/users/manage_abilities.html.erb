@@ -13,12 +13,13 @@
 <div>
   <h4>Утвердить возможность участия в заседаниях суда по следующим учреждениям:</h4>
   <% Domain.all.each do |domain| -%>
+        <% exists_role = @user.roles.bsearch {|role| role.resource_id == domain.id}  %>
         <div class="user-domain">
-          <%= check_box_tag  "domain[#{domain.id}]", 1, @user.roles.any? {|role| role.resource_id == domain.id}%>
+          <%= check_box_tag  "domain[#{domain.id}]", 1, @user.roles.any? {|role| role.resource_id == domain.id} %>
           <%= label_tag "domain_#{domain.id}", domain.name %><br>
 
-          <%= text_field_tag "roles[#{domain.id}][start]", nil,class: "input-small date-from" %>  
-<%= text_field_tag "roles[#{domain.id}][end]",nil, class: "input-small date-to" %>
+          <%= text_field_tag "roles[#{domain.id}][start]", "#{exists_role.start_date.try {|st| st.strftime('%d.%m.%Y')} if exists_role}",class: "input-small date-from" %>  
+<%= text_field_tag "roles[#{domain.id}][end]","#{exists_role.end_date.try {|st| st.strftime('%d.%m.%Y')} if exists_role}", class: "input-small date-to" %>
         </div>
   <% end -%>
 </div>

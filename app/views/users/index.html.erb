@@ -8,10 +8,8 @@
 	<th>№</th>
     <th>ФИО</th>
     <th>№ Реестра</th>
-    <% if @domain %>
         <th>Дата включения</th>
         <th>Дата исключения</th>
-    <% end %>
     <th>Лимит заявок</th>
     <th></th>
   </tr>
@@ -23,9 +21,12 @@
 	<td><%= i+1 %></td>
     <td><%= link_to user.fio, user %></td>
     <td><%= user.register_number_with_region %></td>
-    <% if @domain %>
-        <td><%= user.start_access.try { |s| s.strftime("%d.%m.%Y") } %></td>
+    <% unless @domain %>
+        <td><%= user.created_at.try { |s| s.strftime("%d.%m.%Y") } %></td>
         <td><%= user.end_access.try { |s| s.strftime("%d.%m.%Y") } %></td>
+    <% else %>
+        <td><%= user.roles.bsearch {|role| role.resource_id == @domain.id}.start_date.try { |s| s.strftime("%d.%m.%Y") } %></td>
+        <td><%= user.roles.bsearch {|role| role.resource_id == @domain.id}.end_date.try { |s| s.strftime("%d.%m.%Y") } %></td>
     <% end %>
     
     <td><b id='edit-<%= user.id %>'>Изменить</b> <%= best_in_place user, :request_limit, activator: "#edit-#{ user.id }" %></td>
