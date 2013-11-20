@@ -25,7 +25,7 @@
       
       
       <% if current_user.admin? %>
-          <td><%= link_to request_meeting.user, request_meeting.user  %></td>
+          <td><%= link_to request_meeting.user.fio, request_meeting.user  %></td>
       <% end %>
       <td><%= request_meeting.meeting.will_be_on.strftime("%d.%m.%Y") %></td>
       <td class="status"><%= status request_meeting.status %></td>
