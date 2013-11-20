@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131112084508) do
+ActiveRecord::Schema.define(:version => 20131115191044) do
 
   create_table "domains", :force => true do |t|
     t.string   "name"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20131112084508) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.text     "sms_body"
+    t.integer  "sender_id"
   end
 
   add_index "inform_mails", ["user_id"], :name => "index_inform_mails_on_user_id"

@@ -1,0 +1,16 @@
+<h3>Сообщения</h3>
+<div class="blocks">
+
+	<div class="row-fluid well-menu">
+	 <div class="square">
+      <%= link_to raw("<i class='icon-circle-arrow-up'></i> Входящие"), inform_mails_path(type: "input") %>
+     </div>        
+     <div class="square">
+      <%= link_to raw("<i class='icon-circle-arrow-down'></i> Исходящие"), inform_mails_path(type: "output") %>
+     </div>  
+     <div class="square last">
+       <%= link_to raw("<i class='icon-envelope'></i> Отправка сообщений"), new_inform_mail_path %>
+     </div>
+	</div>
+</div>
+<%= link_to link_to raw("<i class='icon-chevron-left'></i> Назад"), root_path, class: 'actions' %>

@@ -1,4 +1,11 @@
 ru:
+  views:
+    pagination:
+      first: "&laquo; Начало"
+      last: "Последняя &raquo;"
+      previous: "&lsaquo; Предыдущая"
+      next: "Следующая &rsaquo;"
+      truncate: "..."
   date:
     abbr_day_names:
     - Вс
@@ -255,3 +262,4 @@ ru:
   activerecord:
     errors:
       <<: *errors
+
