@@ -8,7 +8,7 @@ class RequestMeeting < ActiveRecord::Base
   after_create :send_notification_to_admins
 
   validates :user, :meeting, :presence => true
-  
+  scope :approved, -> { where(status: 2) }
   def set_status
     self.status = 1 #заявка подана
   end

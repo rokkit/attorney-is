@@ -19,4 +19,8 @@ puts 'user: ' << user.fio
 user.add_role :admin
 user.save!
 
+Variable.delete_all
+
+var = Variable.find_or_create_by_name name: "Лимит заявлений в месяц", value: '10'
+
 

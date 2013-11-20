@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131115191044) do
+ActiveRecord::Schema.define(:version => 20131120125500) do
 
   create_table "domains", :force => true do |t|
     t.string   "name"
@@ -180,5 +180,12 @@ ActiveRecord::Schema.define(:version => 20131115191044) do
   end
 
   add_index "users_roles", ["user_id", "role_id"], :name => "index_users_roles_on_user_id_and_role_id"
+
+  create_table "variables", :force => true do |t|
+    t.string   "name",       :null => false
+    t.string   "value",      :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
 end

@@ -145,4 +145,11 @@ class UsersController < ApplicationController
     User.import(params[:file])
     redirect_to users_url, notice: "Импорт данных выполнен"
   end
+  
+  def statistics
+    if params[:attorney_fio].present?
+      fio = params[:attorney_fio].split(" ")
+      @user = User.where(lastname: fio[0], firstname: fio[1], secondname: fio[2]).first
+    end
+  end
 end

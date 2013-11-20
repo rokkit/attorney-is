@@ -1,0 +1,41 @@
+<h3>Анализ занятости адвокатов</h3>
+
+<%= form_tag statistics_users_path, method: :get do %>
+<%= label_tag :attorney_fio, "Ф.И.О." %>
+    <%= search_field_tag :attorney_fio %>
+    <%= submit_tag "Поиск" %>
+<% end %>
+
+<% if @user.present? %>
+ФИО: 
+<%= @user.fio %>
+<br><br>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>№</th>
+            <th>Учреждение</th>
+            <th>Дата заседания</th>
+        </tr>
+    </thead>
+    <% @user.request_meetings.approved.each_with_index do |rqm, i| %>
+    <tr>
+        <td><%= i + 1 %></td>
+        <td><%= rqm.meeting.domain.name %></td>
+        <td><%= rqm.meeting.will_be_on.strftime("%d.%m.%Y") %></td>
+    </tr>
+    <% end %>
+</table>
+<table class="table table-bordered">
+    <tr>
+        <td>Подано заявлений (всего)</td>
+        <td><%= @user.request_meetings.count %></td>
+    </tr>
+    <tr>
+        <td>Учавстовал в заседаниях (всего)</td>
+        <td><%= @user.request_meetings.approved.count %></td>
+    </tr>
+</table>
+<% else %>
+Адвокат не найден
+<% end %>

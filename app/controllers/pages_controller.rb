@@ -13,4 +13,8 @@ class PagesController < ApplicationController
   def admin_panel
     
   end
+  
+  def settings
+    @variables = Variable.all
+  end
 end

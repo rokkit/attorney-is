@@ -32,6 +32,11 @@ AttorneyIs::Application.routes.draw do
 
     match 'pages/admin' => 'pages#admin'
     match 'pages/panel' => 'pages#admin_panel'
+    match 'pages/panel' => 'pages#admin_panel'
+    match 'admin/settings' => 'pages#settings'
+    
+    resources :variables
+    
 
       resources :users do
         post 'generate_new_password' => 'users#generate_and_send_password', on: :member
@@ -41,6 +46,7 @@ AttorneyIs::Application.routes.draw do
         collection { 
            post :import
            get :overview 
+           get :statistics
          }
       end
   

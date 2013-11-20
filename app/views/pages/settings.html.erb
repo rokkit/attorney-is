@@ -1,0 +1,10 @@
+<h3>Параметры системы</h3>
+
+<table class="table table-bordered">
+    <% @variables.each do |var| %>
+        <tr>
+            <td><%= var.name %></td>
+            <td><%= best_in_place var, :value %></td>
+        </tr>
+    <% end %>   
+</table>
