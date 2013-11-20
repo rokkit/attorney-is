@@ -2,5 +2,8 @@
 
 // Show meeting requests table
 #show-meeting-requests {
-	
+	.info {
+		background-color: lighten($blue, 30%);
+		padding: 5px 8px;
+	}
 }
