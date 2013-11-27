@@ -537,9 +537,19 @@ input[type="submit"] {
 
 .table th, .table td {
 	border-top: 1px solid $blue;
+  text-align: center;
+  vertical-align: middle;
 }
-.table-bordered{border:1px solid $blue;border-collapse:separate;*border-collapse:collapse;border-left:0;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;}
-.table-bordered th,.table-bordered td{border-left:1px solid $blue;}
+.table-bordered{
+  border:1px solid $blue;border-collapse:separate;*border-collapse:collapse;border-left:0;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;
+}
+.table-bordered th,.table-bordered td{
+  border-left:1px solid $blue;
+  tfoot th, tfoot td {
+    text-align: center;
+    vertical-align: middle;
+  }
+}
 
 
 
@@ -590,4 +600,6 @@ div.dataTables_paginate {
 .hasDatepicker {
     width: 80px;
 }
+
+
 
