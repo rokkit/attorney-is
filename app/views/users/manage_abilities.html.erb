@@ -18,8 +18,8 @@
           <%= check_box_tag  "domain[#{domain.id}]", 1, @user.roles.any? {|role| role.resource_id == domain.id} %>
           <%= label_tag "domain_#{domain.id}", domain.name %><br>
 
-          <span>с <%= text_field_tag "roles[#{domain.id}][start]", "#{exists_role.start_date.try {|st| st.strftime('%d.%m.%Y')} if exists_role}",class: "input-small date-from hasDatepicker date_picker" %> по 
-                <%= text_field_tag "roles[#{domain.id}][end]","#{exists_role.end_date.try {|st| st.strftime('%d.%m.%Y')} if exists_role}", class: "input-small date-to hasDatepicker date_picker" %></span>
+          <span>с <%= text_field_tag "roles[#{domain.id}][start]", "#{exists_role.start_date.try {|st| st.strftime('%d.%m.%Y')} if exists_role}",class: "input-small date-from  date_picker" %> по 
+                <%= text_field_tag "roles[#{domain.id}][end]","#{exists_role.end_date.try {|st| st.strftime('%d.%m.%Y')} if exists_role}", class: "input-small date-to  date_picker" %></span>
         </div>
   <% end -%>
 </div>
