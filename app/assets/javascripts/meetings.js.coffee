@@ -3,7 +3,9 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 jQuery ->
   $('#meeting_will_be_on').datepicker
-    dateFormat: 'yy-mm-dd'
+    dateFormat: 'dd.mm.yy'
+  $('.date_picker').datepicker
+    dateFormat: 'dd.mm.yy'
     
 $("#form").on "ajax:beforeSend", (evt, xhr, settings) ->  
   # prevent double submit

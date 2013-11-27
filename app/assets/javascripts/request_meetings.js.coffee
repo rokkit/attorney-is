@@ -13,6 +13,7 @@ jQuery ->
   $('#show-meeting-requests').dataTable(
     aoColumnDefs:[{bSortable: false, aTargets:[0,1,2,3]}]
     bLengthChange: false
+    bFilter: false
     oLanguage:
         sProcessing: "Подождите..."
         sLengthMenu: "Показать _MENU_ записей"

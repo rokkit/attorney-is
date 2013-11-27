@@ -159,7 +159,11 @@
     width: 70px;
     height: 1.5em;
     color: $blue;
+    border: 1px solid #184491;
   }
+}
+input[readonly] {
+  background-color: #fff;
 }
 
 //=== SHOW MEETING

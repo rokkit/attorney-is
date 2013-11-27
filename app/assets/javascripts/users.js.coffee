@@ -32,3 +32,9 @@ jQuery ->
 
 jQuery ->
   $('.best_in_place').best_in_place()
+  
+jQuery ->
+  $('#search_register_number').bind 'railsAutocomplete.select', (event, data) ->
+    console.log(data.item.id)
+    $("#founded_attorney a").text "#{data.item.label}"
+    $("#founded_attorney a").attr 'href', "/users/#{data.item.id}/manage_abilities"

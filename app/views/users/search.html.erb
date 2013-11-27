@@ -1,0 +1,14 @@
+<h4>Поиск адвоката в общем списке</h4>
+<table class="table">
+    <tr>
+        <td>Поиск по реестровому номеру</td>
+        <td>
+            <%= autocomplete_field_tag :search_register_number, '', autocomplete_user_register_number_users_path %>
+        </td>
+        
+    </tr>
+    <tr>
+        <td>Добавить в базовый список адвоката:</td>
+        <td id="founded_attorney"><a href="#"></a></td>
+    </tr>
+</table>

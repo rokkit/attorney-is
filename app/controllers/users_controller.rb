@@ -4,6 +4,8 @@ class UsersController < ApplicationController
   load_and_authorize_resource
   before_filter :authenticate_user!
   
+  autocomplete :user, :register_number, :full => true, display_value: :autocomplete_display, extra_data: [:register_number, :lastname, :firstname, :secondname]
+  
   # GET /users
   # GET /users.json
   def index
@@ -151,5 +153,8 @@ class UsersController < ApplicationController
       fio = params[:attorney_fio].split(" ")
       @user = User.where(lastname: fio[0], firstname: fio[1], secondname: fio[2]).first
     end
+  end
+  
+  def search
   end
 end

@@ -10,14 +10,16 @@
 <table class="table table-bordered">
   <tr>
     <th width="18%">Получатель</th>
-    <th>Сообщение</th>
-    <th>СМС</th>
-    <th>Отравлено</th>
+    <th>Отправитель</th>
+    <th>Содержание сообщения  эл. почты</th>
+    <th>Содержание СМС</th>
+    <th>Дата отправки</th>
   </tr>
 
 <% @inform_mails.each do |inform_mail| %>
   <tr>
-    <td><%= "#{inform_mail.user} (#{inform_mail.user.email})" %></td>
+    <td><%= "#{inform_mail.user} (#{inform_mail.user.email}, +#{number_to_phone inform_mail.user.phone, area_code: true})" %></td>
+    <td><%= inform_mail.sender ? link_to("#{inform_mail.sender.try :fio}", inform_mail.sender) : "Информационная система" %></td>
     <td><%= inform_mail.body %></td>
     <td><%= inform_mail.sms_body || '-' %></td>
     <td><%= inform_mail.created_at %></td>

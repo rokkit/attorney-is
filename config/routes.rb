@@ -50,6 +50,8 @@ AttorneyIs::Application.routes.draw do
            post :import
            get :overview 
            get :statistics
+           get :autocomplete_user_register_number
+           get :search
          }
       end
   

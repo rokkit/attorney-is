@@ -3,10 +3,10 @@
 
 	<div class="row-fluid well-menu">
 	 <div class="square">
-      <%= link_to raw("<i class='icon-circle-arrow-up'></i> Входящие"), inform_mails_path(type: "input") %>
+      <%= link_to raw("<i class='icon-circle-arrow-down'></i> Входящие"), inform_mails_path(type: "input") %>
      </div>        
      <div class="square">
-      <%= link_to raw("<i class='icon-circle-arrow-down'></i> Исходящие"), inform_mails_path(type: "output") %>
+      <%= link_to raw("<i class='icon-circle-arrow-up'></i> Исходящие"), inform_mails_path(type: "output") %>
      </div>  
      <div class="square last">
        <%= link_to raw("<i class='icon-envelope'></i> Отправка сообщений"), new_inform_mail_path %>

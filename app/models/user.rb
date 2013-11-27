@@ -41,6 +41,9 @@ class User < ActiveRecord::Base
     "#{lastname} #{firstname} #{secondname}"
   end
   
+  def autocomplete_display
+    "#{fio} #{register_number_with_region}"
+  end
   def register_number_with_region
     "78/#{register_number}"
   end
