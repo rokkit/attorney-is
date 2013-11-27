@@ -13,7 +13,7 @@ jQuery ->
   $('#show-meeting-requests').dataTable(
     aoColumnDefs:[{bSortable: false, aTargets:[0,1,2,3]}]
     bLengthChange: false
-    bFilter: false
+    bFilter: true
     oLanguage:
         sProcessing: "Подождите..."
         sLengthMenu: "Показать _MENU_ записей"
@@ -37,7 +37,7 @@ jQuery ->
             bHideGroupingColumn: false
             iGroupingColumnIndex: 1
             sGroupingClass: "info").columnFilter aoColumns: [
-                                                     null, { type: "text"},{ sSelector: "#periodFilter", type: "date-range", sRangeFormat: "начало периода {from} конец периода {to}" }
+                                                     null, { type: "text"}, { type: "text"},{type: "date-range", sRangeFormat: "<div>начало периода {from}</div> <div>конец периода {to}</div>" }
                                                  ]
 jQuery ->
   $(".hasDatepicker").attr('readonly', true)

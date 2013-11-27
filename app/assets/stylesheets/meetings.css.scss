@@ -157,14 +157,17 @@
 #new_meeting {
   select {
     width: 70px;
-    height: 1.5em;
+    height: 35px;
     color: $blue;
     border: 1px solid #184491;
   }
 }
 input[readonly] {
   background-color: #fff;
+  height: 35px;
 }
+
+
 
 //=== SHOW MEETING
 #show-meeting {

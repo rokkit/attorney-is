@@ -45,11 +45,14 @@
   </tbody>
   <% if can? :manage, :all %>
       <tfoot>
-          <th colspan="2">Поисковая система</th>
-          <th>Поиск по ФИО</th>
-   
-          <th colspan='3'></th>
-  
+          <tr>
+              <th rowspan="2">Поисковая система</th>
+              <th rowspan="2">Дата заседания</th>
+              <th rowspan="2">Поиск по ФИО</th>
+          </tr>
+          <tr>
+              <th colspan="3"></th>
+          </tr>
       </tfoot>
   <% end %>
 </table>
