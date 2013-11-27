@@ -15,5 +15,6 @@
  *= require bootstrap-modal
  *= require dataTables/jquery.dataTables.bootstrap
  *= require style
+ *= require jquery.ui.all
  *= require_tree .
  */
