@@ -11,8 +11,15 @@
     <div class="square">
       <%= link_to raw("<i class='icon-user'></i> Адвокаты"), overview_users_path %>
     </div>
+    <div class="square last">
+      <%= link_to raw("<i class='icon-inbox'></i> Адвокатские образования"), attorney_formations_path %>                            
+    </div>  
+    
     <div class="square">
-      <%= link_to raw("<i class='icon-cog'></i> Параметры системы"), admin_settings_path %>
+      <%= link_to raw("<i class='icon-cog'></i> Настройки"), admin_settings_path %>
+    </div>
+    <div class="square">
+      <%= link_to raw("<i class='icon-cog'></i> Импорт данных"), importer_index_path %>
     </div>
   </div>
           

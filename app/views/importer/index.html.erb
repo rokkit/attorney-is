@@ -1,9 +1,8 @@
-<h1>Importer#index</h1>
-<p>Find me in app/views/importer/index.html.erb</p>
+<h3>Административная панель</h3>
+<h4>Импорт данных</h4>
 
-<h3>Импорт данных</h3>
 <h4>Адвокаты</h4>
 <%= form_tag import_users_path, multipart: true do %>
   <%= file_field_tag :file %>
-  <%= submit_tag "Import" %>
+  <%= submit_tag "Импортировать" %>
 <% end %>

@@ -25,6 +25,7 @@ class User < ActiveRecord::Base
   has_many :meetings
   has_many :request_meetings
   has_many :inform_mails
+  belongs_to :attorney_formation
   
   mount_uploader :avatar, AvatarUploader
   def admin?

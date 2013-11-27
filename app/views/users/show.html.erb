@@ -10,14 +10,6 @@
         <td><%= @user.register_number_with_region %></td>
       </tr>
       <tr>
-        <td class="title">Наименование адвокатского образования:</td>
-        <td><%= @user.attorney_formation %></td>
-      </tr>
-      <tr>
-        <td class="title">Наименование адвокатской консультации:</td>
-        <td><%= @user.attorney_consult %></td>
-      </tr>
-      <tr>
         <td class="title">Телефон:</td>
         <td><%= number_to_phone @user.phone, area_code: true %></td>
       </tr>
@@ -28,7 +20,6 @@
             <a href="mailto:<%= @user.email %>"><%= @user.email %></a>
         </td>
       </tr>
-      <% end %>
       <tr>
         <td class="title">Дата включения в базовый список:</td>
         <td><%= @user.start_access.present? ? @user.start_access.strftime("%d.%m.%Y") : "Не указана" %></td>
@@ -41,6 +32,23 @@
         <td class="title">Подано заявлений (всего):</td>
         <td><%= @user.request_meetings.count %></td>
       </tr>
+      <% if @user.attorney_formation.present? %>
+      <tr>
+        <td class="title">Наименование адвокатского образования:</td>
+        <td><%= @user.attorney_formation %></td>
+      </tr>
+      <tr>
+        <td class="title">Телефон адвокатского образования:</td>
+        <td><%= @user.attorney_formation.phone %></td>
+      </tr>
+      <tr>
+        <td class="title">Наименование адвокатской консультации:</td>
+        <td><%= @user.attorney_consult %></td>
+      </tr>
+      <% end %>
+
+      <% end %>
+
     </table>
   </div>
 

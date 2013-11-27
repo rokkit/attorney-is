@@ -28,7 +28,7 @@
     <%= f.input :email, label: "Почта" %>
     <%= f.input :start_access, label: "Дата включения в базовый список", as: :string, input_html: { class: "datepicker" }%>
     <%= f.input :end_access, label: "Дата исключения из базового списка", as: :string, input_html: { class: "datepicker" } %>
-    <%= f.input :attorney_formation, label: "Наименование адвокатского образования" %>
+    <%= f.association :attorney_formation, label: "Наименование адвокатского образования" %>
     <%= f.input :attorney_consult, label: "Наименование адвокатской консультации" %>
 </div>
     

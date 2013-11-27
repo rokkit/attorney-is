@@ -9,7 +9,7 @@ class RequestMeetingsController < ApplicationController
   def index
     if current_user.admin?
       if params[:dom].present?
-        @request_meetings = RequestMeeting.includes(:meeting).where(meetings: { domain_id: params[:dom] }) 
+        @request_meetings = RequestMeeting.includes(:meeting).where(meetings: { domain_id: params[:dom] })#.per(50).page(params[:page])
         @domain = Domain.find params[:dom]
       else
         @request_meetings = RequestMeeting.all

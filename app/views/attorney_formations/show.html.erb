@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @attorney_formation.name %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%= @attorney_formation.phone %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @attorney_formation.address %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @attorney_formation.email %>
+</p>
+
+<p>
+  <b>Site:</b>
+  <%= @attorney_formation.site %>
+</p>
+
+
+<%= link_to 'Edit', edit_attorney_formation_path(@attorney_formation) %> |
+<%= link_to 'Back', attorney_formations_path %>

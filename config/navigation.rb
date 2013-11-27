@@ -63,9 +63,9 @@ SimpleNavigation::Configuration.run do |navigation|
     # primary.auto_highlight = false
       # primary.item :home, 'Адвокатская палата Санкт-Петербурга', root_path, class: 'site-name'
       if user_signed_in?
-        # primary.item :logout, raw("<i class='icon-off'></i> Выход"), destroy_user_session_path, method: :delete, class: "pull-right"
+        primary.item :logout, raw("<i class='icon-off'></i> Выход"), destroy_user_session_path, method: :delete, class: "pull-right"
         
-        primary.item :user, current_user.to_s,root_path, class: "pull-right"
+        primary.item :user, "#{current_user.firstname} #{current_user.secondname}",root_path, class: "pull-right"
       end
       primary.dom_class = 'user-menu pull-right'
   end

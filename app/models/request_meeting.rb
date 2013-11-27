@@ -25,6 +25,10 @@ class RequestMeeting < ActiveRecord::Base
       end
     end
   end
+  
+  def approved?
+    self.status.to_i == 2
+  end
 
   
   def cancel!

@@ -38,3 +38,5 @@ jQuery ->
             sGroupingClass: "info").columnFilter aoColumns: [
                                                      null, { type: "text"},{ sSelector: "#periodFilter", type: "date-range", sRangeFormat: "начало периода {from} конец периода {to}" }
                                                  ]
+jQuery ->
+  $(".hasDatepicker").attr('readonly', true)

@@ -44,10 +44,14 @@
 	        <li>
 	           <%= link_to request_meeting.user, request_meeting.user %> 
                <%= request_meeting.created_at %> 
+
 				<div style="text-align: right;">
 	           <%= link_to 'Снять адвоката с дежурства', cancel_request_meeting_path(request_meeting), method: :post, class: "button entypo-cancel-circled" %>
-	           <%= link_to 'Подтвердить', approve_request_meeting_path(request_meeting), method: :post, class: "button entypo-check" %>
+ 
+	           <%= link_to 'Подтвердить', approve_request_meeting_path(request_meeting), method: :post, class: "button entypo-check" unless request_meeting.approved? %>
+
 	           </div>
+          
 	        </li>
 	        <% end %>
 	    </ul>
@@ -60,9 +64,8 @@
 		    <%= link_to 'Подать заявку', request_for_meeting_path, method: :post, class: "button make-request entypo-user-add" %>
 		<% end %>
 		<% if can? :manage, :all %>
-    		<%= link_to 'Отменить', @meeting, method: :delete, class: "button entypo-pencil" %>            
+    
 			<%= link_to 'Изменить', edit_meeting_path(@meeting), class: "button entypo-pencil" %>
-			<%= link_to 'Снять адвоката с дежурства', request_meeting_path(RequestMeeting.where(user_id: @meeting.user, meeting_id: @meeting).first) if @meeting.user.present? %>
 
 		<% end %>
 	</div>

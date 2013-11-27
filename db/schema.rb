@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131120125500) do
+ActiveRecord::Schema.define(:version => 20131127074007) do
+
+  create_table "attorney_formations", :force => true do |t|
+    t.string   "name"
+    t.string   "phone"
+    t.text     "address"
+    t.string   "email"
+    t.string   "site"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "domains", :force => true do |t|
     t.string   "name"
@@ -102,7 +112,6 @@ ActiveRecord::Schema.define(:version => 20131120125500) do
     t.string   "invited_by_type"
     t.boolean  "change_password"
     t.integer  "request_limit",                                      :default => 3,  :null => false
-    t.string   "attorney_formation"
     t.string   "attorney_consult"
     t.string   "avatar"
     t.datetime "start_access"
@@ -167,6 +176,7 @@ ActiveRecord::Schema.define(:version => 20131120125500) do
     t.string   "academic_title"
     t.string   "degree"
     t.string   "experience"
+    t.integer  "attorney_formation_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

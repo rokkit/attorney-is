@@ -1,0 +1,32 @@
+<%= simple_form_for(@attorney_formation) do |f| %>
+  <% if @attorney_formation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@attorney_formation.errors.count, "error") %> prohibited this attorney_formation from being saved:</h2>
+
+      <ul>
+      <% @attorney_formation.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.input :name, label: "Наименование" %>
+  </div>
+  <div class="field">
+    <%= f.input :phone, label: "Телефон" %>
+  </div>
+  <div class="field">
+    <%= f.input :address, label: "Адрес" %>
+  </div>
+  <div class="field">
+    <%= f.input :email, label: "Эл. почта" %>
+  </div>
+  <div class="field">
+    <%= f.input :site, label: "Сайт" %><br />
+  </div>
+  <div class="actions">
+    <%= f.submit "Готово" %>
+  </div>
+<% end %>

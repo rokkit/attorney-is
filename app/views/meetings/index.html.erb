@@ -1,6 +1,6 @@
 
 <div id="meetings">
-    <h3>Электронная запись на судебные заседания. Календарь записей: <%= @domain.name %></h3>
+    <h3>Календарь заседаний: <%= @domain.name %></h3>
   <h2 id="month">
     <%= link_to "< #{ russian_month @date.prev_month.strftime('%m')}", domain_meetings_path(@domain, date:@date.prev_month), class: 'prev-month' %>
       <span class="month-name"><%= russian_month @date.strftime("%m") %> <%= Russian::strftime @date,"%Y" %></span>

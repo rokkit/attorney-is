@@ -1,5 +1,8 @@
 AttorneyIs::Application.routes.draw do
 
+  resources :attorney_formations
+
+
   get "importer/index"
 
   resources :inform_mails do
