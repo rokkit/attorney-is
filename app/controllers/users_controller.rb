@@ -65,7 +65,7 @@ class UsersController < ApplicationController
     @user = User.invite!(params[:user])
     respond_to do |format|
       if @user.valid?
-        format.html { redirect_to manage_abilities_users_path(@user), notice: 'Аккаунт успешно создан' }
+        format.html { redirect_to manage_abilities_user_path(@user), notice: 'Аккаунт успешно создан' }
         format.json { render json: @user, status: :created, location: @user }
       else
         format.html { render action: "new" }
