@@ -19,6 +19,7 @@ private
   def data
     users.each_with_index.map do |user, i|
       [
+        i*page+1,
         link_to(user.fio, user),
         h(user.register_number_with_region),
         h(user.created_at.try { |s| s.strftime("%d.%m.%Y") }),
