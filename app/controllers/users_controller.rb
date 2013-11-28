@@ -22,6 +22,14 @@ class UsersController < ApplicationController
       format.json { render json: @users }
     end
   end
+  
+  def base_index
+    @users = User.where("lastname <> '' and encrypted_password <> ''").page(params[:page]).per(30)
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: UsersDatatable.new(view_context) }
+    end
+  end
 
   # GET /users/1
   # GET /users/1.json

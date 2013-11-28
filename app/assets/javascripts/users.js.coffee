@@ -6,6 +6,32 @@ jQuery ->
       $("#user_register_number").val $("#user_register_number").val().replace(/\s+/g, '')
     @submit()
 
+
+jQuery ->
+  $("#users_base_index").dataTable
+      sPaginationType: "bootstrap"
+      bJQueryUI: false
+      bProcessing: true
+      bServerSide: true
+      sAjaxSource: $('#users_base_index').data('source')
+      oLanguage:
+          sProcessing: "Подождите..."
+          sLengthMenu: "Показать _MENU_ записей"
+          sZeroRecords: "Записи отсутствуют."
+          sInfo: "Записи с _START_ до _END_ из _TOTAL_ записей"
+          sInfoEmpty: "Записи с 0 до 0 из 0 записей"
+          sInfoFiltered: "(отфильтровано из _MAX_ записей)"
+          sInfoPostFix: ""
+          sSearch: "Поиск:"
+          sUrl: ""
+          oPaginate:
+            sFirst: "Первая"
+            sPrevious: "Предыдущая"
+            sNext: "Следующая"
+            sLast: "Последняя"
+          oAria:
+            sSortAscending: ": активировать для сортировки столбца по возрастанию"
+            sSortDescending: ": активировать для сортировки столбцов по убыванию"
 jQuery ->
   $('.users-table').dataTable
         aoColumnDefs:[{bSortable: false, aTargets:[4]}]

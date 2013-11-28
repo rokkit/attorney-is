@@ -25,8 +25,8 @@
         <td><%= user.created_at.try { |s| s.strftime("%d.%m.%Y") } %></td>
         <td><%= user.end_access.try { |s| s.strftime("%d.%m.%Y") } %></td>
     <% else %>
-        <td><%= user.roles.bsearch {|role| role.resource_id == @domain.id}.try { |s| s.start_date.strftime("%d.%m.%Y") } %></td>
-        <td><%= user.roles.bsearch {|role| role.resource_id == @domain.id}.try { |s| s.end_date.strftime("%d.%m.%Y") } %></td>
+        <td><%= user.start_access_to(@domain) %></td>
+        <td><%= user.end_access_to(@domain) %></td>
     <% end %>
     
     <td><b id='edit-<%= user.id %>'>Изменить</b> <%= best_in_place user, :request_limit, activator: "#edit-#{ user.id }" %></td>

@@ -61,6 +61,14 @@ class User < ActiveRecord::Base
     end
   end
   
+  def start_access_to(domain)
+    self.roles.bsearch {|role| role.resource_id == domain.id}.try { |s| s.start_date.strftime("%d.%m.%Y") }
+  end
+  
+  def end_access_to(domain)
+    self.roles.bsearch {|role| role.resource_id == domain.id}.try { |s| s.end_date.strftime("%d.%m.%Y") }
+  end
+  
   def self.import(file)
     spreadsheet = open_spreadsheet(file)
     header = spreadsheet.row(1)

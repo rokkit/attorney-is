@@ -47,6 +47,7 @@ AttorneyIs::Application.routes.draw do
         post 'send_password_to_all' => 'users#send_password_to_all', on: :collection
         get 'abilities' => 'users#abilities', on: :collection
         collection { 
+           get :base_index
            post :import
            get :overview 
            get :statistics

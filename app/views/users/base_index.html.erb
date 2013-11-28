@@ -1,0 +1,21 @@
+<h3>Административная панель</h3>
+<h3>Базовый список адвокатов</h3>
+<h4><%= @domain.try :name %></h4>
+
+<table id="users_base_index" class="table table-bordered" data-source="<%= base_index_users_url(format: "json") %>">
+  <thead>
+  <tr>
+    <th>ФИО</th>
+    <th>№ Реестра</th>
+    <th>Дата включения</th>
+    <th>Дата исключения</th>
+    <th>Лимит заявок</th>
+  </tr>
+  </thead>
+  <tbody>
+
+
+  </tbody>
+</table>
+
+<%= link_to raw('<i class="icon-user"></i> Добавить адвоката'), search_users_path, class: "button" if can? :manage, :all %>
