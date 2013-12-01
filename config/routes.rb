@@ -52,6 +52,7 @@ AttorneyIs::Application.routes.draw do
            get :overview 
            get :statistics
            get :autocomplete_user_register_number
+           get :autocomplete_user_lastname
            get :search
          }
       end

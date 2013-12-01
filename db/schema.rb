@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131127074007) do
+ActiveRecord::Schema.define(:version => 20131201185232) do
 
   create_table "attorney_formations", :force => true do |t|
     t.string   "name"
@@ -42,6 +42,8 @@ ActiveRecord::Schema.define(:version => 20131127074007) do
     t.datetime "updated_at", :null => false
     t.text     "sms_body"
     t.integer  "sender_id"
+    t.boolean  "sms"
+    t.boolean  "email"
   end
 
   add_index "inform_mails", ["user_id"], :name => "index_inform_mails_on_user_id"

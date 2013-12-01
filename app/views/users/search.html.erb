@@ -3,12 +3,20 @@
     <tr>
         <td>Поиск по реестровому номеру</td>
         <td>
-            <%= autocomplete_field_tag :search_register_number, '', autocomplete_user_register_number_users_path %>
+            <%= autocomplete_field_tag :search_register_number, '', autocomplete_user_register_number_users_path, style: "width: 250px;" %>
         </td>
+        
+
         
     </tr>
     <tr>
-        <td>Добавить в базовый список адвоката:</td>
+        <td>Поиск по фамилии</td>
+        <td>
+            <%= autocomplete_field_tag :search_lastname, '', autocomplete_user_lastname_users_path, style: "width: 250px;" %>
+        </td>
+    </tr>
+    <tr>
+        <td><a id="founded_attorney_common_link" href="#">Добавить в базовый список адвоката:</a></td>
         Перейти к добавлению: <td id="founded_attorney"><a href="#"></a></td>
     </tr>
 </table>

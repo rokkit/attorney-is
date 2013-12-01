@@ -54,7 +54,7 @@ class InformMailsController < ApplicationController
     @inform_mail.sender = current_user
     respond_to do |format|
       if @inform_mail.save
-        format.html { redirect_to @inform_mail, notice: 'Inform mail was successfully created.' }
+        format.html { redirect_to inform_mails_url }
         format.json { render json: inform_mails_path(type: "output"), status: :created, location: @inform_mail }
       else
         format.html { render action: "new" }

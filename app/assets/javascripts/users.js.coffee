@@ -64,3 +64,11 @@ jQuery ->
     console.log(data.item.id)
     $("#founded_attorney a").text "#{data.item.label}"
     $("#founded_attorney a").attr 'href', "/users/#{data.item.id}/manage_abilities"
+    $("#founded_attorney_common_link").attr 'href', "/users/#{data.item.id}/manage_abilities"
+    
+  $('#search_lastname').bind 'railsAutocomplete.select', (event, data) ->
+    console.log(data.item.id)
+    $("#founded_attorney a").text "#{data.item.label}"
+    $("#founded_attorney a").attr 'href', "/users/#{data.item.id}/manage_abilities"
+    $("#founded_attorney_common_link").attr 'href', "/users/#{data.item.id}/manage_abilities"
+    

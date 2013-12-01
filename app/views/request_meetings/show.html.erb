@@ -1,26 +1,34 @@
 <div id="show-request-meetings">
+    <table class="list-table table table-bordered">
+      <tr>
+          <td class="title">Адвокат</td>
+          <td><%= link_to @request_meeting.user, @request_meeting.user %></td>
 
-	<div class="lawyer">
-	  <h4>Адвокат:</h4>
-	  <p><%= @request_meeting.user %></p>
-	</div>
+      </tr>
+      <tr>
+          <td class="title">Заседание</td>
+          <td><%= link_to "#{@request_meeting.meeting}", @request_meeting.meeting %></td>
+      </tr>
+      <tr>
+          <td class="title">Учреждение</td>
+          <td><%= link_to "#{@request_meeting.meeting.domain.name}", @request_meeting.meeting.domain %></td>
+      </tr>
+      <tr>
+          <td class="title">Статус</td>
+          <td><%= status @request_meeting.status %></td>
+      </tr>
+      <tr>
+          <td class="title">Дата подачи</td>
+          <td><%= @request_meeting.created_at.strftime("%d.%m.%Y %R") %></td>
+      </tr>
+      <tr>
+          <td class="title">Дата изменения статуса</td>
+          <td><%= @request_meeting.updated_at.strftime("%d.%m.%Y %R") %></td>
+      </tr>
+  </table>
 
-	<div class="meeting">
-	  <h4>Заседание:</h4>
-	  <p><%= link_to "#{@request_meeting.meeting}", @request_meeting.meeting %></p>
-	</div>
-    
-	<div class="meeting">
-	  <h4>Учреждение:</h4>
-	  <p><%= link_to "#{@request_meeting.meeting.domain.name}", @request_meeting.meeting.domain %></p>
-	</div>
-
-	<div class="status">
-	  <h4>Статус:</h4>
-	  <p><%= status @request_meeting.status %></p>
-	</div>
 </div>
 <% if can?(:manage, :all) && !@request_meeting.approved? %>
 	<%= link_to 'Отменить заявку', cancel_request_meeting_path(@request_meeting), method: :post, class: "button entypo-cancel-circled" %>
-<% end %>
+<% end %> <br>
 <%= link_to link_to raw("<i class='icon-chevron-left'></i> Назад"), request_meetings_path %>

@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   before_filter :authenticate_user!
   
   autocomplete :user, :register_number, :full => true, display_value: :autocomplete_display, extra_data: [:register_number, :lastname, :firstname, :secondname]
+  autocomplete :user, :lastname, :full => true, display_value: :autocomplete_display, extra_data: [:register_number, :lastname, :firstname, :secondname]
   
   # GET /users
   # GET /users.json

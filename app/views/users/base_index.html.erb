@@ -19,4 +19,6 @@
   </tbody>
 </table>
 
-<%= link_to raw('<i class="icon-user"></i> Добавить адвоката'), search_users_path, class: "button" if can? :manage, :all %>
+<%= link_to raw('<i class="icon-user"></i> Добавить адвоката выбором из общего списка'), search_users_path, class: "button" if can? :manage, :all %>
+
+<%= link_to raw('<i class="icon-user"></i> Добавить адвоката с внесением в общий список'), new_user_path, class: "button" if can? :manage, :all %>

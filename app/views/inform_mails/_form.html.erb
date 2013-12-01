@@ -17,8 +17,11 @@
   <div class="field email-message">
     <%= f.input :body, label: 'Соообщение' %>
   </div>
-  <div class="field sms-message">
-    <%= f.input :sms_body, label: 'СМС-сообщение' %>
+  <div class="field">
+    <%= f.input :sms, label: 'СМС-сообщение' %>
+  </div>
+  <div class="field">
+    <%= f.input :email, label: 'Эл. почта' %>
   </div>
   <div class="actions">
     <%= f.submit "Отправить" %>
