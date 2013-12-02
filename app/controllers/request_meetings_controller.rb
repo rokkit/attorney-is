@@ -16,6 +16,9 @@ class RequestMeetingsController < ApplicationController
       end
     else 
       @request_meetings = current_user.request_meetings
+      if params[:dom].present?
+        @request_meetings.where(meetings: { domain_id: params[:dom] })
+      end
     end
 
     respond_to do |format|
