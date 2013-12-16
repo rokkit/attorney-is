@@ -11,6 +11,9 @@
     <div class="square">
       <%= link_to raw("<i class='icon-user'></i> Анализ занятости адвокатов"), statistics_users_path %>
     </div>
+    <div class="square last">
+      <%= link_to raw("<i class='icon-user'></i> Заявки на доступ в систему"), users_path(request_for_access: true) %>
+    </div>
   </div>
           
 </div>

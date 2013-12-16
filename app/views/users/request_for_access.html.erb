@@ -1,0 +1,41 @@
+<div class="login-form">
+
+<%= form_for(@user, html: { class: "form-signin form-horizontal"}, :url => request_for_access_users_path) do |f| %>
+        <!-- <h2 class="form-signin-heading">Информационная система</h2> -->
+  <div class="control-group">
+    <label class="control-label" for="user[email]">Электронная почта</label>
+    <div class="controls">
+    	<%= f.email_field :email, :autofocus => true, class: "input-block-level" %>
+    </div>
+	</div>
+    <div class="control-group">
+      <label class="control-label" for="user[password]">Имя</label>
+      <div class="controls">
+          <%= f.text_field :firstname,  class: "input-block-level" %>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="user[password]">Фамилия</label>
+      <div class="controls">
+          <%= f.email_field :lastname,  class: "input-block-level" %>
+      </div>
+    </div>
+  <div class="control-group">
+    <label class="control-label" for="user[password]">Реестровый номер </label>
+    <div class="controls">
+        78/<%= f.number_field :register_number,  class: "input-block-level" %>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="user[password]">Мобильный телефон </label>
+    <div class="controls">
+        +7 <%= f.number_field :phone,  class: "input-block-level" %>
+    </div>
+  </div>
+  
+	  <%= f.submit "Подать заявку на доступ к системе", class: "button login-button" %>
+<% end %>
+
+
+</div>
+

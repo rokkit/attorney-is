@@ -1,8 +1,8 @@
 # encoding: UTF-8
 
 class UsersController < ApplicationController
-  load_and_authorize_resource
-  before_filter :authenticate_user!
+  load_and_authorize_resource except: [:request_for_access]
+  before_filter :authenticate_user!, except: [:request_for_access]
   
   autocomplete :user, :register_number, :full => true, display_value: :autocomplete_display, extra_data: [:register_number, :lastname, :firstname, :secondname]
   autocomplete :user, :lastname, :full => true, display_value: :autocomplete_display, extra_data: [:register_number, :lastname, :firstname, :secondname]
@@ -16,7 +16,12 @@ class UsersController < ApplicationController
       @users = @users.map { |user| user if user.roles.any? {|r|r.resource_id == @domain.id} }.compact
       @users = Kaminari.paginate_array(@users).page(params[:page]).per(30)
     else
+      if params[:request_for_access].present?
+        @users = @users.where(status: 1).page(params[:page]).per(30)
+      else
       @users = User.page(params[:page]).per(30)
+      end
+      
     end
     respond_to do |format|
       format.html # index.html.erb
@@ -83,6 +88,9 @@ class UsersController < ApplicationController
       @user.set_password
       @user.email = params[:user][:email]
       @user.save
+    end
+    if params[:request_for_access].present?
+      @user.status = 2
     end
     respond_to do |format|
       if @user.update_attributes(params[:user])
@@ -161,6 +169,25 @@ class UsersController < ApplicationController
     if params[:attorney_fio].present?
       fio = params[:attorney_fio].split(" ")
       @user = User.where(lastname: fio[0], firstname: fio[1], secondname: fio[2]).first
+    end
+  end
+  
+  def request_for_access
+    
+    if request.method == 'POST'
+      resource = User.where(register_number: params[:user][:register_number]).first_or_create
+      resource.email = params[:user][:email]
+      resource.phone = params[:user][:phone]
+      resource.firstname = params[:user][:firstname]
+      resource.lastname = params[:user][:lastname]
+      
+      unless resource.status == 2 || resource.status == 1
+        resource.status = 1 #waiting for confirmation
+      end
+      resource.save!
+      redirect_to root_path
+    else
+      @user = User.new
     end
   end
   

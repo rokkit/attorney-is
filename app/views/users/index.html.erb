@@ -30,7 +30,12 @@
     <% end %>
     
     <td><b id='edit-<%= user.id %>'>Изменить</b> <%= best_in_place user, :request_limit, activator: "#edit-#{ user.id }" %></td>
-    <td><%= link_to "Редактировать", edit_user_path(user) if can? :manage, :all %>
+    <td>
+        <% if params[:request_for_access].present? %>
+            <%= link_to "Добавить в систему", manage_abilities_user_path(user, :request_for_access=>true) if can? :manage, :all %>
+        <% else %>
+            <%= link_to "Редактировать", edit_user_path(user) if can? :manage, :all %>
+        <% end %>
         
     </td>
   </tr>

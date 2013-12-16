@@ -54,6 +54,8 @@ AttorneyIs::Application.routes.draw do
            get :autocomplete_user_register_number
            get :autocomplete_user_lastname
            get :search
+           post :request_for_access
+           get :request_for_access
          }
       end
   
