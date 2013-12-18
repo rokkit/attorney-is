@@ -17,27 +17,18 @@
         <% exists_role = @user.roles.bsearch {|role| role.resource_id == domain.id}  %>
         <div class="user-domain">
           <%= check_box_tag  "domain[#{domain.id}]", 1, @user.roles.any? {|role| role.resource_id == domain.id} %>
-          <%= label_tag "domain_#{domain.id}", domain.name %><br>
+          <%= label_tag "domain_#{domain.id}", domain.name, style: "display: inline-block;" %>:
 
-          <span>с <%= text_field_tag "roles[#{domain.id}][start]", "#{exists_role.start_date.try {|st| st.strftime('%d.%m.%Y')} if exists_role}",class: "input-small date-from  date_picker" %> по 
-                <%= text_field_tag "roles[#{domain.id}][end]","#{exists_role.end_date.try {|st| st.strftime('%d.%m.%Y')} if exists_role}", class: "input-small date-to  date_picker" %></span>
+          <div style = "display: inline-block;">
+              <div class="date-domain from">
+              с <%= text_field_tag "roles[#{domain.id}][start]", "#{exists_role.start_date.try {|st| st.strftime('%d.%m.%Y')} if exists_role}",class: "input-small date-from  date_picker", style: "height: 20px;" %>
+              </div>
+              <div class="date-domain until"> по 
+                <%= text_field_tag "roles[#{domain.id}][end]","#{exists_role.end_date.try {|st| st.strftime('%d.%m.%Y')} if exists_role}", class: "input-small date-to  date_picker", style: "height: 20px;" %></div></div>
         </div>
   <% end -%>
 </div>
-<!-- <div class="">
-  <h4>Утвердить возможность участия в заседаниях суда по следующим учреждениям:</h4>
-  <% Domain.all.each do |domain| -%>
-    <% if  @user.roles.where(resource_id: domain.id).first.present? %>
-        <div class="user-domain">
-          <%= check_box_tag  "domain[#{domain.id}]", 1, @user.roles.any? {|role| role.resource_id == domain.id}%>
-          <%= label_tag "domain_#{domain.id}", domain.name %>
 
-          <%= text_field_tag "roles[#{domain.id}][start]", @user.roles.where(resource_id: domain.id).first.start_date.try {|d| d.strftime("%d.%m.%Y") }, class: "input-small date-from" %> &mdash; 
-          <%= text_field_tag "roles[#{domain.id}][end]",@user.roles.where(resource_id: domain.id).first.end_date.try {|d| d.strftime("%d.%m.%Y") }, class: "input-small date-to" %>
-        </div>
-    <% end %>
-  <% end -%>
-</div> -->
 
 <%= f.submit "Готово" %>
 <% end %>

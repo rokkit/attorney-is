@@ -329,19 +329,38 @@ header {
 		color: #fff;
 	}
 }
-.user-domain {
-	overflow: hidden;
-	input {
-		float: left;
-		&.date-from {
-			clear: left;
-		}
-	}
-	label {
-		float: left;
-		margin-left: 5px;
-	}
+//.user-domain {
+//  overflow: hidden;
+//  input {
+//    float: left;
+//    &.date-from {
+////      clear: left;
+//    }
+//  }
+//  label {
+//    float: left;
+//    margin-left: 5px;
+//  }
+//}
+.date-domain input {
+  height: 20px;
 }
+.date-domain {
+ width: 115px;
+  display: inline-block;
+  input {
+    
+  }
+  .from {
+   
+    width: 300px;
+  }
+  .until {
+    display: inline-block;
+      width: 300px;    
+  }
+}
+
 
 label.phone-label {
 	float: left;
@@ -349,44 +368,83 @@ label.phone-label {
 }
 
 //=== LOGIN FORM
+.form-signup {
+  overflow: hidden;
+  max-width: 400px;
+  padding: 19px 29px 19px;
+  margin: 0 auto 20px;
+  border: 1px solid $blue;
+//  -webkit-border-radius: 5px;
+//     -moz-border-radius: 5px;
+//          border-radius: 5px;
+//  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+//     -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+//          box-shadow: 0 1px 2px rgba(0,0,0,.05);
+//  .control-group {
+//    margin-bottom: 5px;
+//  }
+//  .form-signin-heading,
+//  .checkbox {
+//    margin-bottom: 10px;
+//  }
+  .control-label {
+    width: 170px;
+  }
+//  .controls {
+//    margin-left: 60px;
+//  }
+  input {
+    font-size: 16px;
+    height: auto;
+    margin-bottom: 15px;
+//    width: 200px;
+  }
+  .login-button {
+    float: right;
+    padding: 5px 50px;
+    &:hover {
+      color: #fff;
+    }
+  }
+}
 .form-signin {
-	overflow: hidden;
-	max-width: 400px;
-	padding: 19px 29px 19px;
-	margin: 0 auto 20px;
-	border: 1px solid $blue;
-	-webkit-border-radius: 5px;
-	   -moz-border-radius: 5px;
-	        border-radius: 5px;
-	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
-	   -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
-	        box-shadow: 0 1px 2px rgba(0,0,0,.05);
-	.control-group {
-		margin-bottom: 5px;
-	}
-	.form-signin-heading,
-	.checkbox {
-		margin-bottom: 10px;
-	}
-	.control-label {
-		width: 50px;
-	}
-	.controls {
-		margin-left: 60px;
-	}
-	input[type="email"],
-	input[type="password"] {
-		font-size: 16px;
-		height: auto;
-		margin-bottom: 15px;
-	}
-	.login-button {
-		float: right;
-		padding: 5px 50px;
-		&:hover {
-			color: #fff;
-		}
-	}
+  overflow: hidden;
+  max-width: 400px;
+  padding: 19px 29px 19px;
+  margin: 0 auto 20px;
+  border: 1px solid $blue;
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+     -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+          box-shadow: 0 1px 2px rgba(0,0,0,.05);
+  .control-group {
+    margin-bottom: 5px;
+  }
+  .form-signin-heading,
+  .checkbox {
+    margin-bottom: 10px;
+  }
+  .control-label {
+    width: 50px;
+  }
+  .controls {
+    margin-left: 60px;
+  }
+  input {
+    font-size: 16px;
+    height: auto;
+    margin-bottom: 15px;
+//    width: 200px;
+  }
+  .login-button {
+    float: right;
+    padding: 5px 50px;
+    &:hover {
+      color: #fff;
+    }
+  }
 }
 
 //=== Misc
@@ -599,6 +657,10 @@ div.dataTables_paginate {
 }
 .hasDatepicker {
     width: 80px;
+}
+.copyright-image {
+  width: 20px;
+  height: 17px;
 }
 
 
