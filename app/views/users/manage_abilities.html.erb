@@ -8,8 +8,16 @@
 <%= f.input :email, label: "Эл. почта" %>
 <%= f.input :phone, label: "Мобильный телефон", wrapper_html: {class: "email"} %><br><br>
 <% end %>
+<% if current_user.has_role? :manager %>
 <%= f.label :role_ids, 'Роль в системе' %>
+
 <%= f.input :role_ids, :collection => Role.where(resource_type: nil), :as => :radio_buttons, :label_method => lambda {|t| t.to_s.titleize}, :label => false, :item_wrapper_class => 'inline', checked: @user.role_ids.first %>
+<% else %>
+<div style="display: none;">
+<%= f.label :role_ids, 'Роль в системе' %>
+<%= f.input :role_ids, :collection => Role.where(resource_type: nil, name: "attorney"), :as => :radio_buttons, :label_method => lambda {|t| t.to_s.titleize}, :label => false, :item_wrapper_class => 'inline', checked: @user.role_ids.first %>
+</div>
+<% end %>
 
 <div>
   <h4>Утвердить возможность участия в заседаниях суда по следующим учреждениям:</h4>

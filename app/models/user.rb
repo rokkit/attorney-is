@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
   
   mount_uploader :avatar, AvatarUploader
   def admin?
-    has_role? :admin || has_role?(:observer)
+    has_role? :admin
   end
   
   

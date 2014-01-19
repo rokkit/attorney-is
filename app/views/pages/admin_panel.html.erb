@@ -15,12 +15,14 @@
       <%= link_to raw("<i class='icon-inbox'></i> Адвокатские образования"), attorney_formations_path %>                            
     </div>  
     
+    <% if current_user.has_role? :manager %>
     <div class="square">
       <%= link_to raw("<i class='icon-cog'></i> Настройки"), admin_settings_path %>
     </div>
     <div class="square">
       <%= link_to raw("<i class='icon-cog'></i> Импорт данных"), importer_index_path %>
     </div>
+    <% end %>
   </div>
           
 </div>

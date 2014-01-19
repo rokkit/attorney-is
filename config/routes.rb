@@ -18,6 +18,9 @@ AttorneyIs::Application.routes.draw do
     resources :meetings do
       post 'request_for' => 'meetings#request_for_meeting', on: :member
           get 'calendar' => 'meetings#calendar', on: :collection
+          collection {
+            get :day
+          }
     end
   end
 
