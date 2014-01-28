@@ -663,5 +663,12 @@ div.dataTables_paginate {
   height: 17px;
 }
 
+@media print  {
+  #header { display: none; }
+  .noprint { display: none; }
+  .dataTables_filter, .dataTables_length, .dataTables_info { display: none; }
+  a[href]:after { display:none; } 
+}
+
 
 

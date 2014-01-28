@@ -44,7 +44,7 @@
 <% end %>
   </tbody>
   <% if can? :manage, :all %>
-      <tfoot>
+      <tfoot class="noprint">
           <tr>
               <th rowspan="2" align="center" valign="middle">Поисковая система</th>
               <th rowspan="2">Дата заседания</th>
@@ -58,5 +58,5 @@
 </table>
 <p id="periodFilter"></p>
 
-<%= link_to link_to raw("<i class='icon-chevron-left'></i> Назад"), root_path, class: 'actions' %>
+<%= link_to link_to raw("<i class='icon-chevron-left'></i> Назад"), root_path, class: 'actions noprint' %>
 
