@@ -12,16 +12,16 @@
   <% end %>
 
   <div class="field advocate-message">
-    <%= f.association :user, label: "Получатель"  %>
+    <%= f.association :user, label: "Получатель:"  %>
   </div>
   <div class="field email-message">
-    <%= f.input :body, label: 'Соообщение' %>
+    <%= f.input :body, label: 'Содержание сообщения:' %>
   </div>
   <div class="field">
-    <%= f.input :sms, label: 'СМС-сообщение' %>
+    <%= f.input :sms, label: 'Отправить СМС' %>
   </div>
   <div class="field">
-    <%= f.input :email, label: 'Эл. почта' %>
+    <%= f.input :email, label: 'Отправить электронной почтой' %>
   </div>
   <div class="actions">
     <%= f.submit "Отправить" %>

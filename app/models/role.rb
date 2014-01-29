@@ -7,11 +7,11 @@ class Role < ActiveRecord::Base
   def to_s
     case name
     when "admin"
-      "Управляющие информационным блоком"
+      "Администратор ИС"
     when "observer"
-      "Наблюдатель"
+      "Руководитель ИС"
     when "manager"
-      "Администратор системы"
+      "Администратор ИС"
     when "attorney"
       "Адвокат"
     else

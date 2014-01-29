@@ -1,15 +1,17 @@
-<h3>Ведомства и учреждения</h3>
-<div class="domains">
+<h3>Выберите учреждение</h3>
+<div class="blocks">
+<div class="row-fluid well-menu">
 	  <% last = 0 %>
 <% @domains.each do |domain| %>
   <% last+=1 %>
-  <div class="square<%= (last=0;' last') if last==4 %>">
-    <h4><%= link_to domain.name, domain %></h4>
+  <div class="square<%= (last=0;' last') if last==3 %>">
+    <%= link_to domain.name, domain %>
     <% if current_user.admin? %>
       <div class="edit-links hidden"><%= link_to raw("<i class='icon-pencil'></i> Редактировать"), edit_domain_path(domain) %></div>
     <% end %>
   </div>
 <% end %>
+</div>
 </div>
 <%= link_to link_to raw("<i class='icon-chevron-left'></i> Назад"), root_path, class: 'actions' %>
 

@@ -1,7 +1,8 @@
-<h3>Анализ занятости адвокатов</h3>
+<h3>Административная панель</h3>
+<h4>Анализ занятости адвокатов</h4>
 
 <%= form_tag statistics_users_path, method: :get do %>
-<%= label_tag :attorney_fio, "Ф.И.О." %>
+<%= label_tag :attorney_fio, "Введите, пожалуйста фамилию, имя и отчество адвоката:" %>
     <%= search_field_tag :attorney_fio %>
     <%= submit_tag "Поиск" %>
 <% end %>

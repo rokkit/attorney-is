@@ -15,10 +15,10 @@
       <%= f.password_field :password,  class: "input-block-level"  %>
     </div>
   </div>
-  <%= render "devise/shared/links" %>
-  
-	  <%= f.submit "Вход", class: "button login-button" %>
-      <%= link_to "Подать заявку на доступ к системе", request_for_access_users_path %>
+  <table width="100%"><tr><td><%= render "devise/shared/links" %>
+  <%= link_to "Подать заявку на доступ к системе", request_for_access_users_path %></td><td align=right>
+	  <%= f.submit "Вход", class: "button login-button" %></td></tr></table>
+      
 <% end %>
 
 

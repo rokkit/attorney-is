@@ -1,6 +1,6 @@
-<h3>Календарь судебных заседаний<br><%= @domain.name %></h3>
+<h3>Выберите год и месяц заседаний в учреждении:<br><%= @domain.name %>.</h3>
 <div id="months-calendar">
-	<h2><%= @year %> г.</h2>
+	<h2>Заседания на <%= @year %> год</h2>
     <div class="months">
 	<% russian_months.each_with_index do |month, index| %>
 		<div class="square <%= cycle('first', 'second', 'third', 'fourth') -%>">
@@ -9,9 +9,9 @@
 	<% end %>
     </div>
     <ul class="years">
-        <li><%= link_to "2013",  calendar_domain_meetings_path(@domain, year: "#{0.year.ago.strftime('%Y')}")%>,</li>
-        <li><%= link_to "2014",  calendar_domain_meetings_path(@domain, year: "#{1.year.from_now.strftime('%Y')}")%>,</li>
-        <li><%= link_to "2015",  calendar_domain_meetings_path(@domain, year: "#{2.year.from_now.strftime('%Y')}")%></li>
+        <li>Заседания на <%= link_to "2013",  calendar_domain_meetings_path(@domain, year: "#{0.year.ago.strftime('%Y')}")%> год, </li>
+        <li>заседания на <%= link_to "2014",  calendar_domain_meetings_path(@domain, year: "#{1.year.from_now.strftime('%Y')}")%> год, </li>
+        <li>заседания на <%= link_to "2015",  calendar_domain_meetings_path(@domain, year: "#{2.year.from_now.strftime('%Y')}")%> год.</li>
     </ul>
 </div>
 

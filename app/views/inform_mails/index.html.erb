@@ -13,13 +13,13 @@
     <th>Отправитель</th>
     <th>Содержание сообщения</th>
     <th>СМС</th>
-    <th>Эл. почта</th>
+    <th>Эл.почта</th>
     <th>Дата отправки</th>
   </tr>
 
 <% @inform_mails.each do |inform_mail| %>
   <tr>
-    <td><%= "#{inform_mail.user} (#{inform_mail.user.email}, +#{number_to_phone inform_mail.user.phone, area_code: true})" %></td>
+    <td><div style="width: 280px"><p align=left><%= "#{inform_mail.user}" %>, <br>Email: <%= "#{inform_mail.user.email}" %><br>Телефон +<%= "#{number_to_phone inform_mail.user.phone, area_code: true}" %></p></div></td>
     <td><%= inform_mail.sender ? link_to("#{inform_mail.sender.try :fio}", inform_mail.sender) : "Информационная система" %></td>
     <td><%= inform_mail.body %></td>
     <td><%= inform_mail.sms ? "+" : "-" %></td>
