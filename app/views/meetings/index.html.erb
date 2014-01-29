@@ -21,9 +21,9 @@
                       <a href='#' class="pasttimes add-meeting"><div class='day'><%= date.day %></div><i class='icon-plus'></i> Добавить</a>
                      <% end %>
              <% else %>
-                   <div class='day'><%= date.day %>
-               
-                   </div>
+     
+                                              <%= link_to raw("<div class='day'>#{date.day}</div>"), day_domain_meetings_path(@domain, @meeting, date: date), class: 'meeting-link ',:target => "_blank" %>
+        
              <% end %>
         <%# end %>
         

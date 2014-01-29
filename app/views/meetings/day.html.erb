@@ -4,20 +4,26 @@
             <th>Заседания</th>
             <th>Клиент</th>
             <th>Адвокат</th>
+            <th></th>
         </tr>
     </thead>
     <% if @meetings_by_date %>
-  <% @meetings_by_date.each do |meeting| %>
-  <tr>
-      <td>
-    <%= link_to raw("<div class='day'></div>Судебное заседание #{meeting.will_be_at.try { |d| d.strftime('%H:%M')} }"), meeting, class: 'meeting-link ' + (meeting.user.nil? ? "avaible" : "not_avaible" ), :target => "_blank" %>
-    </td>
-    <td>
-        <%= meeting.client.present? ? meeting.client : "Не указан" %>
-    </td>
-    <td><%= meeting.user || "Не назначен" %></td>
-  </tr>
-  <% end %>
+      <% @meetings_by_date.each do |meeting| %>
+      <tr>
+          <td>
+        <%= link_to raw("<div class='day'></div>Судебное заседание #{meeting.will_be_at.try { |d| d.strftime('%H:%M')} }"), meeting, class: 'meeting-link ' + (meeting.user.nil? ? "avaible" : "not_avaible" ), :target => "_blank" %>
+        </td>
+        <td>
+            <%= meeting.client.present? ? meeting.client : "Не указан" %>
+        </td>
+        <td><%= meeting.user || "Не назначен" %></td>
+        <td>
+    		<% if can? :request, meeting and !current_user.admin? %>
+    		    <%= link_to 'Подать заявку', request_for_meeting_path(meeting), method: :post, class: "button make-request entypo-user-add" %>
+    		<% end %>
+        </td>
+      </tr>
+      <% end %>
   <% end %>
   
 </table>
